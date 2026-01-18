@@ -1,7 +1,22 @@
 /**
  * Business Calculator Logic
  * All calculations for pricing, costs, and profitability analysis
+ * Now supports dynamic service selection
  */
+
+import {
+  Service,
+  ServiceTier,
+  calculateServiceCost,
+  getServiceById,
+  SERVICES,
+} from "./services-data";
+
+// Selected service with optional custom tier pricing
+export interface SelectedService {
+  serviceId: string;
+  customTiers?: ServiceTier[]; // Override default pricing
+}
 
 export interface BusinessInputs {
   users: number;
@@ -10,22 +25,23 @@ export interface BusinessInputs {
   proPrice: number; // dollars per month
   freeCredits: number;
   proCredits: number;
-  claudeCost: number; // monthly cost
+  claudeCost: number; // monthly cost (fixed dev tools)
   domainCost: number; // yearly cost
   costPerCredit: number; // cost per credit (default 0.001)
+  selectedServices: SelectedService[]; // Dynamic services
+  // For payment processor calculation
+  averageTransactionValue?: number; // Optional for percentage-based payment services
 }
 
+// Dynamic infrastructure breakdown - service ID to cost mapping
 export interface InfrastructureBreakdown {
-  neon: number;
-  vercel: number;
-  resend: number;
-  supadata: number;
-  railway: number;
+  [serviceId: string]: number;
   total: number;
 }
 
 export interface ServiceUpgrade {
   service: string;
+  serviceId: string;
   from: string;
   to: string;
   cost: number;
@@ -42,6 +58,7 @@ export interface ProjectionRow {
   profit: number;
   cashReserve: number;
   infrastructure: number;
+  paymentFees: number;
 }
 
 export interface BusinessResults {
@@ -51,12 +68,14 @@ export interface BusinessResults {
 
   // Revenue
   revenue: number;
+  grossRevenue: number; // Before payment fees
 
   // Costs breakdown
   freeAICost: number;
   proAICost: number;
   totalAICost: number;
   infrastructureCost: number;
+  paymentProcessingCost: number;
   fixedCosts: number;
   totalCosts: number;
 
@@ -89,116 +108,105 @@ export interface BusinessResults {
 }
 
 /**
- * Calculate infrastructure costs based on user count
+ * Calculate infrastructure costs based on selected services and user count
  */
-export function calculateInfrastructure(users: number): InfrastructureBreakdown {
-  let neon = 0;
-  let vercel = 0;
-  let resend = 0;
-  let supadata = 0;
-  let railway = 0;
+export function calculateInfrastructure(
+  selectedServices: SelectedService[],
+  users: number
+): InfrastructureBreakdown {
+  const breakdown: InfrastructureBreakdown = { total: 0 };
 
-  // Neon: Free < 500, $19 Launch 500-10000, $69 Scale 10000+
-  if (users >= 500 && users < 10000) {
-    neon = 19;
-  } else if (users >= 10000) {
-    neon = 69;
+  for (const selected of selectedServices) {
+    const service = getServiceById(selected.serviceId);
+    if (!service) continue;
+
+    // Skip payment services - they're calculated separately
+    if (service.category === "payments") continue;
+
+    // Use custom tiers if provided, otherwise use default
+    const tiers = selected.customTiers || service.tiers;
+
+    // Find active tier based on user count
+    const sortedTiers = [...tiers].sort((a, b) => b.triggerAt - a.triggerAt);
+    const activeTier =
+      sortedTiers.find((tier) => users >= tier.triggerAt) || tiers[0];
+
+    breakdown[selected.serviceId] = activeTier.baseCost;
+    breakdown.total += activeTier.baseCost;
   }
 
-  // Resend: Free < 1000, $20 Pro 1000+
-  if (users >= 1000) {
-    resend = 20;
-  }
-
-  // Vercel: Free < 2000, $20 Pro 2000+
-  if (users >= 2000) {
-    vercel = 20;
-  }
-
-  // Supadata: Free < 3000, $9 Starter 3000-7000, $49 Pro 7000+
-  if (users >= 3000 && users < 7000) {
-    supadata = 9;
-  } else if (users >= 7000) {
-    supadata = 49;
-  }
-
-  // Railway: Free < 5000, $5 Hobby 5000+
-  if (users >= 5000) {
-    railway = 5;
-  }
-
-  return {
-    neon,
-    vercel,
-    resend,
-    supadata,
-    railway,
-    total: neon + vercel + resend + supadata + railway,
-  };
+  return breakdown;
 }
 
 /**
- * Get service upgrade milestones
+ * Calculate payment processing costs
  */
-export function getServiceUpgrades(currentUsers: number): ServiceUpgrade[] {
-  return [
-    {
-      service: "Neon",
-      from: "Free",
-      to: "Launch ($19)",
-      cost: 19,
-      triggerUsers: 500,
-      isActive: currentUsers >= 500,
-    },
-    {
-      service: "Resend",
-      from: "Free",
-      to: "Pro ($20)",
-      cost: 20,
-      triggerUsers: 1000,
-      isActive: currentUsers >= 1000,
-    },
-    {
-      service: "Vercel",
-      from: "Hobby",
-      to: "Pro ($20)",
-      cost: 20,
-      triggerUsers: 2000,
-      isActive: currentUsers >= 2000,
-    },
-    {
-      service: "Supadata",
-      from: "Free",
-      to: "Starter ($9)",
-      cost: 9,
-      triggerUsers: 3000,
-      isActive: currentUsers >= 3000 && currentUsers < 7000,
-    },
-    {
-      service: "Railway",
-      from: "Free",
-      to: "Hobby ($5)",
-      cost: 5,
-      triggerUsers: 5000,
-      isActive: currentUsers >= 5000,
-    },
-    {
-      service: "Supadata",
-      from: "Starter",
-      to: "Pro ($49)",
-      cost: 49,
-      triggerUsers: 7000,
-      isActive: currentUsers >= 7000,
-    },
-    {
-      service: "Neon",
-      from: "Launch",
-      to: "Scale ($69)",
-      cost: 69,
-      triggerUsers: 10000,
-      isActive: currentUsers >= 10000,
-    },
-  ];
+export function calculatePaymentCosts(
+  selectedServices: SelectedService[],
+  revenue: number,
+  transactionCount: number
+): number {
+  let totalFees = 0;
+
+  for (const selected of selectedServices) {
+    const service = getServiceById(selected.serviceId);
+    if (!service || service.category !== "payments") continue;
+
+    if (service.pricingModel === "percentage") {
+      const percentFee = revenue * ((service.feePercent || 0) / 100);
+      const transactionFee = transactionCount * (service.perTransaction || 0);
+      totalFees += percentFee + transactionFee;
+    }
+  }
+
+  return totalFees;
+}
+
+/**
+ * Get service upgrade milestones for all selected services
+ */
+export function getServiceUpgrades(
+  selectedServices: SelectedService[],
+  currentUsers: number
+): ServiceUpgrade[] {
+  const upgrades: ServiceUpgrade[] = [];
+
+  for (const selected of selectedServices) {
+    const service = getServiceById(selected.serviceId);
+    if (!service) continue;
+
+    // Skip payment services - they don't have tier upgrades
+    if (service.category === "payments") continue;
+
+    const tiers = selected.customTiers || service.tiers;
+
+    // Sort tiers by trigger point
+    const sortedTiers = [...tiers].sort((a, b) => a.triggerAt - b.triggerAt);
+
+    for (let i = 1; i < sortedTiers.length; i++) {
+      const fromTier = sortedTiers[i - 1];
+      const toTier = sortedTiers[i];
+
+      // Determine if this upgrade is currently active
+      const isActive =
+        currentUsers >= toTier.triggerAt &&
+        (i === sortedTiers.length - 1 ||
+          currentUsers < sortedTiers[i + 1]?.triggerAt);
+
+      upgrades.push({
+        service: service.name,
+        serviceId: service.id,
+        from: `${fromTier.name} ($${fromTier.baseCost})`,
+        to: `${toTier.name} ($${toTier.baseCost})`,
+        cost: toTier.baseCost,
+        triggerUsers: toTier.triggerAt,
+        isActive,
+      });
+    }
+  }
+
+  // Sort by trigger users
+  return upgrades.sort((a, b) => a.triggerUsers - b.triggerUsers);
 }
 
 /**
@@ -211,10 +219,21 @@ export function generateProjections(inputs: BusinessInputs): ProjectionRow[] {
     const proUsers = Math.floor(users * (inputs.conversionRate / 100));
     const freeUsers = users - proUsers;
 
-    const revenue = proUsers * inputs.proPrice;
+    const grossRevenue = proUsers * inputs.proPrice;
+
+    // Payment processing fees
+    const avgTransactionValue = inputs.averageTransactionValue || inputs.proPrice;
+    const estimatedTransactions = proUsers; // Assume 1 transaction per pro user/month
+    const paymentFees = calculatePaymentCosts(
+      inputs.selectedServices,
+      grossRevenue,
+      estimatedTransactions
+    );
+
+    const revenue = grossRevenue - paymentFees;
 
     // AI costs
-    const freeAICost = freeUsers * inputs.freeCredits * inputs.costPerCredit; // Free users use 100%
+    const freeAICost = freeUsers * inputs.freeCredits * inputs.costPerCredit;
     const proAICost =
       proUsers *
       inputs.proCredits *
@@ -223,7 +242,10 @@ export function generateProjections(inputs: BusinessInputs): ProjectionRow[] {
     const totalAICost = freeAICost + proAICost;
 
     // Infrastructure
-    const infrastructure = calculateInfrastructure(users);
+    const infrastructure = calculateInfrastructure(
+      inputs.selectedServices,
+      users
+    );
 
     // Fixed costs
     const fixedCosts = inputs.claudeCost + inputs.domainCost / 12;
@@ -244,6 +266,7 @@ export function generateProjections(inputs: BusinessInputs): ProjectionRow[] {
       profit,
       cashReserve,
       infrastructure: infrastructure.total,
+      paymentFees,
     };
   });
 }
@@ -256,8 +279,20 @@ export function calculateBusiness(inputs: BusinessInputs): BusinessResults {
   const proUsers = Math.floor(inputs.users * (inputs.conversionRate / 100));
   const freeUsers = inputs.users - proUsers;
 
-  // Revenue
-  const revenue = proUsers * inputs.proPrice;
+  // Revenue (gross, before payment fees)
+  const grossRevenue = proUsers * inputs.proPrice;
+
+  // Payment processing costs
+  const avgTransactionValue = inputs.averageTransactionValue || inputs.proPrice;
+  const estimatedTransactions = proUsers;
+  const paymentProcessingCost = calculatePaymentCosts(
+    inputs.selectedServices,
+    grossRevenue,
+    estimatedTransactions
+  );
+
+  // Net revenue after payment fees
+  const revenue = grossRevenue - paymentProcessingCost;
 
   // AI costs
   // Free users use 100% of their credits (it's too little not to)
@@ -270,8 +305,11 @@ export function calculateBusiness(inputs: BusinessInputs): BusinessResults {
     inputs.costPerCredit;
   const totalAICost = freeAICost + proAICost;
 
-  // Infrastructure costs
-  const infrastructureBreakdown = calculateInfrastructure(inputs.users);
+  // Infrastructure costs (dynamic based on selected services)
+  const infrastructureBreakdown = calculateInfrastructure(
+    inputs.selectedServices,
+    inputs.users
+  );
   const infrastructureCost = infrastructureBreakdown.total;
 
   // Fixed costs (Claude Code monthly + domain yearly converted to monthly)
@@ -289,35 +327,39 @@ export function calculateBusiness(inputs: BusinessInputs): BusinessResults {
   const cashReserve = totalCosts + openRouterBuffer;
 
   // Per-user metrics
-  const costPerFree = inputs.freeCredits * inputs.costPerCredit; // Cost per free user
+  const costPerFree = inputs.freeCredits * inputs.costPerCredit;
   const proAICostPerUser =
     inputs.proCredits * (inputs.proUsageRate / 100) * inputs.costPerCredit;
-  const profitPerPro = inputs.proPrice - proAICostPerUser;
+  const profitPerPro = inputs.proPrice - proAICostPerUser - (paymentProcessingCost / proUsers || 0);
   const revenuePerUser = inputs.users > 0 ? revenue / inputs.users : 0;
 
   // Break-even analysis
   // How many pro users needed to cover all costs?
+  const effectiveProfitPerPro = profitPerPro > 0 ? profitPerPro : 0.01;
   const breakEvenProUsers =
-    profitPerPro > 0
+    effectiveProfitPerPro > 0
       ? Math.ceil(
-          (freeAICost + infrastructureCost + fixedCosts) / profitPerPro
+          (freeAICost + infrastructureCost + fixedCosts) / effectiveProfitPerPro
         )
       : Infinity;
 
   // What conversion rate needed at current user count?
   const breakEvenConversion =
-    inputs.users > 0 && profitPerPro > 0
+    inputs.users > 0 && effectiveProfitPerPro > 0
       ? (breakEvenProUsers / inputs.users) * 100
       : Infinity;
 
   // How many total users needed at current conversion rate?
   const breakEvenUsers =
-    inputs.conversionRate > 0 && profitPerPro > 0
+    inputs.conversionRate > 0 && effectiveProfitPerPro > 0
       ? Math.ceil(breakEvenProUsers / (inputs.conversionRate / 100))
       : Infinity;
 
-  // Service upgrades
-  const serviceUpgrades = getServiceUpgrades(inputs.users);
+  // Service upgrades (dynamic)
+  const serviceUpgrades = getServiceUpgrades(
+    inputs.selectedServices,
+    inputs.users
+  );
 
   // Projections
   const projections = generateProjections(inputs);
@@ -326,10 +368,12 @@ export function calculateBusiness(inputs: BusinessInputs): BusinessResults {
     proUsers,
     freeUsers,
     revenue,
+    grossRevenue,
     freeAICost,
     proAICost,
     totalAICost,
     infrastructureCost,
+    paymentProcessingCost,
     fixedCosts,
     totalCosts,
     profit,
@@ -385,4 +429,40 @@ export function formatNumber(value: number): string {
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   });
+}
+
+// ============================================
+// LEGACY SUPPORT (for backward compatibility)
+// ============================================
+
+// Default services for backward compatibility
+export const DEFAULT_SERVICES: SelectedService[] = [
+  { serviceId: "neon" },
+  { serviceId: "vercel" },
+  { serviceId: "resend" },
+  { serviceId: "railway" },
+];
+
+/**
+ * Legacy function - calculates with default services
+ * @deprecated Use calculateBusiness with selectedServices instead
+ */
+export function calculateInfrastructureLegacy(users: number): {
+  neon: number;
+  vercel: number;
+  resend: number;
+  supadata: number;
+  railway: number;
+  total: number;
+} {
+  const breakdown = calculateInfrastructure(DEFAULT_SERVICES, users);
+
+  return {
+    neon: breakdown["neon"] || 0,
+    vercel: breakdown["vercel"] || 0,
+    resend: breakdown["resend"] || 0,
+    supadata: 0, // Removed from default, can be added back
+    railway: breakdown["railway"] || 0,
+    total: breakdown.total,
+  };
 }

@@ -8,14 +8,18 @@ function Card({ className, ...props }: React.ComponentProps<"div">) {
       data-slot="card"
       className={cn(
         // Base
-        "bg-card text-card-foreground flex flex-col gap-5 rounded-lg border py-5",
-        // Shadow and glow
+        "flex flex-col gap-5 rounded-lg border py-5",
+        // Background - more visible
+        "bg-white dark:bg-slate-900",
+        "text-foreground",
+        // Border - more contrast
+        "border-slate-200 dark:border-slate-700",
+        // Shadow
         "shadow-sm transition-all duration-200",
-        // Dark mode enhancements
-        "dark:shadow-[0_1px_3px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.03)]",
+        "dark:shadow-[0_2px_8px_rgba(0,0,0,0.3)]",
         // Hover effect
-        "hover:border-primary/20 hover:shadow-md",
-        "dark:hover:shadow-[0_4px_20px_rgba(255,149,0,0.08),inset_0_1px_0_rgba(255,255,255,0.05)]",
+        "hover:border-amber-400/30 hover:shadow-md",
+        "dark:hover:border-amber-500/30 dark:hover:shadow-[0_4px_20px_rgba(255,149,0,0.1)]",
         className
       )}
       {...props}

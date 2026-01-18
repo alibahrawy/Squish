@@ -33,7 +33,11 @@ import {
   formatPercent,
   formatNumber,
   type BusinessInputs,
+  type SelectedService,
+  DEFAULT_SERVICES,
 } from "@/lib/business-calculations";
+import { getServiceById, SERVICES } from "@/lib/services-data";
+import { ServiceSelector } from "@/components/service-selector";
 import {
   AreaChart,
   Area,
@@ -64,6 +68,8 @@ import {
   PieChart as PieChartIcon,
   LineChart as LineChartIcon,
   Target,
+  Server,
+  CreditCard,
 } from "lucide-react";
 
 // Bloomberg Terminal Chart Colors
@@ -78,9 +84,21 @@ const COLORS = {
   optimistic: "#00d26a",  // Green
   pessimistic: "#ff3b30", // Red
   realistic: "#ff9500",   // Amber
+  payments: "#f472b6",    // Pink
 };
 
-const PIE_COLORS = ["#ff9500", "#00b8d4", "#a855f7", "#6366f1", "#00d26a"];
+const PIE_COLORS = ["#ff9500", "#00b8d4", "#a855f7", "#6366f1", "#00d26a", "#f472b6"];
+
+// Recommended default stack for new SaaS
+const RECOMMENDED_STACK: SelectedService[] = [
+  { serviceId: "supabase-db" },
+  { serviceId: "vercel" },
+  { serviceId: "supabase-auth" },
+  { serviceId: "resend" },
+  { serviceId: "stripe" },
+  { serviceId: "posthog" },
+  { serviceId: "cloudflare-r2" },
+];
 
 export function BusinessCalculator() {
   // Input state
@@ -94,6 +112,9 @@ export function BusinessCalculator() {
   const [domainCost, setDomainCost] = useState(8);
   const [costPerCredit, setCostPerCredit] = useState(0.001);
   const [showAdvanced, setShowAdvanced] = useState(false);
+
+  // Services state - start with recommended stack
+  const [selectedServices, setSelectedServices] = useState<SelectedService[]>(RECOMMENDED_STACK);
 
   // Variance settings
   const [conversionVariance, setConversionVariance] = useState(1); // ±1%
@@ -111,6 +132,7 @@ export function BusinessCalculator() {
       claudeCost,
       domainCost,
       costPerCredit,
+      selectedServices,
     }),
     [
       users,
@@ -122,6 +144,7 @@ export function BusinessCalculator() {
       claudeCost,
       domainCost,
       costPerCredit,
+      selectedServices,
     ]
   );
 
@@ -175,13 +198,15 @@ export function BusinessCalculator() {
 
   // Cost breakdown for pie chart
   const costBreakdownData = useMemo(() => {
-    return [
+    const data = [
       { name: "AI (Free)", value: results.freeAICost, color: COLORS.ai },
       { name: "AI (Pro)", value: results.proAICost, color: "#a78bfa" },
       { name: "Infrastructure", value: results.infrastructureCost, color: COLORS.infrastructure },
+      { name: "Payment Fees", value: results.paymentProcessingCost, color: COLORS.payments },
       { name: "Claude Code", value: claudeCost, color: COLORS.fixed },
       { name: "Domain", value: domainCost / 12, color: "#818cf8" },
     ].filter((item) => item.value > 0);
+    return data;
   }, [results, claudeCost, domainCost]);
 
   // Revenue vs Costs bar chart data
@@ -225,8 +250,48 @@ export function BusinessCalculator() {
     ];
   }, [inputs, optimisticInputs, pessimisticInputs, results, optimisticResults, pessimisticResults]);
 
+  // Get unique service upgrade trigger points for chart markers
+  const upgradeMarkers = useMemo(() => {
+    const markers: { users: number; services: string[] }[] = [];
+    const upgradesByUsers: Record<number, string[]> = {};
+
+    for (const upgrade of results.serviceUpgrades) {
+      if (upgrade.triggerUsers > 0 && upgrade.triggerUsers <= 25000) {
+        if (!upgradesByUsers[upgrade.triggerUsers]) {
+          upgradesByUsers[upgrade.triggerUsers] = [];
+        }
+        upgradesByUsers[upgrade.triggerUsers].push(upgrade.service);
+      }
+    }
+
+    for (const [users, services] of Object.entries(upgradesByUsers)) {
+      markers.push({ users: parseInt(users), services });
+    }
+
+    return markers.sort((a, b) => a.users - b.users);
+  }, [results.serviceUpgrades]);
+
+  // Get selected services that aren't payment processors (for infrastructure display)
+  const infraServices = selectedServices.filter((s) => {
+    const service = getServiceById(s.serviceId);
+    return service && service.category !== "payments";
+  });
+
+  // Get selected payment processors
+  const paymentServices = selectedServices.filter((s) => {
+    const service = getServiceById(s.serviceId);
+    return service && service.category === "payments";
+  });
+
   return (
     <div className="space-y-6">
+      {/* Service Selector - Full Width */}
+      <ServiceSelector
+        selectedServices={selectedServices}
+        onServicesChange={setSelectedServices}
+        users={users}
+      />
+
       {/* Main Grid: Inputs and Results */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Inputs Card */}
@@ -413,7 +478,7 @@ export function BusinessCalculator() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <div className="flex justify-between">
-                    <Label>Conversion ±</Label>
+                    <Label>Conversion +/-</Label>
                     <span className="text-sm font-medium">{conversionVariance}%</span>
                   </div>
                   <Slider
@@ -428,7 +493,7 @@ export function BusinessCalculator() {
 
                 <div className="space-y-2">
                   <div className="flex justify-between">
-                    <Label>Usage ±</Label>
+                    <Label>Usage +/-</Label>
                     <span className="text-sm font-medium">{usageVariance}%</span>
                   </div>
                   <Slider
@@ -515,13 +580,13 @@ export function BusinessCalculator() {
               <div className="p-4 rounded-lg border bg-muted/30 dark:bg-muted/10">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
                   <DollarSign className="h-4 w-4 text-primary" />
-                  Revenue
+                  Net Revenue
                 </div>
                 <div className="text-2xl font-bold font-mono tabular-nums text-primary">
                   {formatCurrency(results.revenue)}
                 </div>
                 <div className="text-xs text-muted-foreground mt-1 font-mono">
-                  {formatCurrency(results.revenuePerUser)}/user avg
+                  {formatCurrency(results.grossRevenue)} gross
                 </div>
               </div>
 
@@ -607,9 +672,15 @@ export function BusinessCalculator() {
                   <span>{formatCurrency(results.proAICost)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-muted-foreground">Infrastructure</span>
+                  <span className="text-muted-foreground">Infrastructure ({infraServices.length} services)</span>
                   <span>{formatCurrency(results.infrastructureCost)}</span>
                 </div>
+                {results.paymentProcessingCost > 0 && (
+                  <div className="flex justify-between text-sm">
+                    <span className="text-muted-foreground">Payment Processing</span>
+                    <span>{formatCurrency(results.paymentProcessingCost)}</span>
+                  </div>
+                )}
                 <div className="flex justify-between text-sm">
                   <span className="text-muted-foreground">Claude Code</span>
                   <span>{formatCurrency(claudeCost)}</span>
@@ -739,10 +810,33 @@ export function BusinessCalculator() {
                     />
                     <Tooltip
                       formatter={(value) => [formatCurrency(value as number), ""]}
-                      labelFormatter={(label) => `${formatNumber(label)} users`}
+                      labelFormatter={(label) => {
+                        const marker = upgradeMarkers.find(m => m.users === label);
+                        if (marker) {
+                          return `${formatNumber(label)} users - Upgrades: ${marker.services.join(", ")}`;
+                        }
+                        return `${formatNumber(label)} users`;
+                      }}
                     />
                     <Legend />
                     <ReferenceLine y={0} stroke="#888" strokeDasharray="3 3" />
+                    {/* Service upgrade markers */}
+                    {upgradeMarkers.map((marker, index) => (
+                      <ReferenceLine
+                        key={`upgrade-${marker.users}`}
+                        x={marker.users}
+                        stroke="#f97316"
+                        strokeDasharray="4 4"
+                        strokeWidth={2}
+                        label={{
+                          value: `${marker.users >= 1000 ? `${marker.users/1000}k` : marker.users}`,
+                          position: "top",
+                          fill: "#f97316",
+                          fontSize: 10,
+                          fontWeight: "bold",
+                        }}
+                      />
+                    ))}
                     <Area
                       type="monotone"
                       dataKey="optimistic"
@@ -770,6 +864,23 @@ export function BusinessCalculator() {
                   </AreaChart>
                 </ResponsiveContainer>
               </div>
+              {/* Upgrade markers legend */}
+              {upgradeMarkers.length > 0 && (
+                <div className="flex flex-wrap items-center justify-center gap-4 text-xs">
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-4 h-0.5 bg-orange-500" style={{ backgroundImage: "repeating-linear-gradient(90deg, #f97316, #f97316 4px, transparent 4px, transparent 8px)" }} />
+                    <span className="text-muted-foreground">Service Upgrades:</span>
+                  </div>
+                  {upgradeMarkers.map((marker) => (
+                    <div key={marker.users} className="flex items-center gap-1 px-2 py-1 rounded bg-orange-500/10 border border-orange-500/20">
+                      <span className="font-mono font-medium text-orange-500">
+                        {marker.users >= 1000 ? `${marker.users/1000}k` : marker.users}
+                      </span>
+                      <span className="text-muted-foreground">- {marker.services.join(", ")}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
               <p className="text-sm text-muted-foreground text-center">
                 Profit projections across different user counts with scenario ranges
               </p>
@@ -962,92 +1073,105 @@ export function BusinessCalculator() {
       </Card>
 
       {/* Service Upgrades Timeline */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Service Upgrade Timeline</CardTitle>
-          <CardDescription>
-            When each service needs upgrading based on user count
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-3">
-            {results.serviceUpgrades.map((upgrade) => (
-              <div
-                key={`${upgrade.service}-${upgrade.triggerUsers}`}
-                className={`flex items-center gap-4 p-3 rounded-lg border ${
-                  upgrade.isActive
-                    ? "bg-primary/5 border-primary/20"
-                    : "bg-muted/30"
-                }`}
-              >
-                {upgrade.isActive ? (
-                  <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
-                ) : (
-                  <Circle className="h-5 w-5 text-muted-foreground flex-shrink-0" />
-                )}
-                <div className="flex-1 min-w-0">
-                  <div className="font-medium">{upgrade.service}</div>
-                  <div className="text-sm text-muted-foreground">
-                    {upgrade.from} → {upgrade.to}
+      {results.serviceUpgrades.length > 0 && (
+        <Card>
+          <CardHeader>
+            <CardTitle>Service Upgrade Timeline</CardTitle>
+            <CardDescription>
+              When each service needs upgrading based on user count
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-3">
+              {results.serviceUpgrades.map((upgrade, index) => (
+                <div
+                  key={`${upgrade.serviceId}-${upgrade.triggerUsers}-${index}`}
+                  className={`flex items-center gap-4 p-3 rounded-lg border ${
+                    upgrade.isActive
+                      ? "bg-primary/5 border-primary/20"
+                      : "bg-muted/30"
+                  }`}
+                >
+                  {upgrade.isActive ? (
+                    <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
+                  ) : (
+                    <Circle className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                  )}
+                  <div className="flex-1 min-w-0">
+                    <div className="font-medium">{upgrade.service}</div>
+                    <div className="text-sm text-muted-foreground">
+                      {upgrade.from} &rarr; {upgrade.to}
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="font-medium">
+                      {formatNumber(upgrade.triggerUsers)} users
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      +${upgrade.cost}/mo
+                    </div>
                   </div>
                 </div>
-                <div className="text-right">
-                  <div className="font-medium">
-                    {formatNumber(upgrade.triggerUsers)} users
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    +${upgrade.cost}/mo
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          {/* Infrastructure Summary */}
-          <div className="mt-6 p-4 rounded-lg bg-muted/50">
-            <h4 className="font-medium mb-3">
-              Current Infrastructure ({formatNumber(users)} users)
-            </h4>
-            <div className="grid grid-cols-5 gap-4 text-sm">
-              <div>
-                <div className="text-muted-foreground">Neon</div>
-                <div className="font-medium">
-                  ${results.infrastructureBreakdown.neon}
-                </div>
+            {/* Dynamic Infrastructure Summary */}
+            <div className="mt-6 p-4 rounded-lg bg-muted/50">
+              <h4 className="font-medium mb-3 flex items-center gap-2">
+                <Server className="h-4 w-4" />
+                Current Infrastructure ({formatNumber(users)} users)
+              </h4>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 text-sm">
+                {infraServices.map((selected) => {
+                  const service = getServiceById(selected.serviceId);
+                  if (!service) return null;
+                  const cost = results.infrastructureBreakdown[selected.serviceId] || 0;
+                  return (
+                    <div key={selected.serviceId}>
+                      <div className="text-muted-foreground truncate">{service.name}</div>
+                      <div className="font-medium font-mono">${cost}</div>
+                    </div>
+                  );
+                })}
               </div>
-              <div>
-                <div className="text-muted-foreground">Vercel</div>
-                <div className="font-medium">
-                  ${results.infrastructureBreakdown.vercel}
-                </div>
+              {paymentServices.length > 0 && (
+                <>
+                  <Separator className="my-3" />
+                  <h4 className="font-medium mb-3 flex items-center gap-2">
+                    <CreditCard className="h-4 w-4" />
+                    Payment Processing
+                  </h4>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
+                    {paymentServices.map((selected) => {
+                      const service = getServiceById(selected.serviceId);
+                      if (!service) return null;
+                      return (
+                        <div key={selected.serviceId}>
+                          <div className="text-muted-foreground truncate">{service.name}</div>
+                          <div className="font-medium font-mono">
+                            {service.feePercent}% + ${service.perTransaction}/txn
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </>
+              )}
+              <Separator className="my-3" />
+              <div className="flex justify-between font-medium">
+                <span>Total Infrastructure</span>
+                <span>{formatCurrency(results.infrastructureBreakdown.total)}</span>
               </div>
-              <div>
-                <div className="text-muted-foreground">Resend</div>
-                <div className="font-medium">
-                  ${results.infrastructureBreakdown.resend}
+              {results.paymentProcessingCost > 0 && (
+                <div className="flex justify-between text-sm text-muted-foreground mt-1">
+                  <span>Payment Fees (on {formatCurrency(results.grossRevenue)} gross)</span>
+                  <span>{formatCurrency(results.paymentProcessingCost)}</span>
                 </div>
-              </div>
-              <div>
-                <div className="text-muted-foreground">Supadata</div>
-                <div className="font-medium">
-                  ${results.infrastructureBreakdown.supadata}
-                </div>
-              </div>
-              <div>
-                <div className="text-muted-foreground">Railway</div>
-                <div className="font-medium">
-                  ${results.infrastructureBreakdown.railway}
-                </div>
-              </div>
+              )}
             </div>
-            <Separator className="my-3" />
-            <div className="flex justify-between font-medium">
-              <span>Total Infrastructure</span>
-              <span>{formatCurrency(results.infrastructureBreakdown.total)}</span>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+          </CardContent>
+        </Card>
+      )}
     </div>
   );
 }

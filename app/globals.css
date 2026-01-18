@@ -41,42 +41,42 @@
 }
 
 .dark {
-  /* Deep Navy Bloomberg Background */
-  --background: 222 47% 6%;
-  --foreground: 210 40% 96%;
+  /* Deep Navy Bloomberg Background - slightly lighter for visibility */
+  --background: 222 40% 8%;
+  --foreground: 210 40% 98%;
 
-  /* Card slightly elevated */
-  --card: 222 44% 8%;
-  --card-foreground: 210 40% 96%;
+  /* Card slightly elevated - more contrast */
+  --card: 222 38% 12%;
+  --card-foreground: 210 40% 98%;
 
-  --popover: 222 44% 8%;
-  --popover-foreground: 210 40% 96%;
+  --popover: 222 38% 12%;
+  --popover-foreground: 210 40% 98%;
 
-  /* Amber Primary */
-  --primary: 36 100% 50%;
+  /* Amber Primary - slightly brighter */
+  --primary: 36 100% 55%;
   --primary-foreground: 222 47% 6%;
 
-  /* Navy variations */
-  --secondary: 222 40% 12%;
-  --secondary-foreground: 210 40% 96%;
-  --muted: 222 40% 14%;
-  --muted-foreground: 215 20% 55%;
-  --accent: 222 38% 16%;
-  --accent-foreground: 210 40% 96%;
+  /* Navy variations - better contrast */
+  --secondary: 222 35% 16%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 222 35% 18%;
+  --muted-foreground: 215 25% 70%;
+  --accent: 222 32% 20%;
+  --accent-foreground: 210 40% 98%;
 
-  --destructive: 0 72% 51%;
+  --destructive: 0 72% 55%;
   --destructive-foreground: 0 0% 100%;
 
-  /* Subtle navy borders */
-  --border: 222 30% 18%;
-  --input: 222 30% 14%;
-  --ring: 36 100% 50%;
+  /* More visible borders */
+  --border: 222 25% 25%;
+  --input: 222 30% 18%;
+  --ring: 36 100% 55%;
 
   /* Chart colors for dark mode */
   --chart-profit: 145 80% 50%;
   --chart-loss: 0 84% 60%;
-  --chart-revenue: 36 100% 50%;
-  --chart-costs: 190 90% 50%;
+  --chart-revenue: 36 100% 55%;
+  --chart-costs: 190 90% 55%;
   --chart-ai: 262 83% 65%;
 }
 
@@ -137,34 +137,26 @@ body {
 
 /* Card with Terminal Feel */
 .terminal-card {
-  background: linear-gradient(
-    180deg,
-    hsl(var(--card)) 0%,
-    hsl(var(--card) / 0.95) 100%
-  );
-  border: 1px solid hsl(var(--border));
+  background: white;
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 0.5rem;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .dark .terminal-card {
-  box-shadow:
-    0 1px 3px 0 rgb(0 0 0 / 0.3),
-    0 1px 2px -1px rgb(0 0 0 / 0.3),
-    inset 0 1px 0 0 hsl(222 30% 20% / 0.5);
+  background: rgb(15, 23, 42);
+  border-color: rgb(51, 65, 85);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .terminal-card:hover {
-  border-color: hsl(var(--primary) / 0.3);
-  box-shadow:
-    0 4px 20px -4px hsl(var(--primary) / 0.15),
-    0 1px 3px 0 rgb(0 0 0 / 0.1);
+  border-color: rgba(251, 191, 36, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .dark .terminal-card:hover {
-  box-shadow:
-    0 4px 20px -4px hsl(var(--primary) / 0.2),
-    0 1px 3px 0 rgb(0 0 0 / 0.3),
-    inset 0 1px 0 0 hsl(222 30% 22% / 0.5);
+  border-color: rgba(251, 191, 36, 0.3);
+  box-shadow: 0 4px 20px rgba(255, 149, 0, 0.1);
 }
 
 /* Subtle Grid Background */

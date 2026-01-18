@@ -12,15 +12,15 @@ const Slider = React.forwardRef<
   <SliderPrimitive.Root
     ref={ref}
     className={cn(
-      "relative flex w-full touch-none select-none items-center group",
+      "relative flex w-full touch-none select-none items-center group py-2",
       className
     )}
     {...props}
   >
-    <SliderPrimitive.Track className="relative h-2 w-full grow overflow-hidden rounded-full bg-border dark:bg-[#1e293b] border border-border dark:border-[#334155] transition-colors">
-      <SliderPrimitive.Range className="absolute h-full bg-gradient-to-r from-primary to-primary rounded-full shadow-[0_0_8px_rgba(255,149,0,0.4)] transition-all" />
+    <SliderPrimitive.Track className="relative h-3 w-full grow overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 transition-colors">
+      <SliderPrimitive.Range className="absolute h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full shadow-[0_0_10px_rgba(255,149,0,0.5)] transition-all" />
     </SliderPrimitive.Track>
-    <SliderPrimitive.Thumb className="block h-5 w-5 rounded-full border-2 border-primary bg-white dark:bg-slate-100 shadow-md transition-all duration-200 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,149,0,0.5)] focus-visible:outline-none focus-visible:ring-0 focus-visible:shadow-[0_0_20px_rgba(255,149,0,0.6)] active:scale-95 disabled:pointer-events-none disabled:opacity-50 cursor-grab active:cursor-grabbing" />
+    <SliderPrimitive.Thumb className="block h-6 w-6 rounded-full border-3 border-amber-500 bg-white shadow-lg transition-all duration-200 hover:scale-110 hover:shadow-[0_0_15px_rgba(255,149,0,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50 focus-visible:shadow-[0_0_20px_rgba(255,149,0,0.7)] active:scale-95 disabled:pointer-events-none disabled:opacity-50 cursor-grab active:cursor-grabbing" />
   </SliderPrimitive.Root>
 ))
 Slider.displayName = SliderPrimitive.Root.displayName
