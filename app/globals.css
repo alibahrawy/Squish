@@ -1,0 +1,370 @@
+/* Bloomberg Terminal Font */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Light Mode - Clean Professional */
+  --background: 220 20% 98%;
+  --foreground: 222 47% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+
+  /* Amber Primary (Bloomberg signature) */
+  --primary: 36 100% 50%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 220 14% 96%;
+  --secondary-foreground: 222 47% 11%;
+  --muted: 220 14% 96%;
+  --muted-foreground: 220 9% 46%;
+  --accent: 220 14% 96%;
+  --accent-foreground: 222 47% 11%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 220 13% 91%;
+  --input: 220 13% 91%;
+  --ring: 36 100% 50%;
+  --radius: 0.5rem;
+
+  /* Chart colors - Bloomberg style */
+  --chart-profit: 145 80% 42%;
+  --chart-loss: 0 84% 60%;
+  --chart-revenue: 36 100% 50%;
+  --chart-costs: 190 90% 45%;
+  --chart-ai: 262 83% 58%;
+}
+
+.dark {
+  /* Deep Navy Bloomberg Background */
+  --background: 222 47% 6%;
+  --foreground: 210 40% 96%;
+
+  /* Card slightly elevated */
+  --card: 222 44% 8%;
+  --card-foreground: 210 40% 96%;
+
+  --popover: 222 44% 8%;
+  --popover-foreground: 210 40% 96%;
+
+  /* Amber Primary */
+  --primary: 36 100% 50%;
+  --primary-foreground: 222 47% 6%;
+
+  /* Navy variations */
+  --secondary: 222 40% 12%;
+  --secondary-foreground: 210 40% 96%;
+  --muted: 222 40% 14%;
+  --muted-foreground: 215 20% 55%;
+  --accent: 222 38% 16%;
+  --accent-foreground: 210 40% 96%;
+
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+
+  /* Subtle navy borders */
+  --border: 222 30% 18%;
+  --input: 222 30% 14%;
+  --ring: 36 100% 50%;
+
+  /* Chart colors for dark mode */
+  --chart-profit: 145 80% 50%;
+  --chart-loss: 0 84% 60%;
+  --chart-revenue: 36 100% 50%;
+  --chart-costs: 190 90% 50%;
+  --chart-ai: 262 83% 65%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: 'Inter', system-ui, sans-serif;
+  font-feature-settings: "rlig" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Terminal/Monospace Font for Data */
+.font-mono,
+.font-terminal,
+[data-slot="input"][type="number"] {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* Bloomberg Terminal Glow Effects */
+.terminal-glow {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.terminal-glow:hover {
+  box-shadow: 0 0 0 1px hsl(var(--primary) / 0.3),
+              0 0 20px -5px hsl(var(--primary) / 0.4);
+}
+
+.terminal-glow:focus,
+.terminal-glow:focus-within {
+  box-shadow: 0 0 0 2px hsl(var(--primary) / 0.5),
+              0 0 30px -5px hsl(var(--primary) / 0.5);
+}
+
+/* Data Cell Styling */
+.data-cell {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.data-positive {
+  color: hsl(var(--chart-profit));
+}
+
+.data-negative {
+  color: hsl(var(--chart-loss));
+}
+
+/* Card with Terminal Feel */
+.terminal-card {
+  background: linear-gradient(
+    180deg,
+    hsl(var(--card)) 0%,
+    hsl(var(--card) / 0.95) 100%
+  );
+  border: 1px solid hsl(var(--border));
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark .terminal-card {
+  box-shadow:
+    0 1px 3px 0 rgb(0 0 0 / 0.3),
+    0 1px 2px -1px rgb(0 0 0 / 0.3),
+    inset 0 1px 0 0 hsl(222 30% 20% / 0.5);
+}
+
+.terminal-card:hover {
+  border-color: hsl(var(--primary) / 0.3);
+  box-shadow:
+    0 4px 20px -4px hsl(var(--primary) / 0.15),
+    0 1px 3px 0 rgb(0 0 0 / 0.1);
+}
+
+.dark .terminal-card:hover {
+  box-shadow:
+    0 4px 20px -4px hsl(var(--primary) / 0.2),
+    0 1px 3px 0 rgb(0 0 0 / 0.3),
+    inset 0 1px 0 0 hsl(222 30% 22% / 0.5);
+}
+
+/* Subtle Grid Background */
+.bg-terminal-grid {
+  background-image:
+    linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Custom Scrollbar - Terminal Style */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted) / 0.5);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5);
+}
+
+/* Selection - Amber highlight */
+::selection {
+  background: hsl(var(--primary) / 0.25);
+  color: hsl(var(--foreground));
+}
+
+/* Focus Visible - Terminal Ring */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px hsl(var(--background)),
+              0 0 0 4px hsl(var(--primary) / 0.5);
+}
+
+/* Status Indicator Dots */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.status-dot.active {
+  background: hsl(var(--chart-profit));
+  box-shadow: 0 0 8px hsl(var(--chart-profit) / 0.6);
+}
+
+.status-dot.warning {
+  background: hsl(var(--primary));
+  box-shadow: 0 0 8px hsl(var(--primary) / 0.6);
+}
+
+.status-dot.error {
+  background: hsl(var(--chart-loss));
+  box-shadow: 0 0 8px hsl(var(--chart-loss) / 0.6);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Recharts Customization - Bloomberg Style */
+.recharts-tooltip-wrapper {
+  z-index: 100 !important;
+}
+
+.recharts-default-tooltip {
+  background: hsl(var(--card)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.3) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 12px !important;
+}
+
+.dark .recharts-default-tooltip {
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.6) !important;
+}
+
+.recharts-tooltip-label {
+  color: hsl(var(--foreground)) !important;
+  font-weight: 600 !important;
+  margin-bottom: 4px !important;
+}
+
+.recharts-tooltip-item {
+  color: hsl(var(--muted-foreground)) !important;
+  font-size: 11px !important;
+}
+
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: hsl(var(--border)) !important;
+  stroke-opacity: 0.5 !important;
+}
+
+.recharts-legend-item-text {
+  color: hsl(var(--muted-foreground)) !important;
+  font-size: 12px !important;
+}
+
+/* Smooth Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px hsl(var(--primary) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Header Terminal Style */
+.terminal-header {
+  background: linear-gradient(
+    180deg,
+    hsl(var(--background)) 0%,
+    hsl(var(--background) / 0.95) 100%
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.dark .terminal-header {
+  background: linear-gradient(
+    180deg,
+    hsl(222 47% 7% / 0.95) 0%,
+    hsl(222 47% 6% / 0.9) 100%
+  );
+  border-bottom: 1px solid hsl(var(--border) / 0.5);
+}
+
+/* Badge Variants */
+.badge-terminal {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+
+.badge-profit {
+  background: hsl(var(--chart-profit) / 0.15);
+  color: hsl(var(--chart-profit));
+  border: 1px solid hsl(var(--chart-profit) / 0.3);
+}
+
+.badge-loss {
+  background: hsl(var(--chart-loss) / 0.15);
+  color: hsl(var(--chart-loss));
+  border: 1px solid hsl(var(--chart-loss) / 0.3);
+}
+
+.badge-amber {
+  background: hsl(var(--primary) / 0.15);
+  color: hsl(var(--primary));
+  border: 1px solid hsl(var(--primary) / 0.3);
+}
