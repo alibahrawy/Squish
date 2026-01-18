@@ -11,19 +11,19 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
       data-slot="input"
       className={cn(
         // Base styles
-        "h-11 w-full min-w-0 rounded-md border px-3 py-2 text-sm transition-all duration-200",
-        // Background - more visible
-        "bg-white dark:bg-slate-800",
-        // Border - more contrast
-        "border-slate-300 dark:border-slate-600",
+        "h-9 w-full min-w-0 rounded-sm border px-3 py-1.5 text-sm transition-all duration-150",
+        // Background
+        "bg-input",
+        // Border
+        "border-border",
         // Text color
         "text-foreground",
         // Placeholder
-        "placeholder:text-muted-foreground/70",
+        "placeholder:text-muted-foreground/60",
         // Hover state
-        "hover:border-amber-400 hover:shadow-[0_0_10px_rgba(255,149,0,0.15)]",
-        // Focus state - amber glow
-        "focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/30 focus:shadow-[0_0_15px_rgba(255,149,0,0.2)]",
+        "hover:border-primary/50",
+        // Focus state - orange glow
+        "focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30",
         // Disabled state
         "disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
         // Number input - monospace font

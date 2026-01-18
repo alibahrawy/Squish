@@ -14,9 +14,8 @@ const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      "inline-flex h-auto items-center gap-1.5 rounded-lg p-1.5 text-muted-foreground",
-      "bg-slate-100 dark:bg-slate-800/80",
-      "border border-slate-200 dark:border-slate-700",
+      "inline-flex h-auto items-center gap-1 rounded-sm p-1 text-muted-foreground",
+      "bg-muted border border-border",
       className
     )}
     {...props}
@@ -32,19 +31,16 @@ const TabsTrigger = React.forwardRef<
     ref={ref}
     className={cn(
       // Base styles
-      "inline-flex items-center justify-center whitespace-nowrap rounded-md px-4 py-2.5 text-sm font-medium transition-all duration-200",
-      // Default state - more visible
-      "text-slate-600 dark:text-slate-400",
-      "hover:text-foreground hover:bg-white dark:hover:bg-slate-700",
+      "inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-2 text-xs font-medium uppercase tracking-wider transition-all duration-150",
+      // Default state
+      "text-muted-foreground",
+      "hover:text-foreground hover:bg-background/70",
       // Focus state
-      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/50",
-      // Active state - Bloomberg amber
-      "data-[state=active]:bg-white dark:data-[state=active]:bg-slate-700",
-      "data-[state=active]:text-foreground",
-      "data-[state=active]:shadow-md",
-      "data-[state=active]:border-b-2 data-[state=active]:border-amber-500",
-      // Dark mode active glow
-      "dark:data-[state=active]:shadow-[0_2px_12px_rgba(255,149,0,0.2)]",
+      "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary/50",
+      // Active state - orange highlight
+      "data-[state=active]:bg-orange-500",
+      "data-[state=active]:text-white",
+      "data-[state=active]:font-semibold",
       // Disabled
       "disabled:pointer-events-none disabled:opacity-50",
       className
@@ -61,9 +57,9 @@ const TabsContent = React.forwardRef<
   <TabsPrimitive.Content
     ref={ref}
     className={cn(
-      "mt-4 focus-visible:outline-none focus-visible:ring-0",
+      "mt-3 focus-visible:outline-none focus-visible:ring-0",
       // Fade in animation
-      "data-[state=active]:animate-in data-[state=active]:fade-in-0 data-[state=active]:slide-in-from-bottom-1",
+      "data-[state=active]:animate-in data-[state=active]:fade-in-0",
       "data-[state=inactive]:animate-out data-[state=inactive]:fade-out-0",
       className
     )}

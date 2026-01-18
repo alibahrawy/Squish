@@ -14,17 +14,15 @@ const Checkbox = React.forwardRef<
     ref={ref}
     className={cn(
       // Base styles
-      "peer h-5 w-5 shrink-0 rounded border-2 transition-all duration-200",
-      // Default state - more visible
-      "border-slate-400 dark:border-slate-500",
-      "bg-white dark:bg-slate-800",
+      "peer h-4 w-4 shrink-0 rounded-sm border transition-all duration-150",
+      // Default state
+      "border-border bg-input",
       // Hover
-      "hover:border-amber-500 hover:shadow-[0_0_8px_rgba(255,149,0,0.25)]",
+      "hover:border-primary",
       // Focus
-      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+      "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background",
       // Checked state
-      "data-[state=checked]:border-amber-500 data-[state=checked]:bg-amber-500 data-[state=checked]:text-white",
-      "data-[state=checked]:shadow-[0_0_10px_rgba(255,149,0,0.4)]",
+      "data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
       // Disabled
       "disabled:cursor-not-allowed disabled:opacity-50",
       className
@@ -34,7 +32,7 @@ const Checkbox = React.forwardRef<
     <CheckboxPrimitive.Indicator
       className={cn("flex items-center justify-center text-current")}
     >
-      <Check className="h-3.5 w-3.5 stroke-[3]" />
+      <Check className="h-3 w-3 stroke-[3]" />
     </CheckboxPrimitive.Indicator>
   </CheckboxPrimitive.Root>
 ))

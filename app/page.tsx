@@ -7,24 +7,19 @@ import { Calculator } from "lucide-react";
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Unified Header */}
-      <header className="sticky top-0 z-50 terminal-header border-b border-border/50">
-        <div className="container mx-auto px-6 flex h-16 items-center justify-between">
+      {/* Terminal Header */}
+      <header className="sticky top-0 z-50 terminal-header">
+        <div className="container mx-auto px-4 flex h-12 items-center justify-between">
           {/* Logo & Title */}
-          <div className="flex items-center gap-4">
-            <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/20">
-              <Calculator className="h-5 w-5 text-amber-500" />
+          <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center w-8 h-8 rounded-sm bg-primary/10 border border-primary/20">
+              <Calculator className="h-4 w-4 text-primary" />
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <h1 className="text-base font-semibold">
-                  Squish
-                </h1>
-                <span className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-amber-500 text-white">
-                  Pro
-                </span>
-              </div>
-              <p className="text-xs text-muted-foreground hidden sm:block">
+              <h1 className="text-sm font-bold uppercase tracking-wider">
+                Squish
+              </h1>
+              <p className="text-[10px] text-muted-foreground uppercase tracking-wider">
                 SaaS Profitability Calculator
               </p>
             </div>
@@ -36,19 +31,19 @@ export default function Home() {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-6 py-6">
+      <main className="container mx-auto px-4 py-4">
         <BusinessCalculator />
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border/50 bg-muted/20 dark:bg-muted/5">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-            <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <Calculator className="h-3.5 w-3.5 text-amber-500" />
-              <span className="font-medium">Squish v1.0</span>
+      <footer className="border-t border-border bg-muted/30">
+        <div className="container mx-auto px-4 py-3">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-2">
+            <div className="flex items-center gap-2 text-xs text-muted-foreground font-mono">
+              <Calculator className="h-3 w-3 text-primary" />
+              <span>SQUISH v1.0.0</span>
             </div>
-            <p className="text-[10px] text-muted-foreground/60 font-mono uppercase tracking-wider">
+            <p className="text-[10px] text-muted-foreground font-mono uppercase tracking-widest">
               Next.js + Tailwind + Recharts
             </p>
           </div>

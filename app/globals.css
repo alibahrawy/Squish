@@ -8,76 +8,76 @@
 
 :root {
   /* Light Mode - Clean Professional */
-  --background: 220 20% 98%;
-  --foreground: 222 47% 11%;
+  --background: 0 0% 98%;
+  --foreground: 0 0% 9%;
   --card: 0 0% 100%;
-  --card-foreground: 222 47% 11%;
+  --card-foreground: 0 0% 9%;
   --popover: 0 0% 100%;
-  --popover-foreground: 222 47% 11%;
+  --popover-foreground: 0 0% 9%;
 
-  /* Amber Primary (Bloomberg signature) */
-  --primary: 36 100% 50%;
+  /* Bloomberg Orange Primary */
+  --primary: 32 95% 52%;
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 220 14% 96%;
-  --secondary-foreground: 222 47% 11%;
-  --muted: 220 14% 96%;
-  --muted-foreground: 220 9% 46%;
-  --accent: 220 14% 96%;
-  --accent-foreground: 222 47% 11%;
+  --secondary: 0 0% 96%;
+  --secondary-foreground: 0 0% 9%;
+  --muted: 0 0% 94%;
+  --muted-foreground: 0 0% 40%;
+  --accent: 0 0% 92%;
+  --accent-foreground: 0 0% 9%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
-  --border: 220 13% 91%;
-  --input: 220 13% 91%;
-  --ring: 36 100% 50%;
-  --radius: 0.5rem;
+  --border: 0 0% 88%;
+  --input: 0 0% 88%;
+  --ring: 32 95% 52%;
+  --radius: 0.25rem;
 
   /* Chart colors - Bloomberg style */
-  --chart-profit: 145 80% 42%;
-  --chart-loss: 0 84% 60%;
-  --chart-revenue: 36 100% 50%;
-  --chart-costs: 190 90% 45%;
-  --chart-ai: 262 83% 58%;
+  --chart-profit: 142 70% 45%;
+  --chart-loss: 0 72% 51%;
+  --chart-revenue: 32 95% 52%;
+  --chart-costs: 187 85% 43%;
+  --chart-ai: 270 75% 60%;
 }
 
 .dark {
-  /* Deep Navy Bloomberg Background - slightly lighter for visibility */
-  --background: 222 40% 8%;
-  --foreground: 210 40% 98%;
+  /* Bloomberg Terminal Black */
+  --background: 0 0% 3%;
+  --foreground: 0 0% 95%;
 
-  /* Card slightly elevated - more contrast */
-  --card: 222 38% 12%;
-  --card-foreground: 210 40% 98%;
+  /* Card - elevated surface */
+  --card: 0 0% 6%;
+  --card-foreground: 0 0% 95%;
 
-  --popover: 222 38% 12%;
-  --popover-foreground: 210 40% 98%;
+  --popover: 0 0% 6%;
+  --popover-foreground: 0 0% 95%;
 
-  /* Amber Primary - slightly brighter */
-  --primary: 36 100% 55%;
-  --primary-foreground: 222 47% 6%;
+  /* Bloomberg Orange Primary */
+  --primary: 32 95% 52%;
+  --primary-foreground: 0 0% 0%;
 
-  /* Navy variations - better contrast */
-  --secondary: 222 35% 16%;
-  --secondary-foreground: 210 40% 98%;
-  --muted: 222 35% 18%;
-  --muted-foreground: 215 25% 70%;
-  --accent: 222 32% 20%;
-  --accent-foreground: 210 40% 98%;
+  /* Neutral grays - consistent scale */
+  --secondary: 0 0% 10%;
+  --secondary-foreground: 0 0% 95%;
+  --muted: 0 0% 12%;
+  --muted-foreground: 0 0% 55%;
+  --accent: 0 0% 14%;
+  --accent-foreground: 0 0% 95%;
 
-  --destructive: 0 72% 55%;
+  --destructive: 0 72% 51%;
   --destructive-foreground: 0 0% 100%;
 
-  /* More visible borders */
-  --border: 222 25% 25%;
-  --input: 222 30% 18%;
-  --ring: 36 100% 55%;
+  /* Subtle borders */
+  --border: 0 0% 18%;
+  --input: 0 0% 10%;
+  --ring: 32 95% 52%;
 
   /* Chart colors for dark mode */
-  --chart-profit: 145 80% 50%;
-  --chart-loss: 0 84% 60%;
-  --chart-revenue: 36 100% 55%;
-  --chart-costs: 190 90% 55%;
-  --chart-ai: 262 83% 65%;
+  --chart-profit: 142 70% 50%;
+  --chart-loss: 0 72% 55%;
+  --chart-revenue: 32 95% 55%;
+  --chart-costs: 187 85% 48%;
+  --chart-ai: 270 75% 65%;
 }
 
 * {
@@ -137,26 +137,19 @@ body {
 
 /* Card with Terminal Feel */
 .terminal-card {
-  background: white;
-  border: 1px solid rgb(226, 232, 240);
-  border-radius: 0.5rem;
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.dark .terminal-card {
-  background: rgb(15, 23, 42);
-  border-color: rgb(51, 65, 85);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
 .terminal-card:hover {
-  border-color: rgba(251, 191, 36, 0.3);
+  border-color: hsl(var(--primary) / 0.4);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .dark .terminal-card:hover {
-  border-color: rgba(251, 191, 36, 0.3);
-  box-shadow: 0 4px 20px rgba(255, 149, 0, 0.1);
+  box-shadow: 0 4px 20px hsl(var(--primary) / 0.1);
 }
 
 /* Subtle Grid Background */
@@ -188,7 +181,7 @@ body {
   background: hsl(var(--primary) / 0.5);
 }
 
-/* Selection - Amber highlight */
+/* Selection - Orange highlight */
 ::selection {
   background: hsl(var(--primary) / 0.25);
   color: hsl(var(--foreground));
@@ -315,22 +308,93 @@ body {
 
 /* Header Terminal Style */
 .terminal-header {
-  background: linear-gradient(
-    180deg,
-    hsl(var(--background)) 0%,
-    hsl(var(--background) / 0.95) 100%
-  );
+  background: hsl(var(--background) / 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid hsl(var(--border));
 }
 
 .dark .terminal-header {
-  background: linear-gradient(
-    180deg,
-    hsl(222 47% 7% / 0.95) 0%,
-    hsl(222 47% 6% / 0.9) 100%
+  background: hsl(0 0% 4% / 0.98);
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+/* Terminal Scanlines (subtle) */
+.terminal-scanlines {
+  position: relative;
+}
+
+.terminal-scanlines::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    hsl(var(--foreground) / 0.02) 2px,
+    hsl(var(--foreground) / 0.02) 4px
   );
-  border-bottom: 1px solid hsl(var(--border) / 0.5);
+  z-index: 1;
+}
+
+/* Terminal Status Bar */
+.terminal-status {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: hsl(var(--muted-foreground));
+}
+
+.terminal-status-active {
+  color: hsl(var(--primary));
+}
+
+/* Data Grid */
+.data-grid {
+  display: grid;
+  gap: 1px;
+  background: hsl(var(--border));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.data-grid > * {
+  background: hsl(var(--card));
+  padding: 0.75rem 1rem;
+}
+
+/* Metric Box */
+.metric-box {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  padding: 1rem;
+  transition: all 0.15s ease;
+}
+
+.metric-box:hover {
+  border-color: hsl(var(--primary) / 0.3);
+}
+
+.metric-box-label {
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 0.25rem;
+}
+
+.metric-box-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
 }
 
 /* Badge Variants */
@@ -355,7 +419,7 @@ body {
   border: 1px solid hsl(var(--chart-loss) / 0.3);
 }
 
-.badge-amber {
+.badge-orange {
   background: hsl(var(--primary) / 0.15);
   color: hsl(var(--primary));
   border: 1px solid hsl(var(--primary) / 0.3);

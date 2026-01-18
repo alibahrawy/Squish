@@ -108,7 +108,6 @@ export const SERVICES: Service[] = [
     category: "database",
     description: "PostgreSQL with realtime, auth, and storage",
     pricingModel: "flat",
-    recommended: true,
     tiers: [
       { name: "Free", baseCost: 0, triggerAt: 0 },
       { name: "Pro", baseCost: 25, triggerAt: 500 },
@@ -127,7 +126,6 @@ export const SERVICES: Service[] = [
     category: "database",
     description: "Serverless PostgreSQL with scale-to-zero",
     pricingModel: "usage",
-    recommended: true,
     tiers: [
       { name: "Free", baseCost: 0, triggerAt: 0 },
       { name: "Launch", baseCost: 19, triggerAt: 500 },
@@ -214,7 +212,6 @@ export const SERVICES: Service[] = [
     category: "hosting",
     description: "Next.js optimized deployment platform",
     pricingModel: "flat",
-    recommended: true,
     tiers: [
       { name: "Hobby", baseCost: 0, triggerAt: 0 },
       { name: "Pro", baseCost: 20, triggerAt: 100 },
@@ -233,7 +230,6 @@ export const SERVICES: Service[] = [
     category: "hosting",
     description: "Edge computing with zero bandwidth cost",
     pricingModel: "usage",
-    recommended: true,
     tiers: [
       { name: "Free", baseCost: 0, triggerAt: 0 },
       { name: "Paid", baseCost: 5, triggerAt: 1000 },
@@ -261,7 +257,6 @@ export const SERVICES: Service[] = [
     category: "hosting",
     description: "Simple deployment for apps and databases",
     pricingModel: "usage",
-    recommended: true,
     tiers: [
       { name: "Hobby", baseCost: 5, triggerAt: 0 },
       { name: "Pro", baseCost: 20, triggerAt: 5000 },
@@ -311,12 +306,32 @@ export const SERVICES: Service[] = [
   // AUTHENTICATION SERVICES
   // ============================================
   {
+    id: "memberstack",
+    name: "Memberstack",
+    category: "auth",
+    description: "Membership, auth & payments for websites",
+    pricingModel: "per-user",
+    recommended: true,
+    tiers: [
+      { name: "Starter", baseCost: 25, triggerAt: 0 },
+      { name: "Pro", baseCost: 45, triggerAt: 100 },
+      { name: "Business", baseCost: 200, triggerAt: 1000 },
+    ],
+    costPer1kUsers: { low: 45, medium: 200, high: 400 },
+    gotchas: [
+      "Includes payments - also in Payments tab",
+      "Starter limited to 100 members",
+      "Pro limited to 1,000 members",
+      "Business includes unlimited members",
+      "Great for Webflow/Framer sites",
+    ],
+  },
+  {
     id: "supabase-auth",
     name: "Supabase Auth",
     category: "auth",
     description: "Built-in auth with Supabase (best value)",
     pricingModel: "per-user",
-    recommended: true,
     tiers: [
       { name: "Free", baseCost: 0, triggerAt: 0 },
       { name: "Pro", baseCost: 0, triggerAt: 50000 }, // Included with Supabase Pro
@@ -330,7 +345,6 @@ export const SERVICES: Service[] = [
     category: "auth",
     description: "Developer-friendly auth with great DX",
     pricingModel: "per-user",
-    recommended: true,
     tiers: [
       { name: "Free", baseCost: 0, triggerAt: 0 },
       { name: "Pro", baseCost: 25, triggerAt: 10000 },
@@ -380,26 +394,6 @@ export const SERVICES: Service[] = [
     costPer1kUsers: { low: 0, medium: 0, high: 2.5 },
     gotchas: ["1M MAU free, then $2,500/million - best for B2B"],
   },
-  {
-    id: "memberstack",
-    name: "Memberstack",
-    category: "auth",
-    description: "Membership, auth & payments for websites",
-    pricingModel: "per-user",
-    tiers: [
-      { name: "Starter", baseCost: 25, triggerAt: 0 },
-      { name: "Pro", baseCost: 45, triggerAt: 100 },
-      { name: "Business", baseCost: 200, triggerAt: 1000 },
-    ],
-    costPer1kUsers: { low: 45, medium: 200, high: 400 },
-    gotchas: [
-      "Includes payments - also in Payments tab",
-      "Starter limited to 100 members",
-      "Pro limited to 1,000 members",
-      "Business includes unlimited members",
-      "Great for Webflow/Framer sites",
-    ],
-  },
 
   // ============================================
   // EMAIL SERVICES
@@ -410,7 +404,6 @@ export const SERVICES: Service[] = [
     category: "email",
     description: "Modern email API with React support",
     pricingModel: "flat",
-    recommended: true,
     tiers: [
       { name: "Free", baseCost: 0, triggerAt: 0 },
       { name: "Pro", baseCost: 20, triggerAt: 150 },
@@ -487,7 +480,6 @@ export const SERVICES: Service[] = [
     category: "payments",
     description: "Industry standard payment processing",
     pricingModel: "percentage",
-    recommended: true,
     feePercent: 2.9,
     perTransaction: 0.3,
     tiers: [{ name: "Standard", baseCost: 0, triggerAt: 0 }],
@@ -515,7 +507,6 @@ export const SERVICES: Service[] = [
     category: "payments",
     description: "MoR for digital products",
     pricingModel: "percentage",
-    recommended: true,
     feePercent: 5,
     perTransaction: 0.5,
     tiers: [{ name: "Standard", baseCost: 0, triggerAt: 0 }],
@@ -562,7 +553,6 @@ export const SERVICES: Service[] = [
     category: "analytics",
     description: "Open source product analytics",
     pricingModel: "usage",
-    recommended: true,
     tiers: [
       { name: "Free", baseCost: 0, triggerAt: 0 },
       { name: "Pay-as-you-go", baseCost: 0, triggerAt: 5000 },
@@ -576,7 +566,6 @@ export const SERVICES: Service[] = [
     category: "analytics",
     description: "Event-based product analytics",
     pricingModel: "usage",
-    recommended: true,
     tiers: [
       { name: "Free", baseCost: 0, triggerAt: 0 },
       { name: "Growth", baseCost: 24, triggerAt: 10000 },
@@ -648,7 +637,6 @@ export const SERVICES: Service[] = [
     category: "storage",
     description: "S3-compatible with zero egress fees",
     pricingModel: "usage",
-    recommended: true,
     tiers: [
       { name: "Free", baseCost: 0, triggerAt: 0 },
       { name: "Pay-as-you-go", baseCost: 0, triggerAt: 1000 },
@@ -706,7 +694,6 @@ export const SERVICES: Service[] = [
     category: "jobs",
     description: "Serverless message queue (cheapest)",
     pricingModel: "usage",
-    recommended: true,
     tiers: [
       { name: "Free", baseCost: 0, triggerAt: 0 },
       { name: "Pay-as-you-go", baseCost: 0, triggerAt: 1000 },

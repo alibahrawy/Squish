@@ -13,6 +13,13 @@ import {
   Info,
   Star,
 } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
@@ -117,96 +124,89 @@ export function ServiceSelector({
   };
 
   return (
-    <div className="terminal-card p-6">
-      {/* Header */}
-      <div className="flex items-center justify-between mb-6">
+    <Card>
+      <CardHeader className="!flex !flex-row items-center justify-between space-y-0">
         <div className="flex items-center gap-3">
-          <div className="h-8 w-8 rounded-lg bg-primary/10 flex items-center justify-center">
-            <Server className="h-4 w-4 text-primary" />
-          </div>
+          <Server className="h-5 w-5 text-primary" />
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider">
-              Select Your Stack
-            </h3>
-            <p className="text-xs text-muted-foreground mt-0.5">
-              Choose the services for your SaaS
-            </p>
+            <CardTitle>Select Your Stack</CardTitle>
+            <CardDescription>Choose the services for your SaaS</CardDescription>
           </div>
         </div>
-        <div className="flex items-center gap-4 text-sm">
-          <div className="text-right">
-            <span className="text-muted-foreground text-xs block">Services</span>
-            <span className="font-mono font-medium">{selectedServices.length}</span>
+        <div className="flex items-center gap-2">
+          <div className="px-3 py-1.5 rounded-sm bg-muted border border-border">
+            <span className="text-muted-foreground text-[9px] uppercase tracking-wider block">Services</span>
+            <span className="font-mono font-semibold text-lg tabular-nums transition-all duration-300">{selectedServices.length}</span>
           </div>
-          <div className="h-8 w-px bg-border" />
-          <div className="text-right">
-            <span className="text-muted-foreground text-xs block">Est. Cost</span>
-            <span className="font-mono font-medium text-primary">
-              {formatCurrency(totalBaseCost)}/mo
+          <div className="px-3 py-1.5 rounded-sm bg-primary/10 border border-primary/30">
+            <span className="text-muted-foreground text-[9px] uppercase tracking-wider block">Est. Cost</span>
+            <span className="font-mono font-semibold text-lg tabular-nums text-primary transition-all duration-300">
+              {formatCurrency(totalBaseCost)}
             </span>
           </div>
         </div>
-      </div>
+      </CardHeader>
+      <CardContent>
+        {/* Category Tabs */}
+        <Tabs
+          value={activeTab}
+          onValueChange={(v) => setActiveTab(v as ServiceCategory)}
+          className="w-full"
+        >
+          <TabsList className="w-full grid grid-cols-4 sm:grid-cols-8 h-auto gap-1 p-1 mb-4">
+            {CATEGORIES.map((category) => {
+              const count = getCategoryCount(category.id);
+              return (
+                <TabsTrigger
+                  key={category.id}
+                  value={category.id}
+                  className="gap-1.5 text-[10px] py-2 px-2 relative"
+                >
+                  {categoryIcons[category.id]}
+                  <span className="hidden sm:inline">{category.name}</span>
+                  {count > 0 && (
+                    <span className="min-w-[18px] h-4 px-1 rounded-sm bg-primary text-[10px] font-bold flex items-center justify-center text-primary-foreground">
+                      {count}
+                    </span>
+                  )}
+                </TabsTrigger>
+              );
+            })}
+          </TabsList>
 
-      {/* Category Tabs */}
-      <Tabs
-        value={activeTab}
-        onValueChange={(v) => setActiveTab(v as ServiceCategory)}
-        className="w-full"
-      >
-        <TabsList className="w-full grid grid-cols-4 sm:grid-cols-8 h-auto gap-2 p-2 mb-4">
-          {CATEGORIES.map((category) => {
-            const count = getCategoryCount(category.id);
-            return (
-              <TabsTrigger
-                key={category.id}
-                value={category.id}
-                className="gap-2 text-xs py-2.5 px-3 relative"
-              >
-                {categoryIcons[category.id]}
-                <span className="hidden sm:inline">{category.name}</span>
-                {count > 0 && (
-                  <span className="min-w-[20px] h-5 px-1.5 rounded-full bg-amber-500 text-[11px] font-bold flex items-center justify-center text-white shadow-sm">
-                    {count}
-                  </span>
-                )}
-              </TabsTrigger>
-            );
-          })}
-        </TabsList>
-
-        {/* Service Lists */}
-        {CATEGORIES.map((category) => (
-          <TabsContent
-            key={category.id}
-            value={category.id}
-            className="mt-0 space-y-1"
-          >
-            <p className="text-xs text-muted-foreground mb-4">
-              {category.description}
-            </p>
-            <div className="space-y-2 max-h-[400px] overflow-y-auto pr-2">
-              {getServicesByCategory(category.id).map((service) => (
-                <ServiceRow
-                  key={service.id}
-                  service={service}
-                  isSelected={isSelected(service.id)}
-                  onToggle={() => toggleService(service.id)}
-                  priceDisplay={getServicePriceDisplay(service)}
-                  tierName={getActiveTierName(service)}
-                  expandedInfo={expandedInfo}
-                  onToggleInfo={() =>
-                    setExpandedInfo(
-                      expandedInfo === service.id ? null : service.id
-                    )
-                  }
-                />
-              ))}
-            </div>
-          </TabsContent>
-        ))}
-      </Tabs>
-    </div>
+          {/* Service Lists */}
+          {CATEGORIES.map((category) => (
+            <TabsContent
+              key={category.id}
+              value={category.id}
+              className="mt-0 space-y-1"
+            >
+              <p className="text-xs text-muted-foreground mb-3">
+                {category.description}
+              </p>
+              <div className="space-y-2 max-h-[350px] overflow-y-auto pr-2">
+                {getServicesByCategory(category.id).map((service) => (
+                  <ServiceRow
+                    key={service.id}
+                    service={service}
+                    isSelected={isSelected(service.id)}
+                    onToggle={() => toggleService(service.id)}
+                    priceDisplay={getServicePriceDisplay(service)}
+                    tierName={getActiveTierName(service)}
+                    expandedInfo={expandedInfo}
+                    onToggleInfo={() =>
+                      setExpandedInfo(
+                        expandedInfo === service.id ? null : service.id
+                      )
+                    }
+                  />
+                ))}
+              </div>
+            </TabsContent>
+          ))}
+        </Tabs>
+      </CardContent>
+    </Card>
   );
 }
 
@@ -236,7 +236,7 @@ function ServiceRow({
     <Collapsible open={isExpanded} onOpenChange={onToggleInfo}>
       <div
         className={`
-          group flex items-center gap-4 p-4 rounded-lg border transition-all duration-200 cursor-pointer
+          group flex items-center gap-4 p-4 rounded-sm border transition-all duration-200 cursor-pointer
           ${
             isSelected
               ? "border-primary/40 bg-primary/5 dark:bg-primary/10"
@@ -257,7 +257,7 @@ function ServiceRow({
           <div className="flex items-center gap-2">
             <span className="text-sm font-medium truncate">{service.name}</span>
             {service.recommended && (
-              <span className="badge-terminal badge-amber flex items-center gap-1">
+              <span className="badge-terminal badge-orange flex items-center gap-1">
                 <Star className="h-2.5 w-2.5" />
                 <span>Recommended</span>
               </span>
@@ -299,7 +299,7 @@ function ServiceRow({
 
       {/* Expanded Info */}
       <CollapsibleContent className="px-3 pb-2">
-        <div className="mt-2 p-3 rounded-lg bg-muted/30 border border-border/30 space-y-2">
+        <div className="mt-2 p-3 rounded-sm bg-muted/30 border border-border/30 space-y-2">
           {/* Tier Breakdown */}
           <div>
             <div className="text-[10px] uppercase tracking-wider text-muted-foreground mb-1.5">
@@ -335,7 +335,7 @@ function ServiceRow({
                     key={i}
                     className="text-xs text-muted-foreground flex items-start gap-1.5"
                   >
-                    <span className="text-amber-500 mt-0.5">*</span>
+                    <span className="text-orange-500 mt-0.5">*</span>
                     {gotcha}
                   </li>
                 ))}
@@ -351,10 +351,10 @@ function ServiceRow({
               </div>
               <div className="flex gap-3 text-xs">
                 <span>
-                  Low: <span className="text-emerald-500 font-mono">${service.costPer1kUsers.low}</span>
+                  Low: <span className="text-green-500 font-mono">${service.costPer1kUsers.low}</span>
                 </span>
                 <span>
-                  Med: <span className="text-amber-500 font-mono">${service.costPer1kUsers.medium}</span>
+                  Med: <span className="text-orange-500 font-mono">${service.costPer1kUsers.medium}</span>
                 </span>
                 <span>
                   High: <span className="text-red-500 font-mono">${service.costPer1kUsers.high}</span>

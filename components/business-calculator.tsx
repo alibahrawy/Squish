@@ -15,11 +15,6 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
-import {
   Table,
   TableBody,
   TableCell,
@@ -60,7 +55,6 @@ import {
   DollarSign,
   PiggyBank,
   Calculator,
-  ChevronDown,
   CheckCircle2,
   Circle,
   AlertTriangle,
@@ -74,20 +68,20 @@ import {
 
 // Bloomberg Terminal Chart Colors
 const COLORS = {
-  profit: "#00d26a",      // Bright green
-  loss: "#ff3b30",        // Bright red
-  revenue: "#ff9500",     // Bloomberg amber/orange
-  costs: "#00b8d4",       // Cyan
+  profit: "#22c55e",      // Green
+  loss: "#ef4444",        // Red
+  revenue: "#ea580c",     // Bloomberg orange
+  costs: "#0891b2",       // Cyan
   ai: "#a855f7",          // Purple
   infrastructure: "#06b6d4", // Teal
   fixed: "#6366f1",       // Indigo
-  optimistic: "#00d26a",  // Green
-  pessimistic: "#ff3b30", // Red
-  realistic: "#ff9500",   // Amber
-  payments: "#f472b6",    // Pink
+  optimistic: "#22c55e",  // Green
+  pessimistic: "#ef4444", // Red
+  realistic: "#ea580c",   // Orange
+  payments: "#ec4899",    // Pink
 };
 
-const PIE_COLORS = ["#ff9500", "#00b8d4", "#a855f7", "#6366f1", "#00d26a", "#f472b6"];
+const PIE_COLORS = ["#ea580c", "#0891b2", "#a855f7", "#6366f1", "#22c55e", "#ec4899"];
 
 // Recommended default stack for new SaaS
 const RECOMMENDED_STACK: SelectedService[] = [
@@ -111,7 +105,6 @@ export function BusinessCalculator() {
   const [claudeCost, setClaudeCost] = useState(100);
   const [domainCost, setDomainCost] = useState(8);
   const [costPerCredit, setCostPerCredit] = useState(0.001);
-  const [showAdvanced, setShowAdvanced] = useState(false);
 
   // Services state - start with recommended stack
   const [selectedServices, setSelectedServices] = useState<SelectedService[]>(RECOMMENDED_STACK);
@@ -306,6 +299,70 @@ export function BusinessCalculator() {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
+            {/* Pricing */}
+            <div className="space-y-4">
+              <h4 className="font-medium text-sm text-muted-foreground">
+                Pricing
+              </h4>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label>Plan Price</Label>
+                  <div className="relative">
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                      $
+                    </span>
+                    <Input
+                      type="number"
+                      value={proPrice}
+                      onChange={(e) => setProPrice(Number(e.target.value) || 0)}
+                      className="pl-7"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label>Cost per Credit</Label>
+                  <div className="relative">
+                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                      $
+                    </span>
+                    <Input
+                      type="number"
+                      value={costPerCredit}
+                      onChange={(e) =>
+                        setCostPerCredit(Number(e.target.value) || 0.001)
+                      }
+                      step={0.0001}
+                      className="pl-7"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label>Free Credits</Label>
+                  <Input
+                    type="number"
+                    value={freeCredits}
+                    onChange={(e) =>
+                      setFreeCredits(Number(e.target.value) || 0)
+                    }
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label>Pro Credits</Label>
+                  <Input
+                    type="number"
+                    value={proCredits}
+                    onChange={(e) => setProCredits(Number(e.target.value) || 0)}
+                  />
+                </div>
+              </div>
+            </div>
+
+            <Separator />
+
             {/* Users & Conversion */}
             <div className="space-y-4">
               <h4 className="font-medium text-sm text-muted-foreground">
@@ -370,52 +427,6 @@ export function BusinessCalculator() {
                 <p className="text-xs text-muted-foreground">
                   How much of their credits Pro users actually use
                 </p>
-              </div>
-            </div>
-
-            <Separator />
-
-            {/* Pricing */}
-            <div className="space-y-4">
-              <h4 className="font-medium text-sm text-muted-foreground">
-                Pricing
-              </h4>
-
-              <div className="grid grid-cols-3 gap-4">
-                <div className="space-y-2">
-                  <Label>Pro Price</Label>
-                  <div className="relative">
-                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
-                      $
-                    </span>
-                    <Input
-                      type="number"
-                      value={proPrice}
-                      onChange={(e) => setProPrice(Number(e.target.value) || 0)}
-                      className="pl-7"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <Label>Free Credits</Label>
-                  <Input
-                    type="number"
-                    value={freeCredits}
-                    onChange={(e) =>
-                      setFreeCredits(Number(e.target.value) || 0)
-                    }
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label>Pro Credits</Label>
-                  <Input
-                    type="number"
-                    value={proCredits}
-                    onChange={(e) => setProCredits(Number(e.target.value) || 0)}
-                  />
-                </div>
               </div>
             </div>
 
@@ -508,31 +519,6 @@ export function BusinessCalculator() {
               </div>
             </div>
 
-            {/* Advanced Settings */}
-            <Collapsible open={showAdvanced} onOpenChange={setShowAdvanced}>
-              <CollapsibleTrigger className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors">
-                <ChevronDown
-                  className={`h-4 w-4 transition-transform ${showAdvanced ? "rotate-180" : ""}`}
-                />
-                Advanced Settings
-              </CollapsibleTrigger>
-              <CollapsibleContent className="pt-4">
-                <div className="space-y-2">
-                  <Label>Cost per Credit ($)</Label>
-                  <Input
-                    type="number"
-                    value={costPerCredit}
-                    onChange={(e) =>
-                      setCostPerCredit(Number(e.target.value) || 0.001)
-                    }
-                    step={0.0001}
-                  />
-                  <p className="text-xs text-muted-foreground">
-                    Default: $0.001 per credit (1 credit = $0.001)
-                  </p>
-                </div>
-              </CollapsibleContent>
-            </Collapsible>
           </CardContent>
         </Card>
 
@@ -554,62 +540,62 @@ export function BusinessCalculator() {
           </CardHeader>
           <CardContent className="space-y-6">
             {/* Primary Metrics */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3">
               <div
-                className={`p-4 rounded-lg border-2 ${isProfitable ? "border-green-200 bg-green-50 dark:bg-green-950/20 dark:border-green-900" : "border-red-200 bg-red-50 dark:bg-red-950/20 dark:border-red-900"}`}
+                className={`metric-box ${isProfitable ? "border-green-500/30" : "border-red-500/30"}`}
               >
-                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
+                <div className="metric-box-label flex items-center gap-1.5">
                   {isProfitable ? (
-                    <TrendingUp className="h-4 w-4 text-green-600" />
+                    <TrendingUp className="h-3 w-3 text-green-500" />
                   ) : (
-                    <TrendingDown className="h-4 w-4 text-red-600" />
+                    <TrendingDown className="h-3 w-3 text-red-500" />
                   )}
                   Monthly Profit
                 </div>
                 <div
-                  className={`text-2xl font-bold font-mono tabular-nums ${isProfitable ? "text-emerald-500" : "text-red-500"}`}
+                  className={`metric-box-value ${isProfitable ? "text-green-500" : "text-red-500"}`}
                 >
                   {isProfitable ? "+" : ""}
                   {formatCurrency(results.profit)}
                 </div>
-                <div className="text-xs text-muted-foreground mt-1">
+                <div className="text-[10px] text-muted-foreground mt-1 font-mono">
                   {formatPercent(results.profitMargin)} margin
                 </div>
               </div>
 
-              <div className="p-4 rounded-lg border bg-muted/30 dark:bg-muted/10">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
-                  <DollarSign className="h-4 w-4 text-primary" />
+              <div className="metric-box">
+                <div className="metric-box-label flex items-center gap-1.5">
+                  <DollarSign className="h-3 w-3 text-primary" />
                   Net Revenue
                 </div>
-                <div className="text-2xl font-bold font-mono tabular-nums text-primary">
+                <div className="metric-box-value text-primary">
                   {formatCurrency(results.revenue)}
                 </div>
-                <div className="text-xs text-muted-foreground mt-1 font-mono">
+                <div className="text-[10px] text-muted-foreground mt-1 font-mono">
                   {formatCurrency(results.grossRevenue)} gross
                 </div>
               </div>
 
-              <div className="p-4 rounded-lg border bg-muted/30 dark:bg-muted/10">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
-                  <Calculator className="h-4 w-4" />
+              <div className="metric-box">
+                <div className="metric-box-label flex items-center gap-1.5">
+                  <Calculator className="h-3 w-3" />
                   Total Costs
                 </div>
-                <div className="text-2xl font-bold font-mono tabular-nums">
+                <div className="metric-box-value">
                   {formatCurrency(results.totalCosts)}
                 </div>
               </div>
 
-              <div className="p-4 rounded-lg border bg-muted/30 dark:bg-muted/10">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
-                  <PiggyBank className="h-4 w-4" />
+              <div className="metric-box">
+                <div className="metric-box-label flex items-center gap-1.5">
+                  <PiggyBank className="h-3 w-3" />
                   Cash Reserve
                 </div>
-                <div className="text-2xl font-bold font-mono tabular-nums">
+                <div className="metric-box-value">
                   {formatCurrency(results.cashReserve)}
                 </div>
-                <div className="text-xs text-muted-foreground mt-1">
-                  Needed to operate safely
+                <div className="text-[10px] text-muted-foreground mt-1">
+                  Required runway
                 </div>
               </div>
             </div>
@@ -623,7 +609,7 @@ export function BusinessCalculator() {
                 Scenario Range
               </h4>
               <div className="grid grid-cols-3 gap-3">
-                <div className="p-3 rounded-lg bg-red-500/5 dark:bg-red-500/10 border border-red-500/20">
+                <div className="p-3 rounded-sm bg-red-500/5 dark:bg-red-500/10 border border-red-500/20">
                   <div className="text-xs text-muted-foreground uppercase tracking-wide">Pessimistic</div>
                   <div className="text-lg font-semibold font-mono tabular-nums text-red-500">
                     {formatCurrency(pessimisticResults.profit)}
@@ -632,7 +618,7 @@ export function BusinessCalculator() {
                     {formatPercent(pessimisticInputs.conversionRate)} / {pessimisticInputs.proUsageRate}%
                   </div>
                 </div>
-                <div className="p-3 rounded-lg bg-primary/5 dark:bg-primary/10 border border-primary/20">
+                <div className="p-3 rounded-sm bg-primary/5 dark:bg-primary/10 border border-primary/20">
                   <div className="text-xs text-muted-foreground uppercase tracking-wide">Realistic</div>
                   <div className={`text-lg font-semibold font-mono tabular-nums ${isProfitable ? "text-primary" : "text-red-500"}`}>
                     {formatCurrency(results.profit)}
@@ -641,9 +627,9 @@ export function BusinessCalculator() {
                     {formatPercent(inputs.conversionRate)} / {inputs.proUsageRate}%
                   </div>
                 </div>
-                <div className="p-3 rounded-lg bg-emerald-500/5 dark:bg-emerald-500/10 border border-emerald-500/20">
+                <div className="p-3 rounded-sm bg-green-500/5 dark:bg-green-500/10 border border-green-500/20">
                   <div className="text-xs text-muted-foreground uppercase tracking-wide">Optimistic</div>
-                  <div className="text-lg font-semibold font-mono tabular-nums text-emerald-500">
+                  <div className="text-lg font-semibold font-mono tabular-nums text-green-500">
                     {formatCurrency(optimisticResults.profit)}
                   </div>
                   <div className="text-xs text-muted-foreground font-mono">
@@ -702,16 +688,16 @@ export function BusinessCalculator() {
             {/* Per-User Economics */}
             <div className="space-y-3">
               <h4 className="font-medium text-sm">Per-User Economics</h4>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="p-3 rounded-lg bg-muted/30 dark:bg-muted/10 border border-emerald-500/20">
+              <div className="grid grid-cols-2 gap-3">
+                <div className="p-3 rounded-sm bg-green-500/5 border border-green-500/20">
                   <div className="text-xs text-muted-foreground uppercase tracking-wide">
                     Profit per Pro
                   </div>
-                  <div className="text-lg font-semibold font-mono tabular-nums text-emerald-500">
+                  <div className="text-lg font-semibold font-mono tabular-nums text-green-500">
                     +{formatCurrency(results.profitPerPro)}
                   </div>
                 </div>
-                <div className="p-3 rounded-lg bg-muted/30 dark:bg-muted/10 border border-red-500/20">
+                <div className="p-3 rounded-sm bg-red-500/5 border border-red-500/20">
                   <div className="text-xs text-muted-foreground uppercase tracking-wide">
                     Cost per Free
                   </div>
@@ -983,7 +969,7 @@ export function BusinessCalculator() {
               </div>
               <div className="grid grid-cols-3 gap-4 mt-4">
                 {scenarioData.map((s) => (
-                  <div key={s.scenario} className="p-3 rounded-lg bg-muted/50 text-center">
+                  <div key={s.scenario} className="p-3 rounded-sm bg-muted/50 text-center">
                     <div className="font-medium">{s.scenario}</div>
                     <div className="text-sm text-muted-foreground">
                       {s.conversion}% conv / {s.usage}% usage
@@ -1056,7 +1042,7 @@ export function BusinessCalculator() {
                       {formatCurrency(row.totalCosts)}
                     </TableCell>
                     <TableCell
-                      className={`text-right font-medium font-mono tabular-nums ${rowIsProfitable ? "text-emerald-500" : "text-red-500"}`}
+                      className={`text-right font-medium font-mono tabular-nums ${rowIsProfitable ? "text-green-500" : "text-red-500"}`}
                     >
                       {rowIsProfitable ? "+" : ""}
                       {formatCurrency(rowProfit)}
@@ -1086,7 +1072,7 @@ export function BusinessCalculator() {
               {results.serviceUpgrades.map((upgrade, index) => (
                 <div
                   key={`${upgrade.serviceId}-${upgrade.triggerUsers}-${index}`}
-                  className={`flex items-center gap-4 p-3 rounded-lg border ${
+                  className={`flex items-center gap-4 p-3 rounded-sm border ${
                     upgrade.isActive
                       ? "bg-primary/5 border-primary/20"
                       : "bg-muted/30"
@@ -1116,7 +1102,7 @@ export function BusinessCalculator() {
             </div>
 
             {/* Dynamic Infrastructure Summary */}
-            <div className="mt-6 p-4 rounded-lg bg-muted/50">
+            <div className="mt-6 p-4 rounded-sm bg-muted/50">
               <h4 className="font-medium mb-3 flex items-center gap-2">
                 <Server className="h-4 w-4" />
                 Current Infrastructure ({formatNumber(users)} users)
