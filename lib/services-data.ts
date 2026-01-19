@@ -18,6 +18,7 @@ export interface ServiceTier {
   includedUnits?: number;
   unitType?: string;
   overageCost?: number;
+  feePercent?: number; // Transaction fee percentage for this tier
 }
 
 export interface Service {
@@ -313,16 +314,18 @@ export const SERVICES: Service[] = [
     pricingModel: "per-user",
     recommended: true,
     tiers: [
-      { name: "Starter", baseCost: 25, triggerAt: 0 },
-      { name: "Pro", baseCost: 45, triggerAt: 100 },
-      { name: "Business", baseCost: 200, triggerAt: 1000 },
+      { name: "Basic", baseCost: 29, triggerAt: 0, feePercent: 4 },
+      { name: "Professional", baseCost: 49, triggerAt: 1000, feePercent: 2 },
+      { name: "Business", baseCost: 99, triggerAt: 5000, feePercent: 0.9 },
+      { name: "Established", baseCost: 499, triggerAt: 10000, feePercent: 0 },
     ],
-    costPer1kUsers: { low: 45, medium: 200, high: 400 },
+    costPer1kUsers: { low: 49, medium: 99, high: 499 },
     gotchas: [
       "Includes payments - also in Payments tab",
-      "Starter limited to 100 members",
-      "Pro limited to 1,000 members",
-      "Business includes unlimited members",
+      "Basic limited to 1,000 members (4% txn fee)",
+      "Professional limited to 5,000 members (2% txn fee)",
+      "Business limited to 10,000 members (0.9% txn fee)",
+      "Established for 10,000+ members (0% txn fee)",
       "Great for Webflow/Framer sites",
     ],
   },
@@ -526,21 +529,22 @@ export const SERVICES: Service[] = [
     gotchas: ["30% on marketplace sales", "Higher fees but simpler"],
   },
   {
-    id: "memberstack",
+    id: "memberstack-payments",
     name: "Memberstack",
     category: "payments",
     description: "Membership payments & subscriptions",
     pricingModel: "flat",
     tiers: [
-      { name: "Starter", baseCost: 25, triggerAt: 0 },
-      { name: "Pro", baseCost: 45, triggerAt: 100 },
-      { name: "Business", baseCost: 200, triggerAt: 1000 },
+      { name: "Basic", baseCost: 29, triggerAt: 0, feePercent: 4 },
+      { name: "Professional", baseCost: 49, triggerAt: 1000, feePercent: 2 },
+      { name: "Business", baseCost: 99, triggerAt: 5000, feePercent: 0.9 },
+      { name: "Established", baseCost: 499, triggerAt: 10000, feePercent: 0 },
     ],
-    costPer1kUsers: { low: 45, medium: 200, high: 400 },
+    costPer1kUsers: { low: 49, medium: 99, high: 499 },
     gotchas: [
       "Same as Memberstack Auth - only counted once",
-      "Includes Stripe integration",
-      "0% transaction fees (pay Stripe directly)",
+      "Transaction fees: 4% (Basic), 2% (Pro), 0.9% (Business), 0% (Established)",
+      "Fees on top of Stripe's 2.9% + $0.30",
     ],
   },
 

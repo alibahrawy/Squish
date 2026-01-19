@@ -140,22 +140,38 @@ export function calculateInfrastructure(
 
 /**
  * Calculate payment processing costs
+ * Handles both payment services and auth services with tier-specific transaction fees (like Memberstack)
  */
 export function calculatePaymentCosts(
   selectedServices: SelectedService[],
   revenue: number,
-  transactionCount: number
+  transactionCount: number,
+  users: number = 0
 ): number {
   let totalFees = 0;
 
   for (const selected of selectedServices) {
     const service = getServiceById(selected.serviceId);
-    if (!service || service.category !== "payments") continue;
+    if (!service) continue;
 
-    if (service.pricingModel === "percentage") {
+    // Handle standard payment services with percentage-based pricing
+    if (service.category === "payments" && service.pricingModel === "percentage") {
       const percentFee = revenue * ((service.feePercent || 0) / 100);
       const transactionFee = transactionCount * (service.perTransaction || 0);
       totalFees += percentFee + transactionFee;
+    }
+
+    // Handle auth services with tier-specific transaction fees (like Memberstack)
+    if (service.category === "auth") {
+      const tiers = selected.customTiers || service.tiers;
+      const sortedTiers = [...tiers].sort((a, b) => b.triggerAt - a.triggerAt);
+      const activeTier = sortedTiers.find((tier) => users >= tier.triggerAt) || tiers[0];
+
+      // If this tier has a transaction fee percentage, apply it
+      if (activeTier.feePercent !== undefined && activeTier.feePercent > 0) {
+        const tierFee = revenue * (activeTier.feePercent / 100);
+        totalFees += tierFee;
+      }
     }
   }
 
@@ -227,7 +243,8 @@ export function generateProjections(inputs: BusinessInputs): ProjectionRow[] {
     const paymentFees = calculatePaymentCosts(
       inputs.selectedServices,
       grossRevenue,
-      estimatedTransactions
+      estimatedTransactions,
+      users
     );
 
     const revenue = grossRevenue - paymentFees;
@@ -288,7 +305,8 @@ export function calculateBusiness(inputs: BusinessInputs): BusinessResults {
   const paymentProcessingCost = calculatePaymentCosts(
     inputs.selectedServices,
     grossRevenue,
-    estimatedTransactions
+    estimatedTransactions,
+    inputs.users
   );
 
   // Net revenue after payment fees

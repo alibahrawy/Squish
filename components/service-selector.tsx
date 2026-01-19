@@ -101,7 +101,7 @@ export function ServiceSelector({
 
   // Get service price display
   const getServicePriceDisplay = (service: Service) => {
-    if (service.category === "payments") {
+    if (service.category === "payments" && service.pricingModel === "percentage") {
       return `${service.feePercent}% + $${service.perTransaction}/txn`;
     }
     const sortedTiers = [...service.tiers].sort(
@@ -109,12 +109,18 @@ export function ServiceSelector({
     );
     const activeTier =
       sortedTiers.find((tier) => users >= tier.triggerAt) || service.tiers[0];
+
+    // Include tier-specific transaction fee if present
+    if (activeTier.feePercent !== undefined) {
+      return `${formatCurrency(activeTier.baseCost)}/mo + ${activeTier.feePercent}%`;
+    }
     return `${formatCurrency(activeTier.baseCost)}/mo`;
   };
 
   // Get active tier name
   const getActiveTierName = (service: Service) => {
-    if (service.category === "payments") return "";
+    // Skip tier name for percentage-based payment services (Stripe, Paddle, etc.)
+    if (service.category === "payments" && service.pricingModel === "percentage") return "";
     const sortedTiers = [...service.tiers].sort(
       (a, b) => b.triggerAt - a.triggerAt
     );
@@ -314,6 +320,9 @@ function ServiceRow({
                   <span className="font-medium">{tier.name}</span>
                   <span className="text-muted-foreground ml-1">
                     ${tier.baseCost}
+                    {tier.feePercent !== undefined && (
+                      <span className="text-orange-500"> +{tier.feePercent}%</span>
+                    )}
                     {tier.triggerAt > 0 && (
                       <span className="text-[10px]"> @ {tier.triggerAt}+ users</span>
                     )}
