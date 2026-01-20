@@ -1,0 +1,134 @@
+{
+  "id": "workos",
+  "name": "WorkOS",
+  "category": "auth",
+  "description": "WorkOS provides authentication and user management solutions for SaaS applications, including SSO, MFA, and user provisioning.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "User management",
+    "Social authentication (Microsoft, Google, etc.)",
+    "Email + Password authentication",
+    "Password strength and leak detection",
+    "Magic Auth (passwordless)",
+    "Multi-Factor Auth (MFA) - TOTP, SMS",
+    "Email verification",
+    "Organization auth policies",
+    "Just-in-time (JIT) user provisioning",
+    "Biometric / Passkey Auth",
+    "Role-Based Access Control (RBAC)",
+    "CLI Authentication",
+    "Single Sign-On (SAML, OIDC)",
+    "Directory Sync (user provisioning, de-provisioning, role mapping)",
+    "Audit Logs (capture and export compliance events)",
+    "Log streaming to SIEM",
+    "Event Retention",
+    "Bot, fraud, and abuse protection (Radar)",
+    "Custom Domain",
+    "Admin Portal",
+    "API Access"
+  ],
+  "tiers": [
+    {
+      "name": "Free Tier",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": 1000000,
+      "unitType": "active users",
+      "overageCost": 2500,
+      "overageUnit": "per additional 1M users",
+      "feePercent": null,
+      "features": [
+        "Deploy in minutes",
+        "Dedicated Slack channel",
+        "Transparent pricing",
+        "AuthKit (User management, social auth, MFA, RBAC)",
+        "Single Sign-On (limited connections)",
+        "Directory Sync (limited connections)",
+        "Audit Logs (basic)",
+        "Radar (limited checks)",
+        "Custom Domain (not included)",
+        "Admin Portal (basic functionality)"
+      ],
+      "limits": {
+        "users": "1 million active users",
+        "connections": null,
+        "SIEM connections": null,
+        "eventRetention": null
+      }
+    },
+    {
+      "name": "Pay as you go",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Everything in Free Tier",
+        "Automatic volume discounts",
+        "Deploy in minutes",
+        "Dedicated Slack channel",
+        "Transparent pricing"
+      ],
+      "limits": {
+        "users": null,
+        "connections": null,
+        "SIEM connections": null,
+        "eventRetention": null
+      }
+    },
+    {
+      "name": "Annual Credits",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Everything in Pay as you go",
+        "Pre-pay credit discounts",
+        "99.99% uptime SLA",
+        "Guided migration and onboarding",
+        "Guaranteed support SLA",
+        "Video calls",
+        "Private Slack channel",
+        "Technical onboarding guidance",
+        "Guaranteed response SLAs"
+      ],
+      "limits": {
+        "users": null,
+        "connections": null,
+        "SIEM connections": null,
+        "eventRetention": null
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 2.5,
+    "high": 2.5
+  },
+  "gotchas": [
+    "The 'Free' tier for AuthKit includes the first 1 million active users for free. Beyond that, it's $2,500 per additional 1 million users per month.",
+    "Single Sign-On and Directory Sync are priced per connection, with volume-based discounts. The first 15 connections are $125/each, with significant discounts for larger volumes.",
+    "Audit Logs has separate pricing for log streaming ($125/month per SIEM connection) and event retention ($99/month per million events stored).",
+    "Radar (bot protection) is free for the first 1,000 checks, then $100 per 50k checks.",
+    "Custom Domain is an add-on at $99/month.",
+    "The distinction between 'Pay as you go' and 'Annual Credits' implies that 'Annual Credits' offers discounts for pre-payment and a more committed plan, but the base costs are not explicitly separated beyond the pre-pay discount.",
+    "A 'connection' for SSO/Directory Sync is defined as the relationship between WorkOS and a group of end users (e.g., one enterprise customer). The number of end users within a connection does not affect pricing.",
+    "The staging environment is free for testing, but production use will incur costs based on the chosen plan and usage."
+  ],
+  "alternatives": [
+    "Auth0",
+    "Okta",
+    "Firebase Authentication",
+    "AWS Cognito"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:49:34.592748+00:00",
+  "sourceUrl": "https://workos.com/pricing"
+}

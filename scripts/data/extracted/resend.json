@@ -1,0 +1,179 @@
+{
+  "id": "resend",
+  "name": "Resend",
+  "category": "email",
+  "description": "Resend is an API-first email sending service designed to make email delivery reliable and developer-friendly.",
+  "pricingModel": "flat",
+  "capabilities": [
+    "email sending",
+    "email receiving",
+    "RESTful API",
+    "SMTP Relay",
+    "official SDKs",
+    "schedule emails",
+    "batch sending",
+    "open tracking",
+    "link tracking",
+    "React Email",
+    "custom domains",
+    "dedicated IPs",
+    "pristine shared IPs",
+    "automatic suppression list",
+    "bounce details",
+    "multi-region sending",
+    "DKIM, SPF, DMARC authentication",
+    "webhook endpoints",
+    "webhook events",
+    "social login",
+    "team members",
+    "GDPR compliance",
+    "SOC 2 Type II certification",
+    "penetration testing",
+    "DDoS protection",
+    "automated backups",
+    "multi-factor authentication",
+    "API key permissions",
+    "signed webhook endpoints",
+    "ticket support",
+    "Slack support",
+    "urgent response SLA",
+    "deliverability expertise",
+    "in-app documentation",
+    "AI assistant"
+  ],
+  "tiers": [
+    {
+      "name": "Free",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": 3000,
+      "unitType": "emails / mo",
+      "overageCost": {
+        "unit": "emails",
+        "cost": 0.9,
+        "per": 1000
+      },
+      "feePercent": null,
+      "features": [
+        "100 emails a day daily limit",
+        "1 domain",
+        "Ticket Support",
+        "1 day Data Retention",
+        "Pristine Shared IPs"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": "100 emails/day",
+        "projects": null,
+        "other": "1 Custom Domain"
+      }
+    },
+    {
+      "name": "Pro",
+      "baseCost": 20,
+      "triggerAt": 0,
+      "includedUnits": 50000,
+      "unitType": "emails / mo",
+      "overageCost": {
+        "unit": "emails",
+        "cost": 0.9,
+        "per": 1000
+      },
+      "feePercent": null,
+      "features": [
+        "No daily limit",
+        "10 domains",
+        "Ticket Support",
+        "3 days Data Retention",
+        "Pristine Shared IPs",
+        "All Sending & Receiving features"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": "50,000 emails/mo",
+        "projects": null,
+        "other": "10 Custom Domains"
+      }
+    },
+    {
+      "name": "Scale",
+      "baseCost": 90,
+      "triggerAt": 0,
+      "includedUnits": 100000,
+      "unitType": "emails / mo",
+      "overageCost": {
+        "unit": "emails",
+        "cost": 0.9,
+        "per": 1000
+      },
+      "feePercent": null,
+      "features": [
+        "No daily limit",
+        "1,000 domains",
+        "Slack & Ticket Support",
+        "7 days Data Retention",
+        "Dedicated IP with Add-on",
+        "All Sending & Receiving features"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": "100,000 emails/mo",
+        "projects": null,
+        "other": "1,000 Custom Domains"
+      }
+    },
+    {
+      "name": "Enterprise",
+      "baseCost": null,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Custom pricing based on specific needs",
+        "Priority Support",
+        "Flexible Data Retention",
+        "Flexible Domains",
+        "No daily limit",
+        "Dedicated IPs with Add-on"
+      ],
+      "limits": {
+        "users": "Flexible",
+        "storage": "Flexible",
+        "bandwidth": "Flexible",
+        "apiCalls": "Flexible",
+        "projects": "Flexible",
+        "other": "Flexible Domains"
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 1.8,
+    "high": 10
+  },
+  "gotchas": [
+    "The Free tier has a strict daily sending limit of 100 emails.",
+    "Overage emails for Free, Pro, and Scale tiers are priced at $0.90 per 1,000 emails.",
+    "Dedicated IPs are an add-on and available to customers exceeding 500 emails sent per day on the Scale plan.",
+    "Enterprise plan pricing is custom and requires contacting sales."
+  ],
+  "alternatives": [
+    "SendGrid",
+    "Mailgun",
+    "Postmark",
+    "Amazon SES"
+  ],
+  "recommended": true,
+  "scrapedAt": "2026-01-20T00:49:42.493601+00:00",
+  "sourceUrl": "https://resend.com/pricing"
+}

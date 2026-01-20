@@ -1,0 +1,107 @@
+{
+  "id": "cloudflare-kv",
+  "name": "Cloudflare KV",
+  "category": "database",
+  "description": "A globally distributed key-value store for Workers that enables highly dynamic web experiences.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "key-value storage",
+    "global data distribution",
+    "REST API access",
+    "Workers API integration",
+    "reads",
+    "writes",
+    "deletes",
+    "list requests"
+  ],
+  "tiers": [
+    {
+      "name": "Free",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": {
+        "keysReadPerDay": 100000,
+        "keysWrittenPerDay": 1000,
+        "keysDeletedPerDay": 1000,
+        "listRequestsPerDay": 1000,
+        "storedDataGB": 1
+      },
+      "unitType": "daily/GB-month",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "100,000 keys read/day",
+        "1,000 keys written/day",
+        "1,000 keys deleted/day",
+        "1,000 list requests/day",
+        "1 GB stored data"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "1 GB",
+        "bandwidth": "Not applicable/included",
+        "apiCalls": "Limited by daily ops",
+        "projects": null,
+        "other": "Daily limits reset at 00:00 UTC"
+      }
+    },
+    {
+      "name": "Paid",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": {
+        "keysReadPerMonth": 10000000,
+        "keysWrittenPerMonth": 1000000,
+        "keysDeletedPerMonth": 1000000,
+        "listRequestsPerMonth": 1000000,
+        "storedDataGB": 1
+      },
+      "unitType": "monthly/GB-month",
+      "overageCost": {
+        "keysReadPerMillion": 0.5,
+        "keysWrittenPerMillion": 5.0,
+        "keysDeletedPerMillion": 5.0,
+        "listRequestsPerMillion": 5.0,
+        "storedDataGBPerMonth": 0.5
+      },
+      "feePercent": null,
+      "features": [
+        "10 million keys read/month",
+        "1 million keys written/month",
+        "1 million keys deleted/month",
+        "1 million list requests/month",
+        "1 GB stored data"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "1 GB included, then pay-as-you-go",
+        "bandwidth": "Not applicable/included",
+        "apiCalls": "Limited by monthly ops",
+        "projects": null,
+        "other": null
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 0.05,
+    "high": 0.5
+  },
+  "gotchas": [
+    "Free plan limits reset daily at 00:00 UTC and exceeding any limit will cause further operations of that type to fail.",
+    "All operations, including those via the dashboard or wrangler CLI, count as billable usage.",
+    "Bulk read operations are billed by the total number of keys read in the operation.",
+    "Writes via the REST API are charged per key-value pair, just like Workers API PUT calls.",
+    "Data transfer / egress is not charged."
+  ],
+  "alternatives": [
+    "Cloudflare Workers",
+    "Fauna",
+    "PlanetScale"
+  ],
+  "recommended": true,
+  "scrapedAt": "2026-01-20T01:11:45.449700+00:00",
+  "sourceUrl": "https://developers.cloudflare.com/kv/platform/pricing/"
+}

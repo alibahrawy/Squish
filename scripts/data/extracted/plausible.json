@@ -1,0 +1,165 @@
+{
+  "id": "plausible",
+  "name": "Plausible",
+  "category": "analytics",
+  "description": "Plausible is a simple, open-source, and privacy-friendly alternative to Google Analytics that helps you understand your website traffic.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "website analytics",
+    "pageview tracking",
+    "visitor tracking",
+    "referrer tracking",
+    "bounce rate tracking",
+    "goal tracking",
+    "custom events",
+    "user segmentation",
+    "email reports",
+    "Slack reports",
+    "Google Analytics import",
+    "team management",
+    "shared dashboards",
+    "stats API",
+    "Looker Studio connector",
+    "ecommerce attribution",
+    "funnel analysis",
+    "consolidated view",
+    "SSO",
+    "raw data export",
+    "site management",
+    "data retention"
+  ],
+  "tiers": [
+    {
+      "name": "Starter",
+      "baseCost": 14,
+      "triggerAt": 0,
+      "includedUnits": 10000,
+      "unitType": "monthly pageviews",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Intuitive, fast and privacy-friendly dashboard",
+        "Email/Slack reports",
+        "Google Analytics import",
+        "Goals and custom events",
+        "Saved Segments",
+        "Up to 10k monthly pageviews",
+        "Data retention: 3 years"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": 1,
+        "other": null
+      }
+    },
+    {
+      "name": "Growth",
+      "baseCost": 19,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Everything in Starter",
+        "Up to 3 sites",
+        "Up to 3 team members",
+        "Team Management",
+        "Shared Links",
+        "Embedded Dashboards",
+        "Shared Segments"
+      ],
+      "limits": {
+        "users": 3,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": 3,
+        "other": null
+      }
+    },
+    {
+      "name": "Business",
+      "baseCost": 19,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Everything in Growth",
+        "Up to 10 sites",
+        "Up to 10 team members",
+        "5 years of data retention",
+        "Custom Properties",
+        "Stats API (600 requests per hour)",
+        "Looker Studio Connector",
+        "Ecommerce revenue attribution",
+        "Funnels",
+        "Consolidated View"
+      ],
+      "limits": {
+        "users": 10,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": "600 requests/hour",
+        "projects": 10,
+        "other": null
+      }
+    },
+    {
+      "name": "Enterprise",
+      "baseCost": null,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Everything in Business",
+        "10+ sites",
+        "10+ team members",
+        "600+ Stats API requests per hour",
+        "Sites API access",
+        "Single Sign-On (SSO)",
+        "Managed Proxy",
+        "Scheduled raw event data exports",
+        "5+ years of data retention",
+        "Priority support"
+      ],
+      "limits": {
+        "users": "10+",
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": "600+ requests/hour",
+        "projects": "10+",
+        "other": null
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 0,
+    "high": 0
+  },
+  "gotchas": [
+    "The pricing is presented as 'monthly' or 'yearly' costs, with a significant discount for choosing the yearly option (2 months free).",
+    "The 'Starter' tier has a base cost for up to 10k monthly pageviews. It's unclear from the page what the overage cost is if you exceed this limit.",
+    "Custom pricing for Enterprise tier means exact costs are not publicly available.",
+    "The number of 'monthly pageviews' is a key metric driving the cost of the Starter plan, and scaling beyond that is managed by moving to higher tiers."
+  ],
+  "alternatives": [
+    "Google Analytics",
+    "Matomo",
+    "Fathom Analytics",
+    "Umami"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:51:21.545587+00:00",
+  "sourceUrl": "https://plausible.io/#pricing"
+}

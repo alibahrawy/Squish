@@ -16,6 +16,7 @@ import {
 export interface SelectedService {
   serviceId: string;
   customTiers?: ServiceTier[]; // Override default pricing
+  forceTierIndex?: number; // Force a specific tier (e.g., Pro instead of Hobby for commercial use)
 }
 
 export interface BusinessInputs {
@@ -126,10 +127,14 @@ export function calculateInfrastructure(
     // Use custom tiers if provided, otherwise use default
     const tiers = selected.customTiers || service.tiers;
 
-    // Find active tier based on user count
-    const sortedTiers = [...tiers].sort((a, b) => b.triggerAt - a.triggerAt);
-    const activeTier =
-      sortedTiers.find((tier) => users >= tier.triggerAt) || tiers[0];
+    // Use forced tier index if set, otherwise find active tier based on user count
+    let activeTier;
+    if (selected.forceTierIndex !== undefined && tiers[selected.forceTierIndex]) {
+      activeTier = tiers[selected.forceTierIndex];
+    } else {
+      const sortedTiers = [...tiers].sort((a, b) => b.triggerAt - a.triggerAt);
+      activeTier = sortedTiers.find((tier) => users >= tier.triggerAt) || tiers[0];
+    }
 
     breakdown[selected.serviceId] = activeTier.baseCost;
     breakdown.total += activeTier.baseCost;
@@ -156,8 +161,10 @@ export function calculatePaymentCosts(
 
     // Handle standard payment services with percentage-based pricing
     if (service.category === "payments" && service.pricingModel === "percentage") {
-      const percentFee = revenue * ((service.feePercent || 0) / 100);
-      const transactionFee = transactionCount * (service.perTransaction || 0);
+      const feePercent = typeof service.feePercent === 'number' ? service.feePercent : 0;
+      const perTransaction = typeof service.perTransaction === 'number' ? service.perTransaction : 0;
+      const percentFee = revenue * (feePercent / 100);
+      const transactionFee = transactionCount * perTransaction;
       totalFees += percentFee + transactionFee;
     }
 
@@ -168,7 +175,7 @@ export function calculatePaymentCosts(
       const activeTier = sortedTiers.find((tier) => users >= tier.triggerAt) || tiers[0];
 
       // If this tier has a transaction fee percentage, apply it
-      if (activeTier.feePercent !== undefined && activeTier.feePercent > 0) {
+      if (activeTier.feePercent != null && activeTier.feePercent > 0) {
         const tierFee = revenue * (activeTier.feePercent / 100);
         totalFees += tierFee;
       }

@@ -1,0 +1,224 @@
+{
+  "id": "netlify",
+  "name": "Netlify",
+  "category": "hosting",
+  "description": "Netlify is a platform for building, deploying, and scaling modern web applications with a focus on Jamstack architecture.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "web hosting",
+    "static site hosting",
+    "serverless functions",
+    "AI models",
+    "file and image storage",
+    "CDN",
+    "SSL certificates",
+    "custom domains",
+    "AI-powered code assistance",
+    "secret detection",
+    "analytics and metrics",
+    "private organization repositories",
+    "shared environment variables",
+    "concurrent builds",
+    "SLA",
+    "enterprise network tier",
+    "high-performance builds",
+    "SSO",
+    "SCIM",
+    "log drains",
+    "organization management",
+    "dedicated support",
+    "audit logs",
+    "web analytics",
+    "Real User Monitoring",
+    "Deploy Previews",
+    "branch deploys",
+    "Agent Runners",
+    "AI Gateway",
+    "build extensions",
+    "Netlify CLI",
+    "Netlify SDK",
+    "rollbacks",
+    "site protection",
+    "visitor access control",
+    "HIPAA compliance",
+    "event triggers",
+    "CLI deployment",
+    "Git integration",
+    "API deployment",
+    "IP filtering",
+    "web application firewall (WAF)"
+  ],
+  "tiers": [
+    {
+      "name": "Free",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": {
+        "credits": 300
+      },
+      "unitType": "monthly credits",
+      "overageCost": {
+        "credits": {
+          "amount_per_unit": 5,
+          "unit": "USD",
+          "units": 500
+        }
+      },
+      "feePercent": null,
+      "features": [
+        "Build and deploy free forever",
+        "Deploy any framework",
+        "Deploy from AI, Git, or API",
+        "Unlimited deploy previews",
+        "Build with Agent Runners",
+        "Add Custom domains with SSL",
+        "Functions & AI models",
+        "Store files & images",
+        "Firewall Traffic Rules & basic rate limiting",
+        "Global CDN",
+        "Basic analytics (1-day history)",
+        "Audit logs (7-day history)",
+        "Rate limiting (code-based rules)"
+      ],
+      "limits": {
+        "users": "1 free member",
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": "300 credits/month"
+      }
+    },
+    {
+      "name": "Personal",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": {
+        "credits": 1000
+      },
+      "unitType": "monthly credits",
+      "overageCost": {
+        "credits": {
+          "amount_per_unit": 5,
+          "unit": "USD",
+          "units": 500
+        }
+      },
+      "feePercent": null,
+      "features": [
+        "Everything in Free",
+        "Smart secret detection",
+        "7-day analytics & metrics",
+        "Priority email support",
+        "Web analytics & Real User Monitoring (7-day retention)"
+      ],
+      "limits": {
+        "users": "1 member",
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": "1,000 credits/month"
+      }
+    },
+    {
+      "name": "Pro",
+      "baseCost": 20,
+      "triggerAt": 0,
+      "includedUnits": {
+        "credits": 3000
+      },
+      "unitType": "monthly credits",
+      "overageCost": {
+        "credits": {
+          "amount_per_unit": 10,
+          "unit": "USD",
+          "units": 1500
+        }
+      },
+      "feePercent": null,
+      "features": [
+        "Everything in Personal",
+        "Private organization repos",
+        "Shared env variables",
+        "3+ concurrent builds",
+        "30-day analytics & metrics",
+        "Audit logs (Full history)",
+        "Functions log retention (7-day history)",
+        "Edge Functions log retention (7-day history)"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": "3,000 credits/month per team"
+      }
+    },
+    {
+      "name": "Enterprise",
+      "baseCost": null,
+      "triggerAt": null,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Everything in Pro",
+        "99.99% SLA",
+        "Enterprise network tier",
+        "High-performance builds",
+        "SSO & SCIM",
+        "Log drains",
+        "Organization management",
+        "24/7 dedicated support",
+        "Deploy retention policy up to 365 days",
+        "Customizable UI-based rules for Rate Limiting",
+        "Web application firewall (Limited)",
+        "Private connectivity (Add-on)",
+        "HIPAA compliance (Add-on)",
+        "Fortified bandwidth (Add-on)"
+      ],
+      "limits": {
+        "users": "Custom",
+        "storage": "Custom",
+        "bandwidth": "Custom",
+        "apiCalls": "Custom",
+        "projects": "Custom",
+        "other": "Custom"
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 0,
+    "high": 0
+  },
+  "gotchas": [
+    "Pricing is primarily based on a credit system. Included credits vary by plan, and exceeding these limits incurs additional costs. Overage credits and add-ons are available.",
+    "The Free plan has a 300 credit limit per month. If a single project exceeds its limits, all projects on the account may be paused.",
+    "For paid plans, 'auto recharge' for credits is disabled by default. If enabled by a Team Owner, it automatically refills credit balances.",
+    "Free and Personal plans do not allow adding additional team member seats. Pro and Enterprise plans do.",
+    "Unlimited Reviewer roles are available for all plans, allowing users to access Netlify for feedback without counting as paid members.",
+    "Credit costs vary for different usage types: production deploys (15 credits each), compute (5 credits per GB-hour), form submissions (1 credit each), bandwidth (10 credits per GB), and web requests (3 credits per 10k requests).",
+    "AI inference costs vary based on the AI model used.",
+    "Enterprise plans require custom pricing and contact with sales.",
+    "Some features like UI-based rate limiting rules, private connectivity, HIPAA, and Fortified bandwidth are available as add-ons or specific to Enterprise."
+  ],
+  "alternatives": [
+    "Vercel",
+    "GitHub Pages",
+    "AWS Amplify",
+    "Cloudflare Pages"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:48:02.784259+00:00",
+  "sourceUrl": "https://www.netlify.com/pricing/",
+  "bundledCategories": [
+    "storage",
+    "database"
+  ]
+}

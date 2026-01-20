@@ -1,0 +1,380 @@
+{
+  "id": "aws-s3",
+  "name": "AWS S3",
+  "category": "storage",
+  "description": "Amazon S3 is an object storage service that offers industry-leading scalability, data availability, security, and performance.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "object storage",
+    "data archiving",
+    "backup and restore",
+    "disaster recovery",
+    "data lakes",
+    "application data",
+    "content distribution",
+    "static website hosting",
+    "lifecycle management",
+    "replication",
+    "versioning",
+    "access control",
+    "encryption",
+    "auditing",
+    "event notifications",
+    "intelligent-tiering"
+  ],
+  "tiers": [
+    {
+      "name": "S3 Standard",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": {
+        "storage": {
+          "price": 0.023,
+          "unit": "GB-Month"
+        },
+        "requests": {
+          "putGetRequests": {
+            "price": 4e-07,
+            "unit": "per request"
+          },
+          "otherRequests": {
+            "price": 4e-08,
+            "unit": "per request"
+          }
+        },
+        "retrieval": null,
+        "dataTransfer": {
+          "outToInternet": {
+            "price": 0.09,
+            "unit": "GB"
+          }
+        }
+      },
+      "feePercent": null,
+      "features": [
+        "Designed for frequently accessed data",
+        "High durability",
+        "High availability"
+      ],
+      "limits": {
+        "users": "unlimited",
+        "storage": "unlimited",
+        "bandwidth": "unlimited",
+        "apiCalls": "unlimited",
+        "projects": "unlimited",
+        "other": null
+      }
+    },
+    {
+      "name": "S3 Intelligent-Tiering",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": {
+        "storage": {
+          "pricePerTier": {
+            "frequentAccess": 0.023,
+            "infrequentAccess": 0.0125,
+            "archiveAccess": 0.004,
+            "deepArchiveAccess": 0.00099
+          },
+          "unit": "GB-Month"
+        },
+        "requests": {
+          "putGetRequests": {
+            "price": 4e-07,
+            "unit": "per request"
+          },
+          "otherRequests": {
+            "price": 4e-08,
+            "unit": "per request"
+          }
+        },
+        "retrieval": null,
+        "dataTransfer": {
+          "outToInternet": {
+            "price": 0.09,
+            "unit": "GB"
+          }
+        }
+      },
+      "feePercent": null,
+      "features": [
+        "Automatically moves data to the most cost-effective access tier",
+        "Requires a small monthly monitoring and automation fee per object"
+      ],
+      "limits": {
+        "users": "unlimited",
+        "storage": "unlimited",
+        "bandwidth": "unlimited",
+        "apiCalls": "unlimited",
+        "projects": "unlimited",
+        "other": null
+      }
+    },
+    {
+      "name": "S3 Standard-IA",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": {
+        "storage": {
+          "price": 0.0125,
+          "unit": "GB-Month"
+        },
+        "requests": {
+          "putGetRequests": {
+            "price": 4e-07,
+            "unit": "per request"
+          },
+          "otherRequests": {
+            "price": 4e-08,
+            "unit": "per request"
+          }
+        },
+        "retrieval": {
+          "price": 0.01,
+          "unit": "GB"
+        },
+        "dataTransfer": {
+          "outToInternet": {
+            "price": 0.09,
+            "unit": "GB"
+          }
+        }
+      },
+      "feePercent": null,
+      "features": [
+        "For data accessed less frequently but requiring rapid access when needed",
+        "Lower storage cost than S3 Standard",
+        "Retrieval fee applies"
+      ],
+      "limits": {
+        "users": "unlimited",
+        "storage": "unlimited",
+        "bandwidth": "unlimited",
+        "apiCalls": "unlimited",
+        "projects": "unlimited",
+        "other": null
+      }
+    },
+    {
+      "name": "S3 One Zone-IA",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": {
+        "storage": {
+          "price": 0.01,
+          "unit": "GB-Month"
+        },
+        "requests": {
+          "putGetRequests": {
+            "price": 4e-07,
+            "unit": "per request"
+          },
+          "otherRequests": {
+            "price": 4e-08,
+            "unit": "per request"
+          }
+        },
+        "retrieval": {
+          "price": 0.01,
+          "unit": "GB"
+        },
+        "dataTransfer": {
+          "outToInternet": {
+            "price": 0.09,
+            "unit": "GB"
+          }
+        }
+      },
+      "feePercent": null,
+      "features": [
+        "For data that is replicated across multiple Availability Zones (AZs) but you cannot withstand the loss of an AZ",
+        "Lower storage cost than S3 Standard-IA",
+        "Retrieval fee applies"
+      ],
+      "limits": {
+        "users": "unlimited",
+        "storage": "unlimited",
+        "bandwidth": "unlimited",
+        "apiCalls": "unlimited",
+        "projects": "unlimited",
+        "other": null
+      }
+    },
+    {
+      "name": "S3 Glacier Instant Retrieval",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": {
+        "storage": {
+          "price": 0.004,
+          "unit": "GB-Month"
+        },
+        "requests": {
+          "putGetRequests": {
+            "price": 4e-07,
+            "unit": "per request"
+          },
+          "otherRequests": {
+            "price": 4e-08,
+            "unit": "per request"
+          }
+        },
+        "retrieval": {
+          "price": 0.05,
+          "unit": "GB"
+        },
+        "dataTransfer": {
+          "outToInternet": {
+            "price": 0.09,
+            "unit": "GB"
+          }
+        }
+      },
+      "feePercent": null,
+      "features": [
+        "For archive data that rarely accessed and requires milliseconds retrieval",
+        "Lowest storage cost for frequent archives",
+        "Faster retrieval than Glacier Flexible Retrieval and Glacier Deep Archive"
+      ],
+      "limits": {
+        "users": "unlimited",
+        "storage": "unlimited",
+        "bandwidth": "unlimited",
+        "apiCalls": "unlimited",
+        "projects": "unlimited",
+        "other": null
+      }
+    },
+    {
+      "name": "S3 Glacier Flexible Retrieval",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": {
+        "storage": {
+          "price": 0.0036,
+          "unit": "GB-Month"
+        },
+        "requests": {
+          "putGetRequests": {
+            "price": 4e-07,
+            "unit": "per request"
+          },
+          "otherRequests": {
+            "price": 4e-08,
+            "unit": "per request"
+          }
+        },
+        "retrieval": {
+          "price": 0.01,
+          "unit": "GB"
+        },
+        "dataTransfer": {
+          "outToInternet": {
+            "price": 0.09,
+            "unit": "GB"
+          }
+        }
+      },
+      "feePercent": null,
+      "features": [
+        "For archive data that is accessed infrequently, but can tolerate retrieval times from minutes to hours",
+        "Flexible retrieval options: Expedited (1-5 minutes), Standard (3-5 hours), Bulk (5-12 hours)"
+      ],
+      "limits": {
+        "users": "unlimited",
+        "storage": "unlimited",
+        "bandwidth": "unlimited",
+        "apiCalls": "unlimited",
+        "projects": "unlimited",
+        "other": null
+      }
+    },
+    {
+      "name": "S3 Glacier Deep Archive",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": {
+        "storage": {
+          "price": 0.00099,
+          "unit": "GB-Month"
+        },
+        "requests": {
+          "putGetRequests": {
+            "price": 4e-07,
+            "unit": "per request"
+          },
+          "otherRequests": {
+            "price": 4e-08,
+            "unit": "per request"
+          }
+        },
+        "retrieval": {
+          "price": 0.02,
+          "unit": "GB"
+        },
+        "dataTransfer": {
+          "outToInternet": {
+            "price": 0.09,
+            "unit": "GB"
+          }
+        }
+      },
+      "feePercent": null,
+      "features": [
+        "For long-term archival of data that is accessed very rarely and requires retrieval times of 12-48 hours",
+        "Lowest cost storage for archiving"
+      ],
+      "limits": {
+        "users": "unlimited",
+        "storage": "unlimited",
+        "bandwidth": "unlimited",
+        "apiCalls": "unlimited",
+        "projects": "unlimited",
+        "other": null
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 10,
+    "medium": 50,
+    "high": 200
+  },
+  "gotchas": [
+    "Pricing is based on multiple factors: storage volume, region, request types (PUT, GET, etc.), data retrieval, and data transfer out to the internet. These costs can accumulate quickly.",
+    "Each PUT/COPY/POST/LIST request costs $0.0000004, and other requests cost $0.00000004.",
+    "Data transfer out to the internet is charged per GB (e.g., $0.09/GB in many regions).",
+    "S3 Intelligent-Tiering has an additional small per-object monitoring and automation fee.",
+    "S3 Glacier tiers have retrieval fees, which can be significant for rapid access.",
+    "The AWS Free Tier for S3 includes 5GB of Standard storage, 20,000 Get Requests, and 2,000 Put Requests per month for 12 months.",
+    "Pricing varies significantly by AWS region."
+  ],
+  "alternatives": [
+    "Google Cloud Storage",
+    "Azure Blob Storage",
+    "Backblaze B2",
+    "Wasabi Hot Cloud Storage"
+  ],
+  "recommended": true,
+  "scrapedAt": "2026-01-20T00:51:49.919081+00:00",
+  "sourceUrl": "https://aws.amazon.com/s3/pricing/",
+  "bundledCategories": [
+    "hosting"
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "id": "vercel",
+  "name": "Vercel",
+  "category": "hosting",
+  "description": "A frontend cloud platform for building and deploying web applications.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "repo import",
+    "deployment",
+    "automatic CI/CD",
+    "Web Application Firewall (WAF)",
+    "global CDN",
+    "fluid compute",
+    "DDoS mitigation",
+    "traffic insights",
+    "performance insights",
+    "spend management",
+    "team collaboration",
+    "faster builds",
+    "queue-less builds",
+    "cold start prevention",
+    "guest access controls",
+    "team access controls",
+    "SCIM",
+    "Directory Sync",
+    "managed WAF rulesets",
+    "multi-region compute",
+    "failover",
+    "log streaming",
+    "log retention",
+    "trace retention",
+    "observability",
+    "redirects",
+    "image optimization",
+    "edge functions",
+    "serverless functions",
+    "cron jobs",
+    "background jobs"
+  ],
+  "tiers": [
+    {
+      "name": "Hobby",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Import your repo",
+        "Deploy in seconds",
+        "Automatic CI/CD",
+        "Web Application Firewall",
+        "Global, automated CDN",
+        "Fluid compute",
+        "DDoS Mitigation",
+        "Traffic & performance insights"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": "2 included projects",
+        "other": null
+      }
+    },
+    {
+      "name": "Pro",
+      "baseCost": 20,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "All Hobby features",
+        "$20 of included usage credit",
+        "Advanced spend management",
+        "Team collaboration & free viewer seats",
+        "Faster builds + no queues",
+        "Cold start prevention"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Enterprise",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "All Pro features",
+        "Guest & Team access controls",
+        "SCIM & Directory Sync",
+        "Managed WAF Rulesets",
+        "Multi-region compute & failover",
+        "99.99% SLA",
+        "Advanced Support"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 0,
+    "high": 0
+  },
+  "gotchas": [
+    "The Hobby tier includes 2 projects; additional projects incur a $250 per project cost.",
+    "Pro tier has a base cost of $20/mo, which includes $20 of usage credit. Usage beyond the included credit is billed additionally.",
+    "Enterprise tier pricing is custom and requires contacting sales, likely involving a significant base cost and contractual agreements.",
+    "Many features are metered and billed on a usage basis beyond included amounts per each tier's allocations. This includes compute, bandwidth, requests, logs, traces, etc. Specific costs vary by region.",
+    "The pricing page uses extensive tables to detail usage-based costs for various features, which can be complex to navigate and estimate accurately without detailed usage data."
+  ],
+  "alternatives": [
+    "Netlify",
+    "Cloudflare Pages",
+    "AWS Amplify"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:47:41.206198+00:00",
+  "sourceUrl": "https://vercel.com/pricing",
+  "bundledCategories": [
+    "storage",
+    "database"
+  ]
+}

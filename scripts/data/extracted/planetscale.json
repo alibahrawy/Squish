@@ -1,0 +1,296 @@
+{
+  "id": "planetscale",
+  "name": "PlanetScale",
+  "category": "database",
+  "description": "PlanetScale is a cloud-native database platform built on Vitess and a new Postgres engine, offering seamless scaling, high availability, and developer-friendly features.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "managed database",
+    "relational database",
+    "Postgres database",
+    "MySQL-compatible database",
+    "horizontal sharding",
+    "high availability",
+    "disaster recovery",
+    "branching",
+    "deploy requests",
+    "query monitoring",
+    "data migration",
+    "network-attached storage",
+    "NVMe storage",
+    "autoscaling storage",
+    "multi-region deployment",
+    "e-commerce solutions",
+    "IoT solutions",
+    "SaaS applications",
+    "API development",
+    "team collaboration",
+    "compliance (PCI DSS)",
+    "bring your own cloud (BYOC)"
+  ],
+  "tiers": [
+    {
+      "name": "Base Plan - Single Node (PlanetScale Postgres)",
+      "baseCost": 5,
+      "triggerAt": 0,
+      "includedUnits": {
+        "egress_bandwidth_gb": 100
+      },
+      "unitType": "monthly",
+      "overageCost": {
+        "egress_bandwidth_gb": 0.06
+      },
+      "feePercent": null,
+      "features": [
+        "Postgres database engine",
+        "Single primary node (non-HA)",
+        "Network-attached storage with autoscaling storage",
+        "100 GB egress bandwidth included",
+        "Development and low-traffic production workloads"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "Variable (autoscaling, minimum 10 GB)",
+        "bandwidth": "100 GB included",
+        "apiCalls": null,
+        "projects": null,
+        "other": "1 branch recommended for development"
+      }
+    },
+    {
+      "name": "Base Plan - Single Node (Vitess)",
+      "baseCost": 5,
+      "triggerAt": 0,
+      "includedUnits": {
+        "egress_bandwidth_gb": 100
+      },
+      "unitType": "monthly",
+      "overageCost": {
+        "egress_bandwidth_gb": 0.06,
+        "storage_per_gb_per_instance": 0.5
+      },
+      "feePercent": null,
+      "features": [
+        "MySQL-compatible database engine (Vitess)",
+        "Single primary node (non-HA)",
+        "Network-attached storage with autoscaling storage",
+        "100 GB egress bandwidth included",
+        "Horizontal sharding for massive scale"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "Variable (autoscaling, minimum 10 GB per instance)",
+        "bandwidth": "100 GB included",
+        "apiCalls": null,
+        "projects": null,
+        "other": "Minimum 3 instances required for production branches for HA"
+      }
+    },
+    {
+      "name": "Base Plan - High Availability (PlanetScale Postgres)",
+      "baseCost": null,
+      "triggerAt": 0,
+      "includedUnits": {
+        "egress_bandwidth_gb": 100
+      },
+      "unitType": "monthly",
+      "overageCost": {
+        "egress_bandwidth_gb": 0.06
+      },
+      "feePercent": null,
+      "features": [
+        "Postgres database engine",
+        "High-availability cluster (1 primary + 2 replicas)",
+        "Deployed across 3 availability zones",
+        "99.99% SLA",
+        "Network-attached storage with autoscaling storage",
+        "100 GB egress bandwidth included"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "Variable (autoscaling, minimum 10 GB)",
+        "bandwidth": "100 GB included",
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Base Plan - High Availability (Vitess)",
+      "baseCost": null,
+      "triggerAt": 0,
+      "includedUnits": {
+        "egress_bandwidth_gb": 100
+      },
+      "unitType": "monthly",
+      "overageCost": {
+        "egress_bandwidth_gb": 0.06,
+        "storage_per_gb_per_instance": 0.5
+      },
+      "feePercent": null,
+      "features": [
+        "MySQL-compatible database engine (Vitess)",
+        "High-availability cluster (1 primary + 2 replicas)",
+        "Deployed across 3 availability zones",
+        "99.99% SLA",
+        "Network-attached storage with autoscaling storage",
+        "100 GB egress bandwidth included",
+        "Horizontal sharding for massive scale"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "Variable (autoscaling, minimum 10 GB per instance)",
+        "bandwidth": "100 GB included",
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Base Plan - Metal (PlanetScale Postgres)",
+      "baseCost": 50,
+      "triggerAt": 0,
+      "includedUnits": {
+        "egress_bandwidth_gb": 100
+      },
+      "unitType": "monthly",
+      "overageCost": {
+        "egress_bandwidth_gb": 0.06
+      },
+      "feePercent": null,
+      "features": [
+        "Postgres database engine",
+        "High-performance local NVMe storage",
+        "High-availability cluster",
+        "Unlimited IOPS",
+        "100 GB egress bandwidth included"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "Not specified, implies storage included rather than provisioned per GB",
+        "bandwidth": "100 GB included",
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Base Plan - Metal (Vitess)",
+      "baseCost": 50,
+      "triggerAt": 0,
+      "includedUnits": {
+        "egress_bandwidth_gb": 100
+      },
+      "unitType": "monthly",
+      "overageCost": {
+        "egress_bandwidth_gb": 0.06
+      },
+      "feePercent": null,
+      "features": [
+        "MySQL-compatible database engine (Vitess)",
+        "High-performance local NVMe storage",
+        "High-availability cluster",
+        "Unlimited IOPS",
+        "100 GB egress bandwidth included",
+        "Horizontal sharding for massive scale"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "Not specified, implies storage included rather than provisioned per GB",
+        "bandwidth": "100 GB included",
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "PS-5 Instance (Example)",
+      "baseCost": 15,
+      "triggerAt": 0,
+      "includedUnits": {
+        "egress_bandwidth_gb": 100,
+        "storage_gb": 10
+      },
+      "unitType": "monthly",
+      "overageCost": {
+        "egress_bandwidth_gb": 0.06,
+        "storage_per_gb_per_instance": 0.5
+      },
+      "feePercent": null,
+      "features": [
+        "PS-5 instance type",
+        "1/16 vCPU",
+        "512 MB memory",
+        "10 GB storage included",
+        "3 nodes (1 primary, 2 replicas) for HA",
+        "100 GB egress bandwidth included"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "10 GB included",
+        "bandwidth": "100 GB included",
+        "apiCalls": null,
+        "projects": null,
+        "other": "Total resources: 3/16 vCPU, 1.5 GB memory"
+      }
+    },
+    {
+      "name": "Enterprise",
+      "baseCost": null,
+      "triggerAt": null,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "All Base plan features",
+        "Upgraded support (Business support, optional Enterprise support)",
+        "Private shared Slack channel for fast communication",
+        "Multi-tenant, single-tenant, or in your own AWS/GCP account deployment options",
+        "Hands-on, proactive migration assistance with no downtime",
+        "Architecture consultation with Solutions team",
+        "Bring your own cloud (BYOC) option (PlanetScale Managed)",
+        "Custom pricing",
+        "AWS/GCP Marketplace purchase options",
+        "Additional regions deployment (any AWS/GCP region with 3 AZs)",
+        "Enterprise support option (15 min response time for P1 tickets, bi-weekly meetings, database architecture expertise)"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": "Contact sales for specifics"
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 5,
+    "medium": 50,
+    "high": 200
+  },
+  "gotchas": [
+    "Pricing is primarily resource-based (instance size, storage). The 'starting at' prices for Postgres and Vitess are for single-node configurations, likely for development.",
+    "High-availability configurations for both Vitess and Postgres are not explicitly priced but are implied to cost more than single-node. The PS-5 example with 3 nodes is a specific HA configuration.",
+    "Storage costs are $0.50 per GB per instance beyond the first 10 GB for non-Metal instances. Metal instances have storage costs included.",
+    "Egress bandwidth has an included amount (100 GB), with overages at $0.06/GB.",
+    "Enterprise plan pricing is custom and requires contacting sales.",
+    "PlanetScale Managed (BYOC model) involves paying your cloud provider for infrastructure and a percentage fee to PlanetScale. Actual costs can vary significantly based on your cloud provider agreement and usage.",
+    "Enterprise tier is required for PCI DSS certified service, single-tenant environments, or keeping data in your own cloud account.",
+    "The specific 'cost' for the Base Plan's High Availability and Metal tiers is not listed as a starting price, suggesting it's more dynamic or based on configuration.",
+    "Additional development branch hours, SSO, and upgraded support are listed as potential add-ons, which would increase the overall cost."
+  ],
+  "alternatives": [
+    "Supabase",
+    "Neon",
+    "AWS RDS",
+    "Google Cloud SQL",
+    "Azure Database for PostgreSQL/MySQL"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:47:16.724683+00:00",
+  "sourceUrl": "https://planetscale.com/pricing"
+}

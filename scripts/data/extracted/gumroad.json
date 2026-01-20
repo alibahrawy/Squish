@@ -1,0 +1,93 @@
+{
+  "id": "gumroad",
+  "name": "Gumroad",
+  "category": "payments",
+  "description": "Gumroad is a platform that allows creators to sell products directly to their audience.",
+  "pricingModel": "percentage",
+  "capabilities": [
+    "product sales",
+    "digital product delivery",
+    "physical product fulfillment",
+    "subscription management",
+    "affiliate program management",
+    "email list building",
+    "customizable storefront",
+    "payment processing"
+  ],
+  "tiers": [
+    {
+      "name": "Free",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": 10,
+      "features": [
+        "Sell unlimited products",
+        "Sell unlimited digital products",
+        "Sell unlimited subscriptions",
+        "Sell unlimited courses",
+        "Collect unlimited files",
+        "Unlimited viewers",
+        "Collect unlimited customers",
+        "No payout fees",
+        "Accepts credit cards",
+        "Accepts PayPal"
+      ],
+      "limits": {
+        "users": "unlimited",
+        "storage": "unlimited",
+        "bandwidth": "unlimited",
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Professional",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": 10,
+      "features": [
+        "All 'Free' tier features",
+        "Access to Gumroad API"
+      ],
+      "limits": {
+        "users": "unlimited",
+        "storage": "unlimited",
+        "bandwidth": "unlimited",
+        "apiCalls": "unlimited",
+        "projects": null,
+        "other": null
+      }
+    }
+  ],
+  "feePercent": 10,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 100,
+    "medium": 100,
+    "high": 100
+  },
+  "gotchas": [
+    "The base fee percentage is 10% for all sales (digital and physical).",
+    "There are no additional transaction fees from Gumroad itself (though payment processors like Stripe or PayPal may have their own fees).",
+    "The 'Professional' tier offers access to the Gumroad API, but the fee structure remains the same.",
+    "Gumroad's pricing page is a bit misleading as it doesn't explicitly show a 'Free' vs. 'Professional' tier with different features, but rather defaults to 10% for everyone. The 'Professional' aspect seems to be more about API access.",
+    "It's crucial to understand that the 10% fee is applied to the gross sale price, not your profit."
+  ],
+  "alternatives": [
+    "Stripe",
+    "PayPal Commerce Platform",
+    "SendOwl",
+    "Podia",
+    "Teachable"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:56:12.036941+00:00",
+  "sourceUrl": "https://help.gumroad.com/article/66-gumroad-fees"
+}

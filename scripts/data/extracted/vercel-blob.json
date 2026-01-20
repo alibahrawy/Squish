@@ -1,0 +1,152 @@
+{
+  "id": "vercel-blob",
+  "name": "Vercel Blob",
+  "category": "storage",
+  "description": "Vercel Blob is a managed Blob storage service designed for storing and serving unstructured data like images, videos, and other static assets, with built-in CDN capabilities.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "blob storage",
+    "file uploads",
+    "file downloads",
+    "cdn delivery",
+    "edge caching",
+    "multipart uploads",
+    "delete operations",
+    "list operations",
+    "head operations",
+    "dashboard management"
+  ],
+  "tiers": [
+    {
+      "name": "Hobby",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": {
+        "blobStorageSize": "1GB-month",
+        "blobSimpleOperations": "10,000/month",
+        "blobAdvancedOperations": "2,000/month",
+        "blobDataTransfer": "10GB/month",
+        "edgeRequests": "10,000,000/month",
+        "fastOriginTransfer": "100GB/month"
+      },
+      "unitType": "GB-month",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Free for Hobby users within usage limits",
+        "Includes 1GB Blob Storage Size",
+        "Includes 10,000 Simple Operations",
+        "Includes 2,000 Advanced Operations",
+        "Includes 10GB Blob Data Transfer",
+        "Includes 10M Edge Requests",
+        "Includes 100GB Fast Origin Transfer"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": {
+          "simpleOperationsRateLimit": "1,200/min (20/s)",
+          "advancedOperationsRateLimit": "900/min (15/s)",
+          "cacheSizeLimitPerBlob": "512MB",
+          "maximumFileSize": "5TB"
+        }
+      }
+    },
+    {
+      "name": "Pro",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": {
+        "blobStorageSize": "$0.023 per GB",
+        "blobSimpleOperations": "$0.400 per 1M",
+        "blobAdvancedOperations": "$5.000 per 1M",
+        "blobDataTransfer": "$0.050 per GB",
+        "edgeRequests": "Standard CDN rates",
+        "fastOriginTransfer": "Standard CDN rates (example shows $0.06/GB)"
+      },
+      "feePercent": null,
+      "features": [
+        "Pay for usage using monthly credit allocation",
+        "Switches to on-demand rates after included credits are used",
+        "Spend Management features available for teams (notifications, webhooks, pausing projects)"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": {
+          "simpleOperationsRateLimit": "7,200/min (120/s)",
+          "advancedOperationsRateLimit": "4,500/min (75/s)",
+          "cacheSizeLimitPerBlob": "512MB",
+          "maximumFileSize": "5TB"
+        }
+      }
+    },
+    {
+      "name": "Enterprise",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": {
+        "blobStorageSize": "$0.023 per GB",
+        "blobSimpleOperations": "$0.400 per 1M",
+        "blobAdvancedOperations": "$5.000 per 1M",
+        "blobDataTransfer": "$0.050 per GB",
+        "edgeRequests": "Standard CDN rates",
+        "fastOriginTransfer": "Standard CDN rates (example shows $0.06/GB)"
+      },
+      "feePercent": null,
+      "features": [
+        "Available at the same price as Pro",
+        "Contact account team for pricing or support"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": {
+          "simpleOperationsRateLimit": "9,000/min (150/s)",
+          "advancedOperationsRateLimit": "7,500/min (125/s)",
+          "cacheSizeLimitPerBlob": "512MB",
+          "maximumFileSize": "5TB"
+        }
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 15.73,
+    "high": 50
+  },
+  "gotchas": [
+    "Hobby plan: You will not pay for additional usage beyond limits, but access to Vercel Blob will be blocked until 30 days have passed.",
+    "Blobs larger than 512MB are never cached and will incur Fast Origin Transfer charges on every access.",
+    "Server Uploads incur Fast Data Transfer charges if your Vercel application is receiving the file.",
+    "Multipart uploads count as multiple Advanced Operations (start, each part, completion).",
+    "Dashboard interactions count as Advanced Operations.",
+    "del() operations are free, but deleting multiple blobs in a batch counts as individual operations towards rate limits.",
+    "Edge Requests and Fast Origin Transfer for blobs are billed at standard CDN rates, which are not explicitly detailed in the Blob pricing but are implied to have their own per-GB costs (example shows $0.06/GB for Fast Origin Transfer).",
+    "The included resource usage for the Hobby plan is shared across all Vercel services in your project."
+  ],
+  "alternatives": [
+    "AWS S3",
+    "Cloudflare R2",
+    "Google Cloud Storage",
+    "Supabase Storage"
+  ],
+  "recommended": true,
+  "scrapedAt": "2026-01-20T01:11:18.491759+00:00",
+  "sourceUrl": "https://vercel.com/docs/storage/vercel-blob/usage-and-pricing"
+}

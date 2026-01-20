@@ -1,0 +1,90 @@
+{
+  "id": "auth0",
+  "name": "Auth0",
+  "category": "auth",
+  "description": "Auth0 is a cloud-based identity platform that provides authentication and authorization services for web and mobile applications.",
+  "pricingModel": "per-user",
+  "capabilities": [
+    "single-sign-on",
+    "social login",
+    "enterprise federation",
+    "multi-factor authentication",
+    "user management",
+    "passwordless authentication",
+    "security policies",
+    "customizable login pages",
+    "role-based access control",
+    "api security",
+    "anomaly detection",
+    "production monitoring",
+    "developer tools",
+    "support"
+  ],
+  "tiers": [
+    {
+      "name": "Auth0 for Startups",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Free for 1 year",
+        "Core authentication features",
+        "Scales with your growth"
+      ],
+      "limits": {
+        "users": "Customizable based on startup stage",
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Auth0 for Nonprofits",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Free access to Auth0 features",
+        "Enhanced security and compliance",
+        "Improved donor and volunteer experience"
+      ],
+      "limits": {
+        "users": "Customizable based on nonprofit needs",
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 0,
+    "high": 0
+  },
+  "gotchas": [
+    "The pricing page does not provide specific details for paid tiers or usage-based pricing. This information is likely available upon contacting sales or through a separate pricing calculator.",
+    "The 'Auth0 for Startups' program is free for one year, implying costs will be incurred after this period.",
+    "Specific limits and overage costs for paid tiers are not disclosed on this page."
+  ],
+  "alternatives": [
+    "Okta",
+    "Keycloak",
+    "Firebase Authentication",
+    "AWS Cognito"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:49:14.687041+00:00",
+  "sourceUrl": "https://auth0.com/pricing"
+}

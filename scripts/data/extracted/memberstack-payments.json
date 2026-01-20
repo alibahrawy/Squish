@@ -1,0 +1,144 @@
+{
+  "id": "memberstack-payments",
+  "name": "Memberstack Payments",
+  "category": "payments",
+  "description": "Integrated solution for authentication, payments, and memberships for quick launches.",
+  "pricingModel": "percentage",
+  "capabilities": [
+    "authentication",
+    "payments",
+    "memberships",
+    "social logins",
+    "Stripe payments",
+    "custom SSO",
+    "branded emails",
+    "restricted areas",
+    "content show/hide based on membership",
+    "integrations (Webflow, Zapier, Heap, Stripe)"
+  ],
+  "tiers": [
+    {
+      "name": "Free forever",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "No credit card required",
+        "Cancel anytime"
+      ],
+      "limits": {
+        "users": 100,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": "1,200 Annual Revenue"
+      }
+    },
+    {
+      "name": "Basic",
+      "baseCost": 0.9,
+      "triggerAt": 1000,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": 0.9,
+      "features": [
+        "Zero transaction fees",
+        "10,000+ Members (This limit seems contradictory with the 1000 members trigger, likely means free tier limit is 1000, this tier allows more)",
+        "Social Logins",
+        "Stripe Payments",
+        "Custom SSO",
+        "Branded Emails",
+        "Everything Else"
+      ],
+      "limits": {
+        "users": "10,000+",
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": "12,000 Annual Revenue"
+      }
+    },
+    {
+      "name": "Professional",
+      "baseCost": 4,
+      "triggerAt": 5000,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": 2,
+      "features": [
+        "2% transaction fee",
+        "5,000 Members",
+        "Social Logins",
+        "Stripe Payments",
+        "Custom SSO",
+        "Branded Emails",
+        "Everything Else"
+      ],
+      "limits": {
+        "users": 5000,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Business",
+      "baseCost": 499,
+      "triggerAt": 10000,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": 0.9,
+      "features": [
+        "0.9% transaction fee",
+        "10,000+ Members",
+        "Social Logins",
+        "Stripe Payments",
+        "Custom SSO",
+        "Branded Emails",
+        "Everything Else"
+      ],
+      "limits": {
+        "users": "10,000+",
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 0,
+    "high": 0
+  },
+  "gotchas": [
+    "The 'Basic' tier lists 'Zero transaction fees' but also '0.9% transaction fee' in the 'Business' tier, which appears to be a typo and should likely be aligned with the Business tier's 0.9%. The 0.9% fee is explicitly stated for the Business tier, making it the actual transaction fee for that plan.",
+    "The 'Basic' tier has a limit stated as '10,000+ Members' and also a trigger point of '1,000 Members'. This is confusing. It's implied the free tier is for up to 100 members and $1,200 annual revenue, and the next step is the 'Basic' tier which starts at a lower revenue/member count than '10,000'. The pricing graphic suggests 'Basic' starts at 1,000 members and $1,200 annual revenue. The 'Business' tier appears to be the one with the 0.9% transaction fee and 10,000+ members.",
+    "The pricing slider in the image suggests a relationship between 'Member Count' and 'Annual Revenue', with costs changing based on these factors. This suggests a hybrid pricing model or that the listed tiers are examples based on certain thresholds.",
+    "The 'Professional' tier has a clear 2% transaction fee but limits users to 5,000. The 'Business' tier offers a lower 0.9% fee for 10,000+ members, making it potentially more cost-effective for larger user bases."
+  ],
+  "alternatives": [
+    "Outseta",
+    "Memberspace",
+    "Webflow Memberships"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:50:49.255373+00:00",
+  "sourceUrl": "https://www.memberstack.com/pricing",
+  "bundledCategories": [
+    "auth"
+  ]
+}

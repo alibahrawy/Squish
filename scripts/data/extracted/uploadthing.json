@@ -1,0 +1,105 @@
+{
+  "id": "uploadthing",
+  "name": "UploadThing",
+  "category": "storage",
+  "description": "UploadThing provides a simple, scalable, and developer-friendly file upload solution for your applications.",
+  "pricingModel": "flat",
+  "capabilities": [
+    "file-uploads",
+    "storage-management",
+    "audit-logs",
+    "multi-region-deployment",
+    "private-file-handling"
+  ],
+  "tiers": [
+    {
+      "name": "2GB App",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": 2,
+      "unitType": "GB",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "2GB of storage",
+        "7 days of audit log retention",
+        "Unlimited uploads and downloads"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "2GB",
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "100GB App",
+      "baseCost": 10,
+      "triggerAt": 0,
+      "includedUnits": 100,
+      "unitType": "GB",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "100GB of storage",
+        "30 days of audit log retention",
+        "Regions",
+        "Private Files"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "100GB",
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Usage Based",
+      "baseCost": 25,
+      "triggerAt": 0,
+      "includedUnits": 250,
+      "unitType": "GB",
+      "overageCost": 0.08,
+      "feePercent": null,
+      "features": [
+        "250GB of included storage",
+        "30 days of audit log retention",
+        "Regions",
+        "Private Files"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "250GB (included)",
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": "$0.08 per GB over 250GB"
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 10,
+    "high": 25
+  },
+  "gotchas": [
+    "The 2GB storage is shared between all apps.",
+    "The 'Usage Based' tier has a base cost of $25/month which includes 250GB, and then an overage cost of $0.08 per GB after that.",
+    "All prices are in USD."
+  ],
+  "alternatives": [
+    "Supabase Storage",
+    "AWS S3",
+    "Cloudinary",
+    "Filestack"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:51:56.549339+00:00",
+  "sourceUrl": "https://uploadthing.com/pricing"
+}

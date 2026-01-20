@@ -1,0 +1,162 @@
+{
+  "id": "neon",
+  "name": "Neon",
+  "category": "database",
+  "description": "Neon is a serverless PostgreSQL database built for the cloud.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "serverless databases",
+    "PostgreSQL",
+    "branches",
+    "autoscaling compute",
+    "scale to zero",
+    "instant restore (PITR)",
+    "monthly active users (MAU)",
+    "multi-factor authentication (MFA)",
+    "IP allow rules",
+    "private networking",
+    "private link",
+    "public network transfer",
+    "private network transfer",
+    "monitoring retention",
+    "metrics and logs export",
+    "HIPAA compliance",
+    "SOC 2 report access"
+  ],
+  "tiers": [
+    {
+      "name": "Free",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": {
+        "compute_hours": 100,
+        "branches": 100,
+        "storage_gb": 0.5
+      },
+      "unitType": "per month",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "100 CU-hours per project",
+        "Up to 2 CU (8 GB RAM) compute size",
+        "Scale to zero after 5 minutes of inactivity",
+        "0.5 GB storage per project (included)",
+        "Instant Restore (PITR) with limited window/size (up to 6 hours or 1 GB data changes)",
+        "Up to 60k MAU",
+        "5 GB network transfer included",
+        "1 day monitoring retention",
+        "Community Support (Discord)"
+      ],
+      "limits": {
+        "users": "Up to 60k MAU",
+        "storage": "0.5 GB per Project",
+        "projects": "Per Project",
+        "compute_cu_hours": 100,
+        "compute_size_cu": 2,
+        "pitr_window": "Up to 6 hours or 1 GB of data changes"
+      }
+    },
+    {
+      "name": "Launch",
+      "baseCost": null,
+      "triggerAt": 100,
+      "includedUnits": {
+        "branches": 100,
+        "storage_gb": 100
+      },
+      "unitType": "usage-based",
+      "overageCost": {
+        "branch_hour": "$0.002",
+        "cu_hour": "$0.106",
+        "storage_gb_month": "$0.35",
+        "pitr_gb_month": "$0.20",
+        "egress_gb": "$0.10"
+      },
+      "feePercent": null,
+      "features": [
+        "Usage-based pricing",
+        "Up to 16 CU (64 GB RAM) compute size (autoscaling)",
+        "Scale to zero after 5 minutes of inactivity (can be disabled)",
+        "100 GB storage included",
+        "Instant Restore (PITR) window up to 7 days",
+        "Up to 1M MAU",
+        "3 days monitoring retention",
+        "Standard Support (Billing issues)"
+      ],
+      "limits": {
+        "users": "Up to 1M MAU",
+        "storage": "100 GB included, then $0.10 per GB",
+        "projects": "100 projects",
+        "compute_size_cu": 16,
+        "pitr_window": "Up to 7 days"
+      }
+    },
+    {
+      "name": "Scale",
+      "baseCost": null,
+      "triggerAt": 1000,
+      "includedUnits": {
+        "branches": 1000,
+        "storage_gb": 100
+      },
+      "unitType": "usage-based",
+      "overageCost": {
+        "branch_hour": "$0.002",
+        "cu_hour": "$0.222",
+        "storage_gb_month": "$0.35",
+        "pitr_gb_month": "$0.20",
+        "private_network_transfer_gb": "$0.01"
+      },
+      "feePercent": null,
+      "features": [
+        "Usage-based pricing",
+        "Up to 56 CU (224 GB RAM) compute size (configurable autoscaling)",
+        "Configurable scale to zero",
+        "100 GB storage included",
+        "Instant Restore (PITR) window up to 30 days",
+        "Up to 1M MAU",
+        "14 days monitoring retention",
+        "Included IP Allow Rules",
+        "Available Private Networking",
+        "Available Private Link",
+        "Available Multiple options for Network",
+        "Included Metrics and Logs export (Datadog, OTel)",
+        "Available HIPAA Compliance",
+        "Available SOC 2 Report Access",
+        "Priority Support"
+      ],
+      "limits": {
+        "users": "Up to 1M MAU",
+        "storage": "100 GB included, then $0.10 per GB",
+        "projects": "1,000 projects",
+        "compute_size_cu": 56,
+        "pitr_window": "Up to 30 days"
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 10.6,
+    "high": 222
+  },
+  "gotchas": [
+    "Free tier has limited compute (2 CU/8GB RAM), storage (0.5 GB/project), and PITR.",
+    "Compute (CU-hours) and storage are billed separately on usage-based tiers.",
+    "PITR cost is based on the volume of data changes during the selected restore window.",
+    "Private Link and Private Networking features are not explicitly priced and likely carry additional costs or are part of the 'Scale' tier's advanced features.",
+    "MAU counts for the Free tier are capped at 60k, while Launch and Scale tiers support up to 1M.",
+    "Storage pricing for Launch and Scale tiers has an included amount, with overage costs thereafter."
+  ],
+  "alternatives": [
+    "AWS RDS",
+    "Google Cloud SQL",
+    "Azure Database for PostgreSQL",
+    "Supabase",
+    "Railway"
+  ],
+  "recommended": true,
+  "scrapedAt": "2026-01-20T00:46:42.586484+00:00",
+  "sourceUrl": "https://neon.tech/pricing"
+}

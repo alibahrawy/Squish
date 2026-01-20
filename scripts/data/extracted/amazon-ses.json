@@ -1,0 +1,115 @@
+{
+  "id": "amazon-ses",
+  "name": "Amazon SES",
+  "category": "email",
+  "description": "Amazon Simple Email Service (SES) is a scalable and cost-effective cloud-based email sending service for businesses and developers.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "email sending",
+    "email receiving",
+    "virtual deliverability manager outbound email processing",
+    "email validation",
+    "mail manager open ingress endpoint",
+    "mail manager email processing",
+    "mail manager archiving",
+    "dedicated ip addresses",
+    "bring your own ip addresses (byoip)",
+    "inbox deliverability: virtual deliverability manager",
+    "deliverability expert services"
+  ],
+  "tiers": [
+    {
+      "name": "AWS Free Tier (First 12 Months)",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": 3000,
+      "unitType": "message charges",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Up to 3,000 message charges free each month for the first 12 months",
+        "Applies to outbound emails, inbound emails, and Virtual Deliverability Manager outbound email processing",
+        "Free tier messages apply first to more expensive charges",
+        "New AWS customers receive up to $200 in AWS Free Tier credits (apply towards eligible services including SES)",
+        "Free plan available for 6 months after account creation for new customers (can choose between free and paid plan)"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": "3,000 message charges per month"
+      }
+    },
+    {
+      "name": "Standard Sending",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": {
+        "outbound_email": 0.1,
+        "outbound_data_attachments": 0.12,
+        "global_endpoints": 0.03,
+        "inbound_email": 0.1,
+        "inbound_mail_chunks": 0.09,
+        "email_validation_api": 0.01,
+        "email_validation_auto": 0.01,
+        "mail_manager_open_ingress_endpoint": 50.0,
+        "mail_manager_email_processing": 0.15,
+        "mail_manager_additional_recipients": 0.1,
+        "mail_manager_archiving_ingestion": 2.0,
+        "mail_manager_archiving_storage": 0.19,
+        "dedicated_ips_standard": 24.95,
+        "dedicated_ips_managed_base": 15.0,
+        "dedicated_ips_managed_10m": 0.08,
+        "dedicated_ips_managed_50m": 0.04,
+        "dedicated_ips_managed_100m": 0.02,
+        "byoip": 24.95,
+        "vdm_email_processing": 0.07,
+        "vdm_queries": 0.0005,
+        "trend_micro_add_on": 0.0001875
+      },
+      "feePercent": null,
+      "features": [
+        "Pay-as-you-go pricing for sending and receiving emails",
+        "No subscriptions, contract negotiations, or minimum charges"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0.75,
+    "medium": 5.0,
+    "high": 25.0
+  },
+  "gotchas": [
+    "Data transfer fees may apply for using EC2 or moving data between regions.",
+    "Virtual Deliverability Manager adds an additional charge per email sent.",
+    "Dedicated IP addresses have a monthly cost per IP, with a significant minimum cost for BYOIP.",
+    "Mail Manager has per-endpoint, per-message, and per-GB costs.",
+    "Free tier applies to message charges, but not necessarily to all associated costs like data transfer or add-on features.",
+    "Pricing calculator does not currently include SES Free Tier discounts.",
+    "Email sending charges still apply even if Auto Validation suppresses a recipient.",
+    "Deliverability Expert Services are billed at a flat fee for a 3-month engagement and require contacting AWS.",
+    "Additional AWS services like EC2, S3, SNS, and CloudWatch used in conjunction with SES will incur their own separate charges."
+  ],
+  "alternatives": [
+    "SendGrid",
+    "Mailgun",
+    "Amazon Pinpoint"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:50:08.283922+00:00",
+  "sourceUrl": "https://aws.amazon.com/ses/pricing/"
+}

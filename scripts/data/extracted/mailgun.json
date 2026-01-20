@@ -1,0 +1,178 @@
+{
+  "id": "mailgun",
+  "name": "Mailgun",
+  "category": "email",
+  "description": "Mailgun is a powerful API-first email sending and delivery platform designed for developers and businesses.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "email sending",
+    "SMTP relay",
+    "RESTful email APIs",
+    "mailing lists",
+    "recipient variables",
+    "custom sending domains",
+    "log retention",
+    "bounce classification",
+    "message retention",
+    "analytics",
+    "webhooks",
+    "inbound email routing",
+    "email templates",
+    "send time optimization",
+    "email validations",
+    "suppression management",
+    "automated dedicated IP warm up",
+    "authentication protocols (SPF, DKIM, DMARC, BIMI)",
+    "link tracking",
+    "dedicated IPs",
+    "SAML SSO",
+    "multi-user access",
+    "user roles & permissions",
+    "subaccounts",
+    "RBAC API keys",
+    "ticket support",
+    "chat support",
+    "phone support",
+    "knowledge base",
+    "SDKs",
+    "documentation",
+    "customer feedback forum"
+  ],
+  "tiers": [
+    {
+      "name": "Free",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": 100,
+      "unitType": "emails/day",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "100 emails per day",
+        "Ticket support",
+        "RESTful email APIs and SMTP relay",
+        "1 custom sending domain",
+        "Tracking, analytics, and webhooks",
+        "2 API keys",
+        "Email analytics and reporting",
+        "1 day log retention",
+        "1 inbound route"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": "100 emails/day limit"
+      }
+    },
+    {
+      "name": "Basic",
+      "baseCost": 5,
+      "triggerAt": 0,
+      "includedUnits": 10000,
+      "unitType": "emails/month",
+      "overageCost": 1.8,
+      "feePercent": null,
+      "features": [
+        "No daily email limit",
+        "Monthly email overage options",
+        "RESTful email APIs and SMTP relay",
+        "1 custom sending domain",
+        "Tracking, analytics, and webhooks",
+        "2 API keys",
+        "Email analytics and reporting",
+        "1 day log retention",
+        "5 inbound routes"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Foundation",
+      "baseCost": 75,
+      "triggerAt": 0,
+      "includedUnits": 50000,
+      "unitType": "emails/month",
+      "overageCost": 1.3,
+      "feePercent": null,
+      "features": [
+        "Everything on Basic plus...",
+        "Full access to RESTful email APIs and SMTP relays",
+        "1,000 custom sending domains",
+        "Email template builder and API",
+        "Tracking, analytics, and webhooks",
+        "5 days log retention",
+        "1 day message retention",
+        "Full access to inbound routing",
+        "Email validations (starting at $1.20/100 validations, included 5000 at Scale)"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": "1,000 custom sending domains"
+      }
+    },
+    {
+      "name": "Scale",
+      "baseCost": 175,
+      "triggerAt": 0,
+      "includedUnits": 100000,
+      "unitType": "emails/month",
+      "overageCost": 1.1,
+      "feePercent": null,
+      "features": [
+        "Everything on Foundation plus...",
+        "SAML SSO",
+        "5,000 email validations included",
+        "Dedicated IP pools",
+        "Send time optimization",
+        "Live phone & chat support",
+        "30 days log retention",
+        "Up to 7 days message retention",
+        "Schedule and send analytics reports"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": "Dedicated IPs available for volumes above 50k, included at 100k+"
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 0,
+    "high": 0
+  },
+  "gotchas": [
+    "The Free tier has a strict daily sending limit.",
+    "Overage costs apply for exceeding included email volumes in paid tiers.",
+    "Email validations are an add-on for Free, Basic, and Foundation tiers, and included from the Scale tier onwards, with different pricing structures.",
+    "Dedicated IPs are accessible starting at the 50k volume mark and included at 100k+ volumes.",
+    "The pricing is based on email volume sent, not active users, so 'costPer1kUsers' cannot be accurately estimated from the provided page.",
+    "Enterprise pricing is custom and requires direct contact."
+  ],
+  "alternatives": [
+    "SendGrid",
+    "Amazon SES",
+    "Postmark"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:50:16.417936+00:00",
+  "sourceUrl": "https://www.mailgun.com/pricing/"
+}

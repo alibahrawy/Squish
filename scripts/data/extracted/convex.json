@@ -1,0 +1,82 @@
+{
+  "id": "convex",
+  "name": "Convex",
+  "category": "database",
+  "description": "Backend-as-a-service platform with real-time database, serverless functions, file storage, and vector search built-in.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "real-time-database",
+    "serverless-functions",
+    "file-storage",
+    "vector-storage",
+    "scheduled-functions",
+    "http-endpoints",
+    "authentication",
+    "typescript-sdk",
+    "react-hooks",
+    "audit-logging"
+  ],
+  "tiers": [
+    {
+      "name": "Free",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "features": [
+        "1-6 developers",
+        "40 deployments",
+        "1M function calls/month",
+        "0.5 GB database storage",
+        "1 GB file storage",
+        "Community support"
+      ],
+      "limits": {
+        "users": "6",
+        "storage": "0.5 GB",
+        "functionCalls": "1,000,000/month"
+      }
+    },
+    {
+      "name": "Professional",
+      "baseCost": 25,
+      "triggerAt": 500,
+      "features": [
+        "Unlimited developers",
+        "120 deployments",
+        "25M function calls/month",
+        "50 GB database storage",
+        "100 GB file storage",
+        "24-hour email support",
+        "Audit logging",
+        "Higher concurrency limits"
+      ],
+      "limits": {
+        "users": "unlimited",
+        "storage": "50 GB",
+        "functionCalls": "25,000,000/month"
+      }
+    }
+  ],
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 25,
+    "high": 75
+  },
+  "gotchas": [
+    "Pricing is per-developer for Professional tier ($25/dev/month)",
+    "Usage overages apply beyond included quotas",
+    "Deployment limits may require contacting Convex"
+  ],
+  "alternatives": [
+    "Supabase",
+    "Firebase",
+    "PlanetScale",
+    "Neon"
+  ],
+  "scrapedAt": "2026-01-20T00:00:00Z",
+  "sourceUrl": "https://www.convex.dev/pricing",
+  "bundledCategories": [
+    "storage",
+    "auth",
+    "jobs"
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "id": "xata",
+  "name": "Xata",
+  "category": "database",
+  "description": "Xata is a serverless database platform offering compute and storage dimensions with flexible deployment options.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "database",
+    "serverless compute",
+    "scale-to-zero compute",
+    "data anonymization/masking",
+    "advanced observability",
+    "copy-on-write branches",
+    "deployment on Xata platform",
+    "deployment in own cloud account (BYOC)",
+    "PostgreSQL service offering"
+  ],
+  "tiers": [
+    {
+      "name": "Free Trial",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "$100 credit for X-day trial"
+      ],
+      "limits": {}
+    },
+    {
+      "name": "Standard",
+      "baseCost": 0.012,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "hour",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Instant Copy-on-Write branches",
+        "Scale-to-zero compute",
+        "Data anonymization / masking",
+        "Advanced observability",
+        "Standard support"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Enterprise",
+      "baseCost": 999,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "month",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Deploy in your own cloud account (BYOC)",
+        "For platform providers: white-label Xata",
+        "Flexible pricing model",
+        "Dedicated Solution Architect",
+        "Priority support"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 0,
+    "high": 0
+  },
+  "gotchas": [
+    "The Standard tier pricing is based on compute duration (/ hour) and is separate from storage costs.",
+    "Storage pricing is tiered, with different costs for 'General Purpose' and 'Premium' storage.",
+    "The 'micro', 'small', 'medium', 'large', 'xlarge', '2xlarge', '4xlarge', '8xlarge' instance types are listed with hourly costs but only cumulative monthly costs are provided for 'xlarge' and above.",
+    "Specific limits for compute instances (vCPUs, RAM) are not detailed for all tiers, only for the breakdown of instance pricing.",
+    "The free trial includes a $100 credit, but the duration of the trial is not explicitly stated ('X-day trial').",
+    "Data anonymization/masking and zero-downtime schema changes are mentioned as potentially free, but this could imply they are available in lower tiers or are universally available."
+  ],
+  "alternatives": [
+    "Fauna",
+    "PlanetScale",
+    "Supabase",
+    "AWS RDS"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T01:11:55.540797+00:00",
+  "sourceUrl": "https://xata.io/pricing"
+}

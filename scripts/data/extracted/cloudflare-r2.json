@@ -1,0 +1,126 @@
+{
+  "id": "cloudflare-r2",
+  "name": "Cloudflare R2",
+  "category": "storage",
+  "description": "Cloudflare R2 is an S3-compatible object storage service with zero egress fees.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "object-storage",
+    "s3-compatible-api",
+    "zero-egress-fees",
+    "data-retrieval",
+    "data-migration",
+    "multipart-uploads",
+    "lifecycle-management"
+  ],
+  "tiers": [
+    {
+      "name": "Free Tier",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": {
+        "storage": "10 GB-month",
+        "classAOperations": "1 million requests",
+        "classBOperations": "10 million requests",
+        "egress": "Free"
+      },
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "10 GB-month Standard storage included",
+        "1 million Class A operations included",
+        "10 million Class B operations included",
+        "Free egress bandwidth"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "10 GB-month (Standard storage only)",
+        "bandwidth": "Unlimited (Free)",
+        "apiCalls": "1 million Class A, 10 million Class B per month",
+        "projects": null,
+        "other": "Does not apply to Infrequent Access storage."
+      }
+    },
+    {
+      "name": "Standard Storage",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": {
+        "storage": "$0.015 / GB-month",
+        "classAOperations": "$4.50 / million requests",
+        "classBOperations": "$0.36 / million requests",
+        "dataRetrieval": "None"
+      },
+      "feePercent": null,
+      "features": [
+        "Standard storage",
+        "No data retrieval fees"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": "Unlimited",
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Infrequent Access Storage",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": {
+        "storage": "$0.01 / GB-month",
+        "classAOperations": "$9.00 / million requests",
+        "classBOperations": "$0.90 / million requests",
+        "dataRetrieval": "$0.01 / GB"
+      },
+      "feePercent": null,
+      "features": [
+        "Infrequent Access storage",
+        "Minimum storage duration of 30 days",
+        "Data retrieval fees apply"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": "Unlimited",
+        "apiCalls": null,
+        "projects": null,
+        "other": "30-day minimum storage duration"
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 0,
+    "high": 0
+  },
+  "gotchas": [
+    "Billable unit rounding: Usage is rounded up to the next billing unit (e.g., 1.1 GB-month becomes 2 GB-month).",
+    "Free tier limitations: The free tier only applies to Standard storage, not Infrequent Access storage.",
+    "Minimum storage duration for Infrequent Access: Objects are charged for at least 30 days, even if deleted sooner.",
+    "Data retrieval fees for Infrequent Access: Accessing or retrieving data from this class incurs a per-GB fee.",
+    "R2 Data Catalog is in public beta and currently free, but this may change with notice.",
+    "Super Slurper and Sippy data migration tools are free to use, but Class A operations to R2 are charged."
+  ],
+  "alternatives": [
+    "Amazon S3",
+    "Google Cloud Storage",
+    "Azure Blob Storage",
+    "Backblaze B2"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:51:37.166463+00:00",
+  "sourceUrl": "https://developers.cloudflare.com/r2/pricing/",
+  "bundledCategories": [
+    "hosting"
+  ]
+}

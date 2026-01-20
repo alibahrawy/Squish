@@ -1,0 +1,55 @@
+{
+  "id": "vercel-postgres",
+  "name": "Vercel Postgres",
+  "category": "database",
+  "description": "Connect external Postgres databases to your Vercel projects without managing database servers.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "connect external Postgres databases",
+    "provision Postgres databases",
+    "configure Postgres databases",
+    "environment variable injection"
+  ],
+  "tiers": [
+    {
+      "name": "Marketplace Integrations",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Connect to a range of Postgres providers"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 0,
+    "high": 0
+  },
+  "gotchas": [
+    "Vercel Postgres is no longer available and has been moved to Neon. For new projects, users must install a Postgres integration from the Vercel Marketplace and connect to an external database provider.",
+    "Pricing for Vercel Postgres itself is no longer discoverable; pricing will depend on the chosen external Postgres provider via the Marketplace."
+  ],
+  "alternatives": [
+    "Neon",
+    "Supabase",
+    "PlanetScale",
+    "AWS RDS"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T01:11:32.715407+00:00",
+  "sourceUrl": "https://vercel.com/docs/storage/vercel-postgres/usage-and-pricing"
+}

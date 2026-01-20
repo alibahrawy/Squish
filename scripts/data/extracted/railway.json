@@ -1,0 +1,92 @@
+{
+  "id": "railway",
+  "name": "Railway",
+  "category": "hosting",
+  "description": "A platform for deploying and managing applications with a usage-based pricing model.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "application deployment",
+    "database hosting",
+    "environment management",
+    "secret management",
+    "log streaming",
+    "continuous deployment",
+    "version control integration",
+    "SSH access",
+    "custom domains",
+    "SSL certificates"
+  ],
+  "tiers": [
+    {
+      "name": "Free",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Deploy unlimited projects",
+        "Build and deploy from GitHub",
+        "MySQL, PostgreSQL, Redis, MongoDB, and more",
+        "Usage-based billing",
+        "Access to Railway CLI",
+        "Team collaboration"
+      ],
+      "limits": {
+        "users": "unlimited",
+        "storage": "variable, usage-based",
+        "bandwidth": "variable, usage-based",
+        "apiCalls": null,
+        "projects": "unlimited",
+        "other": "limited free usage credits per month"
+      }
+    },
+    {
+      "name": "Usage-Based",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Pay as you go for compute and network usage",
+        "Cost savings compared to traditional providers",
+        "Full access to all features"
+      ],
+      "limits": {
+        "users": "unlimited",
+        "storage": "variable, usage-based",
+        "bandwidth": "variable, usage-based",
+        "apiCalls": null,
+        "projects": "unlimited",
+        "other": "customers are encouraged to share their current cloud bills for exact pricing comparison"
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 0,
+    "high": 0
+  },
+  "gotchas": [
+    "The pricing is purely usage-based, so costs can fluctuate based on consumption. Users are encouraged to use the savings calculator by uploading their current cloud bills.",
+    "While the Free tier allows unlimited projects, it has a limited amount of free usage credits per month. Once these credits are exhausted, users will be transitioned to the usage-based billing model.",
+    "The pricing page heavily emphasizes savings without providing explicit rates for compute, network, or storage. A dedicated pricing page with detailed rates is not present, requiring users to interact with the savings calculator or the platform directly."
+  ],
+  "alternatives": [
+    "Heroku",
+    "Render",
+    "Fly.io",
+    "Supabase"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:48:09.254324+00:00",
+  "sourceUrl": "https://railway.app/pricing",
+  "bundledCategories": [
+    "database"
+  ]
+}

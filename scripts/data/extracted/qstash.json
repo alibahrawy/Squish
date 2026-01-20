@@ -1,0 +1,214 @@
+{
+  "id": "qstash",
+  "name": "QStash",
+  "category": "jobs",
+  "description": "QStash is a managed message queue service that provides reliable message delivery, scheduling, and a developer-friendly API for building asynchronous applications.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "message-queueing",
+    "async-processing",
+    "message-scheduling",
+    "retries",
+    "dead-letter-queue",
+    "webhooks",
+    "rate-limiting",
+    "observability",
+    "security",
+    "sso"
+  ],
+  "tiers": [
+    {
+      "name": "Free",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Community Support",
+        "Encryption at rest",
+        "Max Message Size: Custom",
+        "Max DLQ Retention: 3 days",
+        "Max Logs Retention: 3 days",
+        "Max Active Schedules: 1,000",
+        "Max Queue Count: 100",
+        "Max Parallelism: 100"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": "Unlimited",
+        "apiCalls": null,
+        "projects": null,
+        "other": {
+          "Messages per Day": "1,000",
+          "Max Number of URL Groups": "100",
+          "Max Number of Endpoints per URL Group": "100",
+          "Max Delay": "7 days",
+          "Max HTTP Response Duration": "15 minutes"
+        }
+      }
+    },
+    {
+      "name": "Pay as you go",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "message",
+      "overageCost": 1,
+      "feePercent": null,
+      "features": [
+        "Community Support",
+        "Encryption at rest",
+        "Max Message Size: Custom",
+        "Max DLQ Retention: 7 days",
+        "Max Logs Retention: 7 days",
+        "Max Active Schedules: 10,000",
+        "Max Queue Count: 1,000",
+        "Max Parallelism: 200"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": "Unlimited",
+        "apiCalls": null,
+        "projects": null,
+        "other": {
+          "Messages per Day": "Unlimited",
+          "Max Number of URL Groups": "1000",
+          "Max Number of Endpoints per URL Group": "1000",
+          "Max Delay": "1 year",
+          "Max HTTP Response Duration": "2 hours"
+        }
+      }
+    },
+    {
+      "name": "Fixed 1M",
+      "baseCost": 180,
+      "triggerAt": 0,
+      "includedUnits": 1000000,
+      "unitType": "message",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Email Support",
+        "Encryption at rest",
+        "Max Message Size: Custom",
+        "Max DLQ Retention: 30 days",
+        "Max Logs Retention: 14 days",
+        "Max Active Schedules: 50,000",
+        "Max Queue Count: Custom",
+        "Max Parallelism: 1000"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": "Unlimited",
+        "apiCalls": null,
+        "projects": null,
+        "other": {
+          "Messages per Day": "1M messages",
+          "Max Number of URL Groups": "2000",
+          "Max Number of Endpoints per URL Group": "2000",
+          "Max Delay": "Unlimited",
+          "Max HTTP Response Duration": "6 hours"
+        }
+      }
+    },
+    {
+      "name": "Fixed 10M",
+      "baseCost": 420,
+      "triggerAt": 0,
+      "includedUnits": 10000000,
+      "unitType": "message",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Email Support",
+        "Encryption at rest",
+        "Max Message Size: Custom",
+        "Max DLQ Retention: 3 months",
+        "Max Logs Retention: Custom",
+        "Max Active Schedules: Custom",
+        "Max Queue Count: Custom",
+        "Max Parallelism: Custom"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": "Unlimited",
+        "apiCalls": null,
+        "projects": null,
+        "other": {
+          "Messages per Day": "Unlimited",
+          "Max Number of URL Groups": "Custom",
+          "Max Number of Endpoints per URL Group": "Custom",
+          "Max Delay": "Unlimited",
+          "Max HTTP Response Duration": "12 hours"
+        }
+      }
+    },
+    {
+      "name": "Enterprise",
+      "baseCost": null,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Everything in Prod Pack",
+        "Professional support with SLA",
+        "Dedicated resources for isolation",
+        "SAML Single Sign-On (SSO)",
+        "Uptime SLA",
+        "Prometheus Integration",
+        "Datadog Integration"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": "Unlimited",
+        "apiCalls": null,
+        "projects": null,
+        "other": {
+          "Messages per Day": "100M+ messages daily",
+          "Max Message Size": "Custom",
+          "Max Delay": "Unlimited",
+          "Max HTTP Response Duration": "Custom",
+          "Max DLQ Retention": "Custom",
+          "Max Logs Retention": "Custom",
+          "Max Active Schedules": "Custom",
+          "Max Queue Count": "Custom",
+          "Max Parallelism": "Custom",
+          "Max Number of URL Groups": "Custom",
+          "Max Number of Endpoints per URL Group": "Custom"
+        }
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 0,
+    "high": 0
+  },
+  "gotchas": [
+    "The 'Pay as you go' tier has a base cost of $0 but charges $1 per 100K messages, making it a pure usage-based model. Thus, its `baseCost` is set to 0, and `overageCost` reflects the per-message charge.",
+    "The 'Fixed 1M' and 'Fixed 10M' tiers include a fixed number of messages per month, but the pricing page also shows a 'per 100K messages' cost for the 'Pay as you go' tier which implies that exceeding the fixed amount in these tiers will likely incur additional usage charges.",
+    "Enterprise tier pricing is custom and requires contacting sales for a quote.",
+    "The 'Prod Pack' is mentioned as part of the Enterprise tier but isn't a separate standalone tier on the pricing page.",
+    "Feature availability and limits vary significantly across tiers, especially for advanced capabilities like Max Delay, HTTP Response Duration, and DLQ Retention."
+  ],
+  "alternatives": [
+    "AWS SQS",
+    "Google Cloud Pub/Sub",
+    "Azure Service Bus",
+    "RabbitMQ"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:52:15.582556+00:00",
+  "sourceUrl": "https://upstash.com/pricing/qstash"
+}

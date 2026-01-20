@@ -1,0 +1,200 @@
+{
+  "id": "logrocket",
+  "name": "LogRocket",
+  "category": "analytics",
+  "description": "LogRocket provides session replay, performance monitoring, and product analytics for web and mobile applications.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "Session Replay (Web)",
+    "Session Replay (Mobile)",
+    "JavaScript Error Reporting",
+    "Performance Data",
+    "Product & UX Analytics",
+    "AI-powered Struggle Detection (Galileo AI)",
+    "Conditional Recording",
+    "Auto Capture",
+    "SaaS Deployment",
+    "Self-Hosted Deployment",
+    "Issue Management",
+    "Alerting",
+    "Integrations",
+    "GDPR & CCPA Compliance",
+    "PII Audit",
+    "SOC II Compliance",
+    "Single Sign On (SSO)",
+    "Role-based Access Controls",
+    "Audit Logs",
+    "Feedback Collection",
+    "Streaming Data Export"
+  ],
+  "tiers": [
+    {
+      "name": "Free",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": 1000,
+      "unitType": "Sessions / Month",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Pixel-Perfect Session Replay",
+        "JavaScript Error Reporting",
+        "1 Month Data Retention"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": "1,000 Sessions / Month"
+      }
+    },
+    {
+      "name": "Team",
+      "baseCost": 69,
+      "triggerAt": 1000,
+      "includedUnits": 10000,
+      "unitType": "sessions/mo",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Pixel-Perfect Session Replay",
+        "JavaScript Error Reporting",
+        "AI-powered Struggle Detection",
+        "Detailed Product Analytics",
+        "Native mobile replays",
+        "Filters and search",
+        "Console logs, warnings, errors & exceptions",
+        "Stack traces & source maps",
+        "Network requests, headers & bodies",
+        "Blocklisting & allowlisting",
+        "Inspect tool",
+        "Performance data",
+        "Dashboards & templates",
+        "Tables & timeseries",
+        "Conversion funnels",
+        "Alerting",
+        "Issue triaging",
+        "Issue frequency analysis",
+        "JavaScript errors",
+        "Mobile exceptions",
+        "Network errors",
+        "Rage clicks",
+        "Dead clicks",
+        "Severity scores",
+        "Issue descriptions",
+        "Galileo AI",
+        "Autocapture",
+        "GDPR & CCPA compliance",
+        "Blocklisting & allowlisting",
+        "PII audit",
+        "Single sign on",
+        "Role-based access controls",
+        "Audit logs",
+        "Email support",
+        "Live chat support"
+      ],
+      "limits": {
+        "users": "5-10",
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": "Starts at 10k sessions/mo (with a base of $69 for 10k sessions/mo)"
+      }
+    },
+    {
+      "name": "Professional",
+      "baseCost": 295,
+      "triggerAt": null,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "All Team features",
+        "AI-powered Struggle Detection",
+        "Detailed Product Analytics",
+        "Funnel insights",
+        "Path analysis",
+        "Heatmaps, scrollmaps & clickmaps",
+        "Cohort analysis",
+        "Retention charts",
+        "Definitions",
+        "Streaming Data Export (Add on)",
+        "Error states",
+        "Severity scores",
+        "Issue descriptions",
+        "Issues Digest",
+        "Recommended issues",
+        "Issues Digest Highlights",
+        "Integrations",
+        "SOC II compliance",
+        "Customer success manager",
+        "Basic legal/security"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": "Fewer than 20 employees? Ask about our Startup Plan"
+      }
+    },
+    {
+      "name": "Enterprise",
+      "baseCost": null,
+      "triggerAt": null,
+      "includedUnits": "1M+",
+      "unitType": "sessions/mo",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "All Professional features",
+        "Conditional Recording",
+        "Custom Volume of Sessions",
+        "Self-Hosted Available",
+        "Custom legal/security/BAA",
+        "Uptime SLA"
+      ],
+      "limits": {
+        "users": "Unlimited",
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": "Custom Pricing, Custom Volume of Sessions, Self-Hosted Available"
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 100,
+    "high": 250
+  },
+  "gotchas": [
+    "The 'Team' plan has specific session volume tiers (10k, 25k) indicated after the base price, implying further cost increases beyond the initial $69 for 10k sessions/mo.",
+    "Professional plan pricing is listed as 'Starting at $295/month' and mentions a 'Startup Plan' for companies with fewer than 20 employees, suggesting potential flexibility or different pricing not fully detailed.",
+    "Enterprise pricing is custom and requires contacting sales.",
+    "Data retention is limited to 1 month on the Free tier, significantly less than paid plans (which 'start at 1 month' but likely extend).",
+    "Conditional Recording, Streaming Data Export, and Feedback are marked as 'Add on', implying they might incur additional costs or be separate features.",
+    "Self-hosted deployment is only explicitly mentioned for Enterprise, although it's an 'Add on' for potentially other tiers.",
+    "The 'usage' pricing model means costs can fluctuate based on session volume, making budgeting potentially challenging without careful monitoring."
+  ],
+  "alternatives": [
+    "Datadog",
+    "Heap",
+    "FullStory",
+    "PostHog"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:51:30.721944+00:00",
+  "sourceUrl": "https://logrocket.com/pricing/",
+  "bundledCategories": [
+    "analytics"
+  ]
+}

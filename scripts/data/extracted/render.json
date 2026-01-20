@@ -1,0 +1,181 @@
+{
+  "id": "render",
+  "name": "Render",
+  "category": "hosting",
+  "description": "Render is a cloud platform that helps you build and scale your applications with ease, offering automated deployments and infrastructure management.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "web-services",
+    "static-sites",
+    "background-workers",
+    "cron-jobs",
+    "databases",
+    "redis",
+    "deployments",
+    "git-integration",
+    "docker-support",
+    "private-networking",
+    "auto-scaling",
+    "monitoring",
+    "logging",
+    "custom-domains",
+    "ssl-certificates",
+    "team-collaboration",
+    "cdn",
+    "serverless-functions",
+    "environment-variables",
+    "secrets-management",
+    "ci-cd-integration"
+  ],
+  "tiers": [
+    {
+      "name": "Free",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": {
+        "web-services": 1,
+        "static-sites": 1,
+        "background-workers": 1,
+        "cron-jobs": 1,
+        "databases": 1,
+        "redis": 1
+      },
+      "unitType": "service",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Spin down after 30 minutes of inactivity",
+        "1GB RAM",
+        "256MB disk",
+        "100GB bandwidth/month",
+        "100GB database storage/month",
+        "25GB Redis storage/month",
+        "1 Redis DB",
+        "2 web services",
+        "2 static sites",
+        "2 background workers",
+        "2 cron jobs",
+        "1 database",
+        "1 Redis instance",
+        "Free custom domains",
+        "Free Let's Encrypt SSL"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "256MB",
+        "bandwidth": "100GB/month",
+        "apiCalls": null,
+        "projects": null,
+        "other": "1 Shared-CPU web service instance"
+      }
+    },
+    {
+      "name": "Standard",
+      "baseCost": 5,
+      "triggerAt": 0,
+      "includedUnits": {
+        "web-services": 1,
+        "static-sites": 1,
+        "background-workers": 1,
+        "cron-jobs": 1,
+        "databases": 1,
+        "redis": 1
+      },
+      "unitType": "service",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Always-on",
+        "1GB RAM",
+        "5GB disk",
+        "250GB bandwidth/month",
+        "250GB database storage/month",
+        "50GB Redis storage/month",
+        "1 Redis DB",
+        "1 web service",
+        "1 static site",
+        "1 background worker",
+        "1 cron job",
+        "1 database",
+        "1 Redis instance",
+        "Free custom domains",
+        "Free Let's Encrypt SSL"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "5GB",
+        "bandwidth": "250GB/month",
+        "apiCalls": null,
+        "projects": null,
+        "other": "1 Shared-CPU web service instance"
+      }
+    },
+    {
+      "name": "Team",
+      "baseCost": 25,
+      "triggerAt": 0,
+      "includedUnits": {
+        "web-services": 1,
+        "static-sites": 1,
+        "background-workers": 1,
+        "cron-jobs": 1,
+        "databases": 1,
+        "redis": 1
+      },
+      "unitType": "service",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Starts at 2GB RAM",
+        "20GB disk",
+        "500GB bandwidth/month",
+        "500GB database storage/month",
+        "100GB Redis storage/month",
+        "2 Redis DBs",
+        "2 web services",
+        "2 static sites",
+        "2 background workers",
+        "2 cron jobs",
+        "2 databases",
+        "2 Redis instances",
+        "Team collaboration"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "20GB",
+        "bandwidth": "500GB/month",
+        "apiCalls": null,
+        "projects": null,
+        "other": "Starts at 2GB RAM"
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 0,
+    "high": 0
+  },
+  "gotchas": [
+    "Free tier services spin down after 30 minutes of inactivity, meaning they won't be available until they receive a request.",
+    "Overage costs for bandwidth, storage, and database usage are not explicitly listed on the pricing page and may require contacting sales or checking documentation for specific details.",
+    "The 'Standard' tier is listed as a starting point with a base cost, suggesting that the actual cost can increase based on usage and resource allocation.",
+    "Specific performance tiers (e.g., CPU type, power) within each plan are not clearly defined by name, requiring users to infer based on RAM and disk allocations.",
+    "Team features are aggregated into a single 'Team' tier, with no granular breakdown of what advanced collaboration features are included or how they scale."
+  ],
+  "alternatives": [
+    "Heroku",
+    "AWS Elastic Beanstalk",
+    "Netlify",
+    "Vercel",
+    "Fly.io"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:48:17.687458+00:00",
+  "sourceUrl": "https://render.com/pricing",
+  "bundledCategories": [
+    "database",
+    "storage"
+  ]
+}

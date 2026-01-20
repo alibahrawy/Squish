@@ -1,0 +1,280 @@
+{
+  "id": "cloudinary",
+  "name": "Cloudinary",
+  "category": "storage",
+  "description": "Cloudinary is an AI-powered platform for managing, transforming, and delivering images and videos at scale.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "Image and Video APIs",
+    "Digital Asset Management (DAM)",
+    "AI-powered management",
+    "Image and video transformation",
+    "Video transcoding",
+    "Adaptive streaming",
+    "Content delivery via CDN",
+    "Upload widget",
+    "API and search",
+    "Remote fetch",
+    "Auto-backup",
+    "Revision tracking",
+    "Support (forums, tickets, email)",
+    "Add-ons",
+    "MCP servers",
+    "S3 bucket backup",
+    "Auto-tagging search",
+    "Expedited support",
+    "Allowlist/Blocklist asset access",
+    "Video Bandwidth Boost",
+    "Role-based multi-user administration",
+    "Custom domain (CNAME) support",
+    "Optional HTTPS SSL Certificate",
+    "Authentication Options",
+    "Security and compliance review",
+    "Multi-CDN and enterprise grade infrastructure",
+    "Enterprise SLAs and support",
+    "Designated customer success manager",
+    "Custom contracts and invoicing",
+    "User management (SSO, provisioning API)",
+    "Easy setup",
+    "Video support",
+    "Asset variations"
+  ],
+  "tiers": [
+    {
+      "name": "Free (Image and Video APIs)",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": 25,
+      "unitType": "monthly credits",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Upload widget, API, and search",
+        "Remote fetch, auto-backup, and revision tracking",
+        "Image and video transformations",
+        "Video transcoding and adaptive streaming",
+        "High performance delivery through a CDN",
+        "Support \u2014 forums, tickets, and email",
+        "Access to free add-ons",
+        "Access to MCP servers"
+      ],
+      "limits": {
+        "users": "3 Users / 1 Account",
+        "storage": "25GB (for DAM)",
+        "bandwidth": null,
+        "apiCalls": "25 monthly credits",
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Free (Assets DAM)",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": 25,
+      "unitType": "GB of Storage",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Easy Setup",
+        "Auto Tagging (AI-powered)",
+        "Video Support",
+        "Asset Variations (presets for transform, size, crop, color)"
+      ],
+      "limits": {
+        "users": "3 Users / 1 Account",
+        "storage": "25 Gigabytes (GB) of Storage",
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Plus (Yearly)",
+      "baseCost": 89,
+      "triggerAt": 0,
+      "includedUnits": 225,
+      "unitType": "monthly credits",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Backup to your own S3 bucket",
+        "Auto-tagging based search",
+        "Access to free and paid add-ons",
+        "Expedited support",
+        "Allowlist/Blocklist asset access",
+        "Video Bandwidth Boost 2:1",
+        "Role-based multi-user administration",
+        "(Includes Free features)"
+      ],
+      "limits": {
+        "users": "3 Users / 2 Accounts",
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": "225 monthly credits",
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Plus (Monthly)",
+      "baseCost": 99,
+      "triggerAt": 0,
+      "includedUnits": 225,
+      "unitType": "monthly credits",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Backup to your own S3 bucket",
+        "Auto-tagging based search",
+        "Access to free and paid add-ons",
+        "Expedited support",
+        "Allowlist/Blocklist asset access",
+        "Video Bandwidth Boost 2:1",
+        "Role-based multi-user administration",
+        "(Includes Free features)"
+      ],
+      "limits": {
+        "users": "3 Users / 2 Accounts",
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": "225 monthly credits",
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Advanced (Yearly)",
+      "baseCost": 224,
+      "triggerAt": 0,
+      "includedUnits": 600,
+      "unitType": "monthly credits",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Custom domain (CNAME) support",
+        "Optional HTTPS SSL Certificate",
+        "Authentication Options",
+        "(Includes Plus features)"
+      ],
+      "limits": {
+        "users": "5 Users / 3 Accounts",
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": "600 monthly credits",
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Advanced (Monthly)",
+      "baseCost": 249,
+      "triggerAt": 0,
+      "includedUnits": 600,
+      "unitType": "monthly credits",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Custom domain (CNAME) support",
+        "Optional HTTPS SSL Certificate",
+        "Authentication Options",
+        "(Includes Plus features)"
+      ],
+      "limits": {
+        "users": "5 Users / 3 Accounts",
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": "600 monthly credits",
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Enterprise",
+      "baseCost": null,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Backup to your own S3 bucket",
+        "Auto-tagging based search",
+        "Access to free and paid add-ons",
+        "Expedited support",
+        "Allowlist/Blocklist asset access",
+        "Video Bandwidth Boost 2:1",
+        "Role-based multi-user administration",
+        "Security and compliance review",
+        "Multi-CDN and enterprise grade infrastructure",
+        "Enterprise SLAs and support",
+        "Designated customer success manager",
+        "Custom contracts and invoicing",
+        "User management (SSO, provisioning API)"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Custom",
+      "baseCost": null,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Streamline Content Operations",
+        "Faster Innovation",
+        "Full-team Collaboration",
+        "One-File Approach",
+        "Collaboration is Key",
+        "Powered by Artificial Intelligence",
+        "Custom plan tailored to exact needs"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 0,
+    "high": 0
+  },
+  "gotchas": [
+    "The Free tier for Image and Video APIs is limited by 'monthly credits', which consume based on usage (transformations, bandwidth, etc.). The Free tier for Assets DAM is limited by storage (25GB) and users (3).",
+    "The pricing is primarily based on 'credits' (for Image/Video APIs) and storage (for DAM), rather than a direct user count for all tiers. It's a usage-based model.",
+    "Overage costs for credits are not explicitly detailed for paid tiers, suggesting they might be custom or handled by contacting support.",
+    "Enterprise and Custom tiers require contacting sales for pricing.",
+    "The 'Video Bandwidth Boost 2:1' in paid tiers likely means for every 1 unit of bandwidth used by video, you are charged for 2 units.",
+    "The 'monthly credits' system for API tiers needs careful estimation to avoid unexpected costs. The page provides a 'Calculate Credits Based on Your Needs' tool.",
+    "Storage is a key differentiator for the DAM product's free tier, whereas API tiers focus on 'credits' which encompass more than just storage."
+  ],
+  "alternatives": [
+    "AWS S3",
+    "Google Cloud Storage",
+    "imgix",
+    "Akamai Image Manager"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:52:06.930404+00:00",
+  "sourceUrl": "https://cloudinary.com/pricing",
+  "bundledCategories": [
+    "hosting"
+  ]
+}

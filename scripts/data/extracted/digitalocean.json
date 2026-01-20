@@ -1,0 +1,449 @@
+{
+  "id": "digitalocean",
+  "name": "DigitalOcean",
+  "category": "hosting",
+  "description": "DigitalOcean provides cloud infrastructure solutions including virtual machines (Droplets), managed Kubernetes, app platform, databases, storage, and AI/ML services.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "virtual machines (Droplets)",
+    "managed Kubernetes",
+    "App Platform",
+    "serverless computing (Functions)",
+    "managed databases (MongoDB, Kafka, PostgreSQL, MySQL, Valkey, OpenSearch)",
+    "object storage (Spaces)",
+    "block storage (Volumes)",
+    "network file storage",
+    "backups",
+    "container registry",
+    "load balancing",
+    "virtual private cloud (VPC)",
+    "AI/ML platform (Gradient)",
+    "AI GPU compute",
+    "uptime monitoring",
+    "support plans"
+  ],
+  "tiers": [
+    {
+      "name": "Gradient\u2122 AI Platform",
+      "baseCost": 0.15,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "M tokens",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Simplified AI agent creation",
+        "LLM integration",
+        "Custom AI Agents",
+        "Integrate leading LLMs",
+        "No infrastructure management"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Gradient\u2122 AI GPU Droplets (On-demand)",
+      "baseCost": 0.76,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "GPU/hour",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Scalable machines for AI/ML workloads",
+        "Run training and inference",
+        "Process large data sets",
+        "Serve high-performance computing (HPC)"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Backups (Usage-based)",
+      "baseCost": 0.01,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "GiB per month",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Frequent and fast backups",
+        "Flexible frequencies (Weekly, Daily, or Every 12/6/4 hours)",
+        "Custom retention periods (3 days up to 6 months)",
+        "Fast and fully-automated"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Network File Storage",
+      "baseCost": 0.3,
+      "triggerAt": 0,
+      "includedUnits": 50,
+      "unitType": "GiB/month",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Start with 50 GiB",
+        "Scale in 10 GiB increments",
+        "Flat pricing across all supported regions"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "50 GiB minimum",
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Spaces Object Storage",
+      "baseCost": null,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "/month",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Simple, scalable object storage",
+        "S3-compatible object storage",
+        "Highly scalable",
+        "Built-in CDN"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "App Platform",
+      "baseCost": null,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "/month",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Simple, fully-managed infrastructure solution",
+        "Build, deploy and scale apps quickly",
+        "Zero infrastructure management",
+        "Highly scalable"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Droplets",
+      "baseCost": null,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "/month",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Highly-efficient virtual machines",
+        "Per-sec billing with 60 sec minimum",
+        "Deploy in seconds",
+        "Scale up on demand",
+        "Run any workload"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Functions",
+      "baseCost": null,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "/month",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Serverless computing solution",
+        "Focus on building great apps",
+        "Pay for what you use",
+        "Scale automatically"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Container Registry",
+      "baseCost": null,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "/month",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Easily store and manage private container images",
+        "Transfer container images over high-speed HTTPs connections"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Support Plans",
+      "baseCost": null,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "/month",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Unlimited customized support",
+        "Answers to common questions",
+        "Development guidelines",
+        "Free email support"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Virtual Private Cloud",
+      "baseCost": null,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "/month",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Simple, cost effective VPC hosting",
+        "Free ingress data transfer to VPCs",
+        "Free intra-datacenter VPC peering"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": "VPC NAT Gateway: $40.00 per node (includes 100 GiB bandwidth, $0.01/GiB overage, supports up to 500,000 connections)"
+      }
+    },
+    {
+      "name": "Uptime Monitoring",
+      "baseCost": null,
+      "triggerAt": 0,
+      "includedUnits": 1,
+      "unitType": "Check/month",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Automated endpoint alerts",
+        "Uptime and latency checks",
+        "Alerts by email and Slack",
+        "One Uptime Check/month included with every account"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Kubernetes",
+      "baseCost": 12,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "/month",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Simple, managed Kubernetes",
+        "Built for scale",
+        "Free control plane",
+        "Free bandwidth allowance",
+        "Automate and optimize"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": "Included allowance",
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Load Balancers",
+      "baseCost": 12,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "/month",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Load balancing, simplified",
+        "Improve availability, performance, and scalability",
+        "Let's Encrypt support",
+        "HTTP/3 support",
+        "Compatible with Droplets and DigitalOcean Kubernetes"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Volumes Block Storage",
+      "baseCost": 10,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "/month",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Business-ready block storage",
+        "Highly available",
+        "Easily scale block storage",
+        "Resize when needed",
+        "Move between droplets"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Databases",
+      "baseCost": 15,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "/month",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Fully managed and maintained",
+        "Managed MongoDB, Kafka, PostgreSQL, MySQL, Valkey, and OpenSearch",
+        "Worry-free setup, maintenance, and easy migration",
+        "Free daily backups",
+        "Automated failover"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Gradient\u2122 AI GPU Droplets (Contractual)",
+      "baseCost": 1.49,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "GPU/hour",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Based on multi-month contractual commitment",
+        "Scalable machines for AI/ML workloads",
+        "Run training and inference",
+        "Process large data sets",
+        "Serve high-performance computing (HPC)"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 10,
+    "medium": 50,
+    "high": 150
+  },
+  "gotchas": [
+    "Many services have pricing listed as '/month' without a starting point (e.g., App Platform, Droplets, Functions, Spaces, Container Registry, Support Plans, Virtual Private Cloud, Uptime Monitoring). These likely have variable starting costs or are consumption-based.",
+    "Gradient\u2122 AI GPU Droplets have different pricing for contractual commitments ($1.49/GPU/hour) and on-demand ($0.76/GPU/hour).",
+    "Network File Storage has a minimum of 50 GiB and snapshots are billed separately at $0.06 per GiB/month.",
+    "VPC NAT Gateway pricing is per node and includes a specific bandwidth amount with overage charges.",
+    "Bandwidth pricing is not explicitly detailed for most services but is mentioned as a factor within VPC and Kubernetes.",
+    "Backups are percentage-based of Droplet cost for certain frequencies, and usage-based for others."
+  ],
+  "alternatives": [
+    "AWS",
+    "Google Cloud Platform",
+    "Azure",
+    "Linode"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:48:40.588340+00:00",
+  "sourceUrl": "https://www.digitalocean.com/pricing",
+  "bundledCategories": [
+    "database",
+    "storage"
+  ]
+}

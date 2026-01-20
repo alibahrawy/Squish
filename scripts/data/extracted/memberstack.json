@@ -1,0 +1,171 @@
+{
+  "id": "memberstack",
+  "name": "Memberstack",
+  "category": "auth",
+  "description": "Memberstack provides authentication, payments, and membership management for websites, simplifying launching with a focus on speed and ease of use.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "authentication",
+    "payments",
+    "memberships",
+    "social logins",
+    "Stripe payments",
+    "custom SSO",
+    "branded emails",
+    "content restriction",
+    "account management",
+    "user login",
+    "hide/show content based on membership",
+    "integrations (Webflow, Zapier, Heap, Stripe)",
+    "revenue processing"
+  ],
+  "tiers": [
+    {
+      "name": "Free Forever",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "No credit card required",
+        "Cancel anytime",
+        "Social Logins",
+        "Stripe Payments",
+        "Custom SSO",
+        "Branded Emails",
+        "Everything Else (likely core auth features)"
+      ],
+      "limits": {
+        "users": "1,000 Members",
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": "Zero transaction fees"
+      }
+    },
+    {
+      "name": "Basic",
+      "baseCost": 24,
+      "triggerAt": 1000,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": 4,
+      "features": [
+        "Social Logins",
+        "Stripe Payments",
+        "Custom SSO",
+        "Branded Emails",
+        "Everything Else"
+      ],
+      "limits": {
+        "users": "1,000 Members",
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Professional",
+      "baseCost": 49,
+      "triggerAt": 5000,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": 2,
+      "features": [
+        "Social Logins",
+        "Stripe Payments",
+        "Custom SSO",
+        "Branded Emails",
+        "Everything Else"
+      ],
+      "limits": {
+        "users": "5,000 Members",
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Business",
+      "baseCost": 199,
+      "triggerAt": 10000,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": 0.9,
+      "features": [
+        "Social Logins",
+        "Stripe Payments",
+        "Custom SSO",
+        "Branded Emails",
+        "Everything Else"
+      ],
+      "limits": {
+        "users": "10,000+ Members",
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": "ZERO transaction fees"
+      }
+    },
+    {
+      "name": "Established",
+      "baseCost": 499,
+      "triggerAt": 10000,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": 0,
+      "features": [
+        "Social Logins",
+        "Stripe Payments",
+        "Custom SSO",
+        "Branded Emails",
+        "Everything Else"
+      ],
+      "limits": {
+        "users": "10,000+ Members",
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": "ZERO transaction fees"
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 0,
+    "high": 0
+  },
+  "gotchas": [
+    "The 'Free forever plan' has a limit of 1,000 members and zero transaction fees, but the paid tiers have transaction fees that decrease as the price increases.",
+    "Transaction fees apply to paid plans (except for Business and Established which state 'ZERO transaction fees', implying they might have a higher base cost or custom pricing).",
+    "The 'Member Count' listed for each tier appears to be the boundary for when you *might* need that tier, but the monthly cost is fixed at the tier's base price.",
+    "The 'Business' and 'Established' tiers both list '10,000+ Members' and 'ZERO transaction fees', suggesting custom pricing or a significant jump in base cost not explicitly detailed for 'over 10,000'.",
+    "The pricing page mentions 'Weeks of work. Done in minutes.' and 'Skip the engineering rabbit holes', implying a focus on speed of implementation rather than granular feature sets being the primary differentiator between tiers."
+  ],
+  "alternatives": [
+    "Outseta",
+    "Memberspace",
+    "Webflow Memberships"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:56:05.508917+00:00",
+  "sourceUrl": "https://www.memberstack.com/pricing",
+  "bundledCategories": [
+    "payments"
+  ]
+}

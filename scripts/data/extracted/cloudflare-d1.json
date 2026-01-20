@@ -1,0 +1,101 @@
+{
+  "id": "cloudflare-d1",
+  "name": "Cloudflare D1",
+  "category": "database",
+  "description": "A serverless relational database built on Cloudflare Workers.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "serverless database",
+    "relational database",
+    "SQL queries",
+    "data storage",
+    "read replicas",
+    "database schema management",
+    "query analytics"
+  ],
+  "tiers": [
+    {
+      "name": "Workers Free",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": {
+        "rows_read_daily": 5000000,
+        "rows_written_daily": 100000,
+        "storage": "5 GB"
+      },
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "5 million rows read per day",
+        "100,000 rows written per day",
+        "5 GB total storage included"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "5 GB",
+        "bandwidth": "unlimited",
+        "apiCalls": null,
+        "projects": null,
+        "other": "Daily read/write limits apply. Exceeding limits will result in query errors."
+      }
+    },
+    {
+      "name": "Workers Paid",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": {
+        "rows_read_monthly": "25 billion",
+        "rows_written_monthly": "50 million",
+        "storage": "5 GB"
+      },
+      "unitType": null,
+      "overageCost": {
+        "rows_read_per_million": "$0.001",
+        "rows_written_per_million": "$1.00",
+        "storage_per_gb_mo": "$0.75"
+      },
+      "feePercent": null,
+      "features": [
+        "First 25 billion rows read per month included",
+        "First 50 million rows written per month included",
+        "First 5 GB storage included",
+        "No daily read/write limits",
+        "Unlimited storage available (billed per GB)"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "5 GB (included)",
+        "bandwidth": "unlimited",
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 5,
+    "high": 25
+  },
+  "gotchas": [
+    "Free tier has strict daily limits for reads and writes. Exceeding these limits will prevent queries from running.",
+    "While D1 itself removes compute charges, Workers that interact with D1 are billed separately under Workers pricing.",
+    "DDL operations (CREATE, ALTER, DROP) can contribute to both rows read and rows written.",
+    "Indexes add an additional row written for writes to indexed columns, though typically offset by read performance gains.",
+    "Queries from the dashboard or Wrangler CLI count towards billable usage.",
+    "Empty databases and tables consume minimal storage.",
+    "No data transfer (egress) or throughput charges."
+  ],
+  "alternatives": [
+    "Supabase",
+    "PlanetScale",
+    "Neon",
+    "Fauna"
+  ],
+  "recommended": true,
+  "scrapedAt": "2026-01-20T01:11:39.814930+00:00",
+  "sourceUrl": "https://developers.cloudflare.com/d1/platform/pricing/"
+}

@@ -1,0 +1,120 @@
+{
+  "id": "mongodb-atlas",
+  "name": "MongoDB Atlas",
+  "category": "database",
+  "description": "MongoDB Atlas is a cloud database service that provides a multi-cloud developer data platform.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "multi-cloud deployment (AWS, Azure, Google Cloud)",
+    "managed database service",
+    "scalable storage and compute",
+    "serverless functions (Atlas Serverless Functions)",
+    "data lake",
+    "search",
+    "app services",
+    "data visualization",
+    "monitoring and alerting",
+    "security features (encryption, access control)"
+  ],
+  "tiers": [
+    {
+      "name": "Free",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Free forever",
+        "For learning and exploring MongoDB",
+        "512MB of storage",
+        "Shared RAM",
+        "Shared vCPU"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "512MB",
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": "Shared resources"
+      }
+    },
+    {
+      "name": "Flex",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "hour",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "For application development and testing",
+        "On-demand burst capacity for unpredictable traffic",
+        "Up to $30/month maximum cost",
+        "5GB of storage",
+        "Shared RAM",
+        "Shared vCPU"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "5GB",
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": "Maximum $30/month"
+      }
+    },
+    {
+      "name": "Dedicated",
+      "baseCost": 0.08,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "hour",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "For production applications with sophisticated workload requirements",
+        "Starts at $56.94/month",
+        "10GB to 4TB of storage (configurable)",
+        "2GB to 768GB RAM (configurable)",
+        "2vCPUs to 96vCPUs (configurable)"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "10GB to 4TB",
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 10,
+    "medium": 50,
+    "high": 200
+  },
+  "gotchas": [
+    "The Free tier is for learning and exploration, not for production use due to shared resources and limited storage.",
+    "The 'Flex' tier has a monthly cap of $30, but it's still usage-based (per hour).",
+    "Dedicated pricing can vary significantly based on chosen configurations for storage, RAM, and vCPUs. The $0.08/hour is a starting point and the $56.94/month is the minimum for a dedicated cluster.",
+    "The pricing page is a bit repetitive and some information is presented in multiple places.",
+    "Specific limits on RAM, vCPU, and bandwidth are configurable within the Dedicated tier and not fixed per tier."
+  ],
+  "alternatives": [
+    "AWS DocumentDB",
+    "Azure Cosmos DB",
+    "Google Cloud Firestore",
+    "CockroachDB Cloud"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:47:02.324445+00:00",
+  "sourceUrl": "https://www.mongodb.com/pricing",
+  "bundledCategories": [
+    "hosting"
+  ]
+}

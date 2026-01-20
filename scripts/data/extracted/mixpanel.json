@@ -1,0 +1,115 @@
+{
+  "id": "mixpanel",
+  "name": "Mixpanel",
+  "category": "analytics",
+  "description": "Mixpanel is an analytics platform that helps companies track user behavior, understand product adoption, and drive growth.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "event tracking",
+    "user segmentation",
+    "funnel analysis",
+    "retention analysis",
+    "A/B testing",
+    "experimentation",
+    "data warehousing",
+    "real-time analytics",
+    "product analytics",
+    "user engagement tracking",
+    "cohort analysis",
+    "user journey mapping",
+    "dashboarding",
+    "reporting",
+    "data visualization"
+  ],
+  "tiers": [
+    {
+      "name": "Free",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": 100000,
+      "unitType": "events",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Up to 100,000 tracked events per month",
+        "Limited history",
+        "Access to core analytics features"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": 1,
+        "other": "Limited data retention"
+      }
+    },
+    {
+      "name": "Growth",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "events (1K)",
+      "overageCost": 0,
+      "feePercent": null,
+      "features": [
+        "Custom event volume",
+        "More advanced features",
+        "Data warehousing capabilities",
+        "Higher data retention"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Enterprise",
+      "baseCost": null,
+      "triggerAt": null,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Custom solution",
+        "Dedicated support",
+        "Advanced security features",
+        "SLA"
+      ],
+      "limits": {
+        "users": "Custom",
+        "storage": "Custom",
+        "bandwidth": "Custom",
+        "apiCalls": "Custom",
+        "projects": "Custom",
+        "other": null
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 0,
+    "high": 0
+  },
+  "gotchas": [
+    "The 'Growth' plan pricing is based on event volume and is not explicitly listed. Users must use a slider to estimate the cost, and the pricing is 'per 1K events'.",
+    "The free tier has limitations on tracked events and data retention.",
+    "Specific features and limits for the Growth and Enterprise plans are not detailed on the pricing page, requiring contact with sales for more information."
+  ],
+  "alternatives": [
+    "Amplitude",
+    "Heap",
+    "Pendo",
+    "Google Analytics"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:51:01.537812+00:00",
+  "sourceUrl": "https://mixpanel.com/pricing/"
+}

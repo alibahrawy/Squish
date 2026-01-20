@@ -1,0 +1,84 @@
+{
+  "id": "paddle",
+  "name": "Paddle",
+  "category": "payments",
+  "description": "Paddle is a unified platform for global payments, billing, and tax compliance.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "global payments",
+    "billing",
+    "cross-border sales tax compliance",
+    "fraud protection",
+    "chargeback protection",
+    "payment processing"
+  ],
+  "tiers": [
+    {
+      "name": "Pay-as-you-go",
+      "baseCost": 0.5,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "transaction",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Global payments and billing seamlessly unified in one platform",
+        "Cross-border sales tax compliance",
+        "Protection against fraud and chargebacks",
+        "No migration fees, monthly fees, or hidden extras"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Custom pricing",
+      "baseCost": null,
+      "triggerAt": null,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Tailored pricing for rapidly scaling and established large-scale businesses",
+        "Custom pricing to fit your business model and products",
+        "Access to optional premium services and success management",
+        "Custom migration services and implementation support"
+      ],
+      "limits": {
+        "users": "Custom",
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": 0.5,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 0,
+    "high": 0
+  },
+  "gotchas": [
+    "The pricing page primarily advertises a 'Pay-as-you-go' model with a flat fee per checkout transaction.",
+    "A 'Custom pricing' tier is available for larger businesses, requiring contact with sales.",
+    "While it states 'no migration fees, monthly fees, or hidden extras' for the pay-as-you-go tier, it's important to confirm if any additional service fees apply for premium features or custom implementations within the custom tier."
+  ],
+  "alternatives": [
+    "Stripe",
+    "Stripe",
+    "Chargebee",
+    "Recurly"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:50:33.264064+00:00",
+  "sourceUrl": "https://www.paddle.com/pricing"
+}

@@ -1,0 +1,89 @@
+{
+  "id": "posthog",
+  "name": "PostHog",
+  "category": "analytics",
+  "description": "An open-source product analytics platform with features like product analytics, session replay, feature flags, experiments, and surveys.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "product analytics",
+    "session replay",
+    "feature flags",
+    "experiments",
+    "surveys",
+    "API access",
+    "SSO (Google, Github, Gitlab)",
+    "2FA"
+  ],
+  "tiers": [
+    {
+      "name": "Free",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Almost all product features",
+        "Community support",
+        "2FA"
+      ],
+      "limits": {
+        "users": "unlimited",
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": "1 project",
+        "dataRetention": "1-year",
+        "other": "Usage capped at free tier limits"
+      }
+    },
+    {
+      "name": "Pay-as-you-go",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Usage-based pricing after free tier",
+        "Standard support (Email)",
+        "Slack-based support for > $2k/mo"
+      ],
+      "limits": {
+        "users": "unlimited",
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": "unlimited (implied by 'standard')",
+        "dataRetention": "7-year",
+        "other": "Set billing limits per product"
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 0,
+    "high": 0
+  },
+  "gotchas": [
+    "The 'Pay-as-you-go' plan has a base price of $0 and is usage-based after the free tier limits are exceeded.",
+    "The exact cost for 'Pay-as-you-go' is determined by usage and is not explicitly detailed on this page, requiring users to consult further.",
+    "Specific features beyond core analytics might be gated behind 'platform packages' for larger teams."
+  ],
+  "alternatives": [
+    "Amplitude",
+    "Mixpanel",
+    "Google Analytics",
+    "Heap"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:50:54.448152+00:00",
+  "sourceUrl": "https://posthog.com/pricing",
+  "bundledCategories": [
+    "analytics"
+  ]
+}

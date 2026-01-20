@@ -1,0 +1,181 @@
+{
+  "id": "inngest",
+  "name": "Inngest",
+  "category": "jobs",
+  "description": "Inngest provides modern durable execution for background jobs and event-driven workflows with features for observability and scalability.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "durable execution",
+    "background jobs",
+    "event-driven workflows",
+    "realtime connections",
+    "logging",
+    "tracing",
+    "observability",
+    "alerting",
+    "branch/staging environments",
+    "API",
+    "SLAs",
+    "SSO",
+    "RBAC",
+    "audit trails",
+    "HIPAA compliance (BaaS)"
+  ],
+  "tiers": [
+    {
+      "name": "Hobby",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": {
+        "executions": 50000,
+        "realtimeConnections": null,
+        "users": null,
+        "concurrentSteps": null,
+        "events": null
+      },
+      "unitType": "executions",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Unlimited branch and staging envs",
+        "Logs, traces, and observability",
+        "Basic alerting",
+        "Community support",
+        "7 day trace retention (implied by Pro)"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": {
+          "concurrentSteps": null,
+          "realtimeConnections": null,
+          "events": "100k/mo included"
+        }
+      }
+    },
+    {
+      "name": "Pro",
+      "baseCost": 75,
+      "triggerAt": 0,
+      "includedUnits": {
+        "executions": 1000000,
+        "realtimeConnections": 1000,
+        "users": 15,
+        "concurrentSteps": 100,
+        "events": "5m/mo"
+      },
+      "unitType": "executions",
+      "overageCost": {
+        "executions": "$50 per 1m",
+        "concurrentSteps": "$25 per 25",
+        "users": "$10/user",
+        "workers": "$10/worker",
+        "events": "$0.5 per 1m"
+      },
+      "feePercent": null,
+      "features": [
+        "Granular metrics",
+        "Increased scale and throughput",
+        "Higher usage limits",
+        "7 day trace retention",
+        "Unlimited branch and staging envs",
+        "Logs, traces, and observability",
+        "Basic alerting",
+        "Community support"
+      ],
+      "limits": {
+        "users": 15,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": {
+          "concurrentSteps": 100,
+          "realtimeConnections": 1000,
+          "events": "5m/mo included",
+          "eventSize": "3 MiB",
+          "batchCapacity": "Not specified, Custom",
+          "batchTimeout": "5 minutes",
+          "messagesPerDay": "1m per day"
+        }
+      }
+    },
+    {
+      "name": "Enterprise",
+      "baseCost": null,
+      "triggerAt": 0,
+      "includedUnits": {
+        "executions": "Custom",
+        "realtimeConnections": "1000+",
+        "users": "Custom",
+        "concurrentSteps": "500-50k",
+        "events": "Custom"
+      },
+      "unitType": "executions",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "SAML, RBAC, and audit trails",
+        "Exportable observability",
+        "90 day trace retention",
+        "Dedicated slack channel",
+        "Unlimited branch and staging envs",
+        "Logs, traces, and observability",
+        "Basic alerting",
+        "Community support",
+        "SOC compliance",
+        "Dedicated slack support",
+        "End-to-end encryption middleware",
+        "SLAs"
+      ],
+      "limits": {
+        "users": "Custom",
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": {
+          "concurrentSteps": "500-50k",
+          "realtimeConnections": "1000+",
+          "events": "Custom",
+          "eventSize": "Custom",
+          "batchCapacity": "Custom",
+          "batchTimeout": "Custom",
+          "messagesPerDay": "Custom"
+        }
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 75,
+    "high": 150
+  },
+  "gotchas": [
+    "The 'Usage that scales' section details pay-as-you-go pricing for executions and events *beyond* the included limits. This is a significant aspect of the overall cost model.",
+    "The base price for 'Pro' is '$75 /mo' but usage beyond included limits will incur additional costs.",
+    "The 'Hobby' tier is free but has significantly lower included usage limits for executions and events.",
+    "Overage pricing for executions is $0.000050 per execution for the first 1m-5m block, then steeply discounts for higher volumes.",
+    "Overage pricing for events starts at $0.5 per 1m events.",
+    "Concurrency and User overages for the Pro plan are explicitly priced ($25 per 25 concurrent steps, $10/user).",
+    "Enterprise plan pricing is custom, requiring direct contact.",
+    "HIPAA compliance requires a 'BAAs for healthcare compliance' add-on.",
+    "Advanced observability (e.g., Datadog integration) is a $300/mo add-on for Enterprise.",
+    "The distinction between 'executions' (runs/steps) and 'events' (received/processed) is crucial for understanding costs."
+  ],
+  "alternatives": [
+    "AWS Lambda",
+    "Google Cloud Functions",
+    "Azure Functions",
+    "Temporal",
+    "AWS Step Functions"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:52:29.474475+00:00",
+  "sourceUrl": "https://www.inngest.com/pricing"
+}

@@ -1,0 +1,277 @@
+{
+  "id": "firebase",
+  "name": "Firebase",
+  "category": "database",
+  "description": "Firebase offers a suite of tools and services for building and scaling web and mobile applications, including a NoSQL cloud database and real-time data synchronization.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "database",
+    "authentication",
+    "storage",
+    "realtime-database",
+    "cloud-firestore",
+    "cloud-functions",
+    "hosting",
+    "analytics",
+    "crashlytics",
+    "remote-config",
+    "app-distribution",
+    "messaging",
+    "test-lab",
+    "ml",
+    "performance-monitoring",
+    "a-b-testing",
+    "app-check",
+    "data-connect",
+    "gemini-in-firebase",
+    "firebase-studio"
+  ],
+  "tiers": [
+    {
+      "name": "Spark Plan (No-cost)",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": {
+        "cloudFirestore": {
+          "storedData": "1 GiB total",
+          "networkEgress": "10 GiB/month",
+          "documentWrites": "20K writes/day",
+          "documentReads": "50K reads/day",
+          "documentDeletes": "20K deletes/day"
+        },
+        "realtimeDatabase": {
+          "simultaneousConnections": "100",
+          "storedData": "1 GB",
+          "downloadedData": "10 GB/month"
+        },
+        "cloudFunctions": {
+          "invocations": "2M/month",
+          "gbSeconds": "400K/month",
+          "cpuSeconds": "200K/month",
+          "outboundNetworking": "5 GB/month",
+          "cloudBuildMinutes": "120 min/day"
+        },
+        "cloudStorage": {
+          "appspotComLegacyBuckets": {
+            "gbStored": "5 GB",
+            "gbDownloaded": "1 GB/day",
+            "uploadOperations": "20K/day",
+            "downloadOperations": "50K/day"
+          },
+          "firebasestorageAppAndAdditionalBuckets": {
+            "gbStored": "5 GB-months",
+            "gbDownloaded": "100 GB/month",
+            "uploadOperations": "5K/month",
+            "downloadOperations": "50K/month"
+          }
+        },
+        "hosting": {
+          "storage": "10 GB",
+          "dataTransfer": "360 MB/day"
+        },
+        "testLab": {
+          "virtualDeviceTests": "60 min/day",
+          "physicalDeviceTests": "30 min/day",
+          "androidDeviceStreaming": "30 minutes/project/month"
+        },
+        "firebaseMl": "First 1000 Cloud Vision API calls/month",
+        "dataConnect": {
+          "networkEgress": "10 GiB/month",
+          "operations": "250K/month"
+        },
+        "authentication": {
+          "identityPlatformMAU": "50K MAUs",
+          "identityPlatformSAMLOIDCMAU": "50 MAUs"
+        },
+        "geminiInFirebase": "No-cost for non-Google Workspace users"
+      },
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Generous no-cost usage limits",
+        "No payment method needed",
+        "Includes core Firebase products like Analytics, Crashlytics, Cloud Messaging, Remote Config, App Distribution, Performance Monitoring, In-App Messaging, A/B Testing, App Check"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Blaze Plan (Pay as you go)",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": {
+        "cloudFirestore": {
+          "storedData": "1 GiB total",
+          "networkEgress": "10 GiB/month",
+          "documentWrites": "20K writes/day",
+          "documentReads": "50K reads/day",
+          "documentDeletes": "20K deletes/day"
+        },
+        "realtimeDatabase": {
+          "simultaneousConnections": "200K per database",
+          "storedData": "1 GB",
+          "downloadedData": "10 GB/month"
+        },
+        "cloudFunctions": {
+          "invocations": "2M/month",
+          "gbSeconds": "400K/month",
+          "cpuSeconds": "200K/month",
+          "outboundNetworking": "5 GB/month",
+          "cloudBuildMinutes": "120 min/day"
+        },
+        "cloudStorage": {
+          "appspotComLegacyBuckets": {
+            "gbStored": "5 GB",
+            "gbDownloaded": "1 GB/day",
+            "uploadOperations": "20K/day",
+            "downloadOperations": "50K/day"
+          },
+          "firebasestorageAppAndAdditionalBuckets": {
+            "gbStored": "5 GB-months",
+            "gbDownloaded": "100 GB/month",
+            "uploadOperations": "5K/month",
+            "downloadOperations": "50K/month"
+          }
+        },
+        "hosting": {
+          "storage": "10 GB",
+          "dataTransfer": "360 MB/day"
+        },
+        "testLab": {
+          "virtualDeviceTests": "60 min/day",
+          "physicalDeviceTests": "30 min/day",
+          "androidDeviceStreaming": "30 minutes/project/month"
+        },
+        "firebaseMl": "First 1000 Cloud Vision API calls/month free",
+        "dataConnect": {
+          "networkEgress": "10 GiB/month",
+          "operations": "250K/month"
+        },
+        "authentication": {
+          "identityPlatformMAU": "50K MAUs",
+          "identityPlatformSAMLOIDCMAU": "50 MAUs"
+        },
+        "geminiInFirebase": "No-cost for non-Google Workspace users"
+      },
+      "unitType": "usage",
+      "overageCost": {
+        "cloudFirestore": {
+          "standardEdition": {
+            "storedData": "Google Cloud pricing",
+            "networkEgress": "Google Cloud pricing",
+            "documentWrites": "Google Cloud pricing",
+            "documentReads": "Google Cloud pricing",
+            "documentDeletes": "Google Cloud standard edition pricing"
+          },
+          "enterpriseEdition": {
+            "storedData": "Google Cloud enterprise edition pricing",
+            "networkEgress": "Google Cloud enterprise edition pricing",
+            "writeUnits": "Google Cloud enterprise edition pricing",
+            "readUnits": "Google Cloud enterprise edition pricing",
+            "realtimeUpdateUnits": "Google Cloud enterprise edition pricing"
+          }
+        },
+        "realtimeDatabase": {
+          "storedData": "$5/GB",
+          "downloadedData": "$1/GB"
+        },
+        "cloudFunctions": {
+          "invocations": "$0.40/million",
+          "gbSeconds": "Google Cloud pricing",
+          "cpuSeconds": "Google Cloud pricing",
+          "outboundNetworking": "$0.12/GB"
+        },
+        "cloudStorage": {
+          "appspotComLegacyBuckets": {
+            "gbStored": "$0.026/GB",
+            "gbDownloaded": "$0.12/GB",
+            "uploadOperations": "$0.05/10K",
+            "downloadOperations": "$0.004/10K"
+          },
+          "firebasestorageAppAndAdditionalBuckets": {
+            "gbStored": "Cloud Storage pricing",
+            "gbDownloaded": "Cloud Storage pricing",
+            "uploadOperations": "Cloud Storage pricing",
+            "downloadOperations": "Cloud Storage pricing"
+          }
+        },
+        "hosting": {
+          "storage": "$0.026/GB",
+          "dataTransfer": "$0.15/GB"
+        },
+        "appHosting": {
+          "outgoingBandwidthUncached": "$0.20/GiB",
+          "outgoingBandwidthCached": "$0.15/GiB",
+          "storage": "$0.10/GB"
+        },
+        "testLab": {
+          "virtualDeviceTests": "$1/device/hour",
+          "physicalDeviceTests": "$5/device/hour",
+          "androidDeviceStreaming": "$0.15/additional minute"
+        },
+        "firebaseMl": "Cloud Vision APIs: $1.50/K",
+        "dataConnect": {
+          "networkEgress": "Google Cloud Internet Data Transfer Rate Premium Tier pricing",
+          "operations": "$4.00 per million operations"
+        },
+        "phoneAuth": "Billed per SMS sent (See current rates)",
+        "phoneVerification": "See Firebase PNV pricing",
+        "firebaseAI": "Google Cloud or Gemini Developer API pricing",
+        "geminiInFirebase": "Google Workspace users require Gemini Code Assist subscription"
+      },
+      "feePercent": null,
+      "features": [
+        "Eligible developers can claim $300 of credits to get started",
+        "No-cost usage limits from Spark plan included",
+        "Calculate pricing for apps at scale"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 5,
+    "high": 50
+  },
+  "gotchas": [
+    "No-cost usage limits are enforced daily and refreshed at midnight.",
+    "Overage costs can be complex and vary by region for certain services (e.g., Cloud Firestore, Cloud Storage).",
+    "Phone Authentication is billed per SMS sent, with rates varying by region.",
+    "Cloud Firestore Enterprise Edition pricing is not explicitly detailed but linked to Google Cloud enterprise pricing.",
+    "Firebase ML Cloud Vision API calls count towards the first 1000 free calls on the Blaze plan, then incur a per-call charge.",
+    "Gemini in Firebase is free for non-Google Workspace users, but requires a Gemini Code Assist subscription for Google Workspace users.",
+    "Some integrations, like Firebase App Hosting, require a billing account even on the Spark plan.",
+    "No-cost quotas apply at the project-level, not app-level.",
+    "Pricing for certain integrated Google Cloud services (e.g., Cloud Run, Artifact Registry) is not fully detailed on this page and requires referring to their respective pricing pages."
+  ],
+  "alternatives": [
+    "Supabase",
+    "AWS Amplify",
+    "Azure Mobile Apps"
+  ],
+  "recommended": true,
+  "scrapedAt": "2026-01-20T00:46:54.227269+00:00",
+  "sourceUrl": "https://firebase.google.com/pricing",
+  "bundledCategories": [
+    "auth",
+    "storage",
+    "hosting",
+    "analytics"
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "id": "supabase-auth",
+  "name": "Supabase Auth",
+  "category": "auth",
+  "description": "Supabase Auth provides a secure and scalable user authentication solution with features like social logins, MFA, and advanced security.",
+  "pricingModel": "per-user",
+  "capabilities": [
+    "authentication",
+    "user-management",
+    "social-logins",
+    "multi-factor-authentication",
+    "anonymous-sign-ins",
+    "custom-smtp",
+    "email-branding-removal",
+    "audit-logs",
+    "third-party-MAUs",
+    "single-sign-on-saml",
+    "leaked-password-protection",
+    "single-session-per-user",
+    "session-timeouts",
+    "auth-hooks",
+    "jwt-customization",
+    "advanced-security-features"
+  ],
+  "tiers": [
+    {
+      "name": "Free",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": 50000,
+      "unitType": "MAUs",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Unlimited Total Users",
+        "50,000 MAUs included",
+        "User data ownership",
+        "Anonymous Sign-ins",
+        "Social OAuth providers",
+        "Custom SMTP server",
+        "Basic Multi-Factor Auth",
+        "50,000 Third-Party MAUs included",
+        "1 hour Auth Audit Logs",
+        "Unlimited Team members"
+      ],
+      "limits": {
+        "users": "Unlimited",
+        "storage": "500MB database size",
+        "bandwidth": "5GB Egress",
+        "apiCalls": "Unlimited API requests",
+        "projects": null,
+        "other": "1 day Log retention (API & Database)"
+      }
+    },
+    {
+      "name": "Pro",
+      "baseCost": 25,
+      "triggerAt": 100000,
+      "includedUnits": 100000,
+      "unitType": "MAUs",
+      "overageCost": 0.00325,
+      "feePercent": null,
+      "features": [
+        "Unlimited Total Users",
+        "100,000 MAUs included",
+        "User data ownership",
+        "Anonymous Sign-ins",
+        "Social OAuth providers",
+        "Custom SMTP server",
+        "Remove Supabase branding from emails",
+        "Basic Multi-Factor Auth",
+        "Advanced Multi-Factor Auth - Phone (first project)",
+        "100,000 Third-Party MAUs included",
+        "50 Single Sign-On (SAML 2.0) included",
+        "Leaked password protection",
+        "Single session per user",
+        "Session timeouts",
+        "Auth Hooks (Custom Access Token (JWT), Send custom email/SMS)",
+        "7 days Auth Audit Logs",
+        "8GB disk size per project",
+        "250GB Egress",
+        "Basic CDN",
+        "500 Concurrent Peak Connections",
+        "5 Million Messages Per Month",
+        "3MB Max Message Size",
+        "2 Million Edge Function Invocations",
+        "90 days Log retention (API & Database)"
+      ],
+      "limits": {
+        "users": "Unlimited",
+        "storage": "8GB database size",
+        "bandwidth": "250GB Egress",
+        "apiCalls": "Unlimited API requests",
+        "projects": null,
+        "other": "7 days Automatic backups, 7 days Point in time recovery"
+      }
+    },
+    {
+      "name": "Team",
+      "baseCost": 599,
+      "triggerAt": 100000,
+      "includedUnits": 100000,
+      "unitType": "MAUs",
+      "overageCost": 0.00325,
+      "feePercent": null,
+      "features": [
+        "Unlimited Total Users",
+        "100,000 MAUs included",
+        "User data ownership",
+        "Anonymous Sign-ins",
+        "Social OAuth providers",
+        "Custom SMTP server",
+        "Remove Supabase branding from emails",
+        "Basic Multi-Factor Auth",
+        "Advanced Multi-Factor Auth - Phone (first project)",
+        "100,000 Third-Party MAUs included",
+        "50 Single Sign-On (SAML 2.0) included",
+        "Leaked password protection",
+        "Single session per user",
+        "Session timeouts",
+        "Auth Hooks (Custom Access Token (JWT), Send custom email/SMS)",
+        "All Auth Hooks",
+        "28 days Auth Audit Logs",
+        "8GB disk size per project",
+        "250GB Egress",
+        "Smart CDN",
+        "500 Concurrent Peak Connections",
+        "5 Million Messages Per Month",
+        "3MB Max Message Size",
+        "2 Million Edge Function Invocations",
+        "28 days Log retention (API & Database)",
+        "Owner, Admin, Developer, Read-only, Predefined project scoped roles",
+        "Custom Domains",
+        "Email Support",
+        "Email Support SLA",
+        "Designated support",
+        "On Boarding Support",
+        "Designated Customer Success Team",
+        "Security Questionnaire Help"
+      ],
+      "limits": {
+        "users": "Unlimited",
+        "storage": "8GB database size",
+        "bandwidth": "250GB Egress",
+        "apiCalls": "Unlimited API requests",
+        "projects": null,
+        "other": "14 days Automatic backups, 14 days Point in time recovery"
+      }
+    },
+    {
+      "name": "Enterprise",
+      "baseCost": null,
+      "triggerAt": null,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Custom security features",
+        "Custom domains",
+        "Single Sign-On (SAML 2.0) contact us",
+        "Advanced security features",
+        "Uptime SLAs",
+        "Custom project scoped roles"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "Custom",
+        "bandwidth": "Custom",
+        "apiCalls": "Custom",
+        "projects": null,
+        "other": "Custom"
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0.33,
+    "medium": 1.07,
+    "high": 3.58
+  },
+  "gotchas": [
+    "The Free tier has limited log retention (1 day) and no automatic backups or point-in-time recovery.",
+    "Overage costs for MAUs and Third-Party MAUs apply once the included amounts are exceeded and can become significant.",
+    "Advanced Multi-Factor Auth - Phone is a paid add-on for the Free and Pro tiers, priced per project.",
+    "Single Sign-On (SAML 2.0) has a limited number of included MAUs on Pro and Team plans, with overage costs.",
+    "The Enterprise plan has custom pricing and features, requiring direct contact with Supabase.",
+    "Basic CDN is available on Pro, while Team gets 'Smart CDN'."
+  ],
+  "alternatives": [
+    "Auth0",
+    "Firebase Authentication",
+    "AWS Cognito"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:48:56.827245+00:00",
+  "sourceUrl": "https://supabase.com/pricing",
+  "bundledCategories": [
+    "database",
+    "storage"
+  ]
+}

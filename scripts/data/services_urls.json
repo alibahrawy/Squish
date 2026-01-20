@@ -1,0 +1,247 @@
+{
+  "supabase-db": {
+    "name": "Supabase",
+    "url": "https://supabase.com/pricing",
+    "category": "database"
+  },
+  "neon": {
+    "name": "Neon",
+    "url": "https://neon.tech/pricing",
+    "category": "database"
+  },
+  "firebase": {
+    "name": "Firebase",
+    "url": "https://firebase.google.com/pricing",
+    "category": "database"
+  },
+  "mongodb-atlas": {
+    "name": "MongoDB Atlas",
+    "url": "https://www.mongodb.com/pricing",
+    "category": "database"
+  },
+  "planetscale": {
+    "name": "PlanetScale",
+    "url": "https://planetscale.com/pricing",
+    "category": "database"
+  },
+  "upstash-redis": {
+    "name": "Upstash Redis",
+    "url": "https://upstash.com/pricing",
+    "category": "database"
+  },
+  "turso": {
+    "name": "Turso",
+    "url": "https://turso.tech/pricing",
+    "category": "database"
+  },
+  "convex": {
+    "name": "Convex",
+    "url": "https://www.convex.dev/pricing",
+    "category": "database"
+  },
+  "xata": {
+    "name": "Xata",
+    "url": "https://xata.io/pricing",
+    "category": "database"
+  },
+  "vercel": {
+    "name": "Vercel",
+    "url": "https://vercel.com/pricing",
+    "category": "hosting"
+  },
+  "vercel-blob": {
+    "name": "Vercel Blob",
+    "url": "https://vercel.com/docs/storage/vercel-blob/usage-and-pricing",
+    "category": "storage"
+  },
+  "vercel-postgres": {
+    "name": "Vercel Postgres",
+    "url": "https://vercel.com/docs/storage/vercel-postgres/usage-and-pricing",
+    "category": "database"
+  },
+  "cloudflare-workers": {
+    "name": "Cloudflare Workers",
+    "url": "https://developers.cloudflare.com/workers/platform/pricing/",
+    "category": "hosting"
+  },
+  "netlify": {
+    "name": "Netlify",
+    "url": "https://www.netlify.com/pricing/",
+    "category": "hosting"
+  },
+  "railway": {
+    "name": "Railway",
+    "url": "https://railway.app/pricing",
+    "category": "hosting"
+  },
+  "render": {
+    "name": "Render",
+    "url": "https://render.com/pricing",
+    "category": "hosting"
+  },
+  "fly-io": {
+    "name": "Fly.io",
+    "url": "https://fly.io/docs/about/pricing/",
+    "category": "hosting"
+  },
+  "digitalocean": {
+    "name": "DigitalOcean",
+    "url": "https://www.digitalocean.com/pricing",
+    "category": "hosting"
+  },
+  "memberstack": {
+    "name": "Memberstack",
+    "url": "https://www.memberstack.com/pricing",
+    "category": "auth"
+  },
+  "supabase-auth": {
+    "name": "Supabase Auth",
+    "url": "https://supabase.com/pricing",
+    "category": "auth"
+  },
+  "clerk": {
+    "name": "Clerk",
+    "url": "https://clerk.com/pricing",
+    "category": "auth"
+  },
+  "auth0": {
+    "name": "Auth0",
+    "url": "https://auth0.com/pricing",
+    "category": "auth"
+  },
+  "kinde": {
+    "name": "Kinde",
+    "url": "https://kinde.com/pricing/",
+    "category": "auth"
+  },
+  "workos": {
+    "name": "WorkOS",
+    "url": "https://workos.com/pricing",
+    "category": "auth"
+  },
+  "resend": {
+    "name": "Resend",
+    "url": "https://resend.com/pricing",
+    "category": "email"
+  },
+  "sendgrid": {
+    "name": "SendGrid",
+    "url": "https://sendgrid.com/en-us/pricing",
+    "category": "email"
+  },
+  "postmark": {
+    "name": "Postmark",
+    "url": "https://postmarkapp.com/pricing",
+    "category": "email"
+  },
+  "amazon-ses": {
+    "name": "Amazon SES",
+    "url": "https://aws.amazon.com/ses/pricing/",
+    "category": "email"
+  },
+  "mailgun": {
+    "name": "Mailgun",
+    "url": "https://www.mailgun.com/pricing/",
+    "category": "email"
+  },
+  "stripe": {
+    "name": "Stripe",
+    "url": "https://stripe.com/pricing",
+    "category": "payments"
+  },
+  "paddle": {
+    "name": "Paddle",
+    "url": "https://www.paddle.com/pricing",
+    "category": "payments"
+  },
+  "lemonsqueezy": {
+    "name": "LemonSqueezy",
+    "url": "https://www.lemonsqueezy.com/pricing",
+    "category": "payments"
+  },
+  "gumroad": {
+    "name": "Gumroad",
+    "url": "https://help.gumroad.com/article/66-gumroad-fees",
+    "category": "payments"
+  },
+  "memberstack-payments": {
+    "name": "Memberstack Payments",
+    "url": "https://www.memberstack.com/pricing",
+    "category": "payments"
+  },
+  "posthog": {
+    "name": "PostHog",
+    "url": "https://posthog.com/pricing",
+    "category": "analytics"
+  },
+  "mixpanel": {
+    "name": "Mixpanel",
+    "url": "https://mixpanel.com/pricing/",
+    "category": "analytics"
+  },
+  "amplitude": {
+    "name": "Amplitude",
+    "url": "https://amplitude.com/pricing",
+    "category": "analytics"
+  },
+  "plausible": {
+    "name": "Plausible",
+    "url": "https://plausible.io/#pricing",
+    "category": "analytics"
+  },
+  "sentry": {
+    "name": "Sentry",
+    "url": "https://sentry.io/pricing",
+    "category": "analytics"
+  },
+  "logrocket": {
+    "name": "LogRocket",
+    "url": "https://logrocket.com/pricing/",
+    "category": "analytics"
+  },
+  "cloudflare-r2": {
+    "name": "Cloudflare R2",
+    "url": "https://developers.cloudflare.com/r2/pricing/",
+    "category": "storage"
+  },
+  "cloudflare-d1": {
+    "name": "Cloudflare D1",
+    "url": "https://developers.cloudflare.com/d1/platform/pricing/",
+    "category": "database"
+  },
+  "cloudflare-kv": {
+    "name": "Cloudflare KV",
+    "url": "https://developers.cloudflare.com/kv/platform/pricing/",
+    "category": "database"
+  },
+  "aws-s3": {
+    "name": "AWS S3",
+    "url": "https://aws.amazon.com/s3/pricing/",
+    "category": "storage"
+  },
+  "uploadthing": {
+    "name": "UploadThing",
+    "url": "https://uploadthing.com/pricing",
+    "category": "storage"
+  },
+  "cloudinary": {
+    "name": "Cloudinary",
+    "url": "https://cloudinary.com/pricing",
+    "category": "storage"
+  },
+  "qstash": {
+    "name": "QStash",
+    "url": "https://upstash.com/pricing/qstash",
+    "category": "jobs"
+  },
+  "trigger-dev": {
+    "name": "Trigger.dev",
+    "url": "https://trigger.dev/pricing",
+    "category": "jobs"
+  },
+  "inngest": {
+    "name": "Inngest",
+    "url": "https://www.inngest.com/pricing",
+    "category": "jobs"
+  }
+}

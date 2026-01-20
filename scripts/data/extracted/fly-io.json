@@ -1,0 +1,192 @@
+{
+  "id": "fly-io",
+  "name": "Fly.io",
+  "category": "hosting",
+  "description": "Fly.io provides a global platform to deploy and run applications close to users. It offers VM-based compute, persistent volumes, and managed databases.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "application hosting",
+    "VMs",
+    "persistent volumes",
+    "container deployment",
+    "global load balancing",
+    "edge computing",
+    "managed databases",
+    "SSH access",
+    "custom domains",
+    "TLS certificates",
+    "CI/CD integration",
+    "monitoring and logging"
+  ],
+  "tiers": [
+    {
+      "name": "Free",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "1 shared-CPU-1x VM (256MB RAM)",
+        "1GB persistent volume",
+        "1GB outbound data transfer per month",
+        "1GB outbound data transfer",
+        "10GB persistent volume",
+        "1GB persistent volume",
+        "1 shared-CPU-1x VM (256MB RAM)",
+        "1GB persistent volume",
+        "1GB outbound data transfer",
+        "1 shared-CPU-1x VM (256MB RAM)",
+        "1GB persistent volume",
+        "1GB outbound data transfer"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "1GB persistent volume",
+        "bandwidth": "1GB outbound data transfer per month",
+        "apiCalls": null,
+        "projects": null,
+        "other": "1 shared-CPU-1x VM (256MB RAM)"
+      }
+    },
+    {
+      "name": "Shared CPU Usage (1x, 2x, 4x, 6x, 8x)",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "per-second",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Pay-as-you-go for CPU and RAM usage",
+        "Persistent volumes available at additional cost",
+        "Outbound data transfer billed separately",
+        "Databases billed separately"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Performance CPU Usage (1x to 16x)",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "per-second",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Higher performance CPUs for demanding workloads",
+        "Pay-as-you-go for CPU and RAM usage",
+        "Persistent volumes available at additional cost",
+        "Outbound data transfer billed separately",
+        "Databases billed separately"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Persistent Volumes",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "monthly",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Durable block storage for applications",
+        "Pricing scales with storage size"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Outbound Data Transfer",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "GB",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Charged per GB of data transferred out of Fly.io regions",
+        "Free tier includes 1GB/month"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Managed Databases",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "instance-hours",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Managed PostgreSQL clusters",
+        "Pricing based on cluster size and uptime",
+        "Read replicas available"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 5,
+    "medium": 25,
+    "high": 100
+  },
+  "gotchas": [
+    "The pricing page displays a table that appears to list multiple historical pricing versions. It's important to use the most recent version (which appears to be the one with the highest prices).",
+    "Compute is billed per second, so small workloads can be very cost-effective, but continuous high usage will add up.",
+    "Persistent Volume and Managed Database costs are separate from compute costs and are listed in their own sections.",
+    "Outbound data transfer is also billed separately.",
+    "The free tier has significant limits on RAM, persistent storage, and outbound data transfer."
+  ],
+  "alternatives": [
+    "Render",
+    "Heroku",
+    "DigitalOcean App Platform",
+    "Railway"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:48:27.084281+00:00",
+  "sourceUrl": "https://fly.io/docs/about/pricing/",
+  "bundledCategories": [
+    "database",
+    "storage"
+  ]
+}

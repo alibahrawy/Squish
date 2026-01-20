@@ -1,0 +1,231 @@
+{
+  "id": "kinde",
+  "name": "Kinde",
+  "category": "auth",
+  "description": "Kinde provides a comprehensive suite of authentication, authorization, and billing solutions for modern applications, enabling businesses to manage user identities and streamline subscription management.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "authentication",
+    "authorization",
+    "user management",
+    "identity providers (Google, Apple, Slack, GitHub, Entra ID, Okta)",
+    "SSO (SAML, Enterprise SSO)",
+    "MFA (SMS, Email, Authenticator App)",
+    "social login",
+    "email login (with password, passwordless)",
+    "phone login (passwordless)",
+    "username authentication",
+    "custom OAuth2",
+    "device flow authentication",
+    "machine-to-machine (M2M) authentication",
+    "API keys",
+    "feature flags",
+    "workflow automation",
+    "customizable UI",
+    "custom roles and permissions",
+    "internationalization",
+    "attack protection (DDoS, brute force, account enumeration)",
+    "webhooks",
+    "billing",
+    "subscription management",
+    "usage-based pricing",
+    "feature-based entitlements",
+    "customer self-serve portal",
+    "customizable session duration",
+    "environments (production, development)",
+    "audit logs",
+    "compliance (ISO 27001, SOC 2, HIPAA)",
+    "SCIM/directory sync (coming soon)",
+    "B2B management with organizations",
+    "custom domain",
+    "custom email sender",
+    "domain restrictions",
+    "domain allowlist",
+    "auto-join based on domain"
+  ],
+  "tiers": [
+    {
+      "name": "Free",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": 10500,
+      "unitType": "MAU",
+      "overageCost": 0.0175,
+      "feePercent": 0.7,
+      "features": [
+        "Subscriptions & billing",
+        "Email, SMS and social login",
+        "Multi-Factor Authentication (MFA)",
+        "B2B management with organizations",
+        "Use your own custom domain",
+        "Internationalization",
+        "Customize UI with HTML/CSS or React",
+        "Workflows / actions",
+        "Attack protection",
+        "Machine to machine (M2M) applications",
+        "2 custom roles and 10 permissions",
+        "10 feature flags",
+        "5 custom properties",
+        "1 webhook",
+        "Customizable session duration",
+        "2 environments (production and development)"
+      ],
+      "limits": {
+        "MAU": "10,500 included free",
+        "Organizations": "5 included free",
+        "M2M tokens": "2,000 included free",
+        "API validations": "N/A",
+        "Environments": "2"
+      }
+    },
+    {
+      "name": "Pro",
+      "baseCost": 25,
+      "triggerAt": 0,
+      "includedUnits": 10500,
+      "unitType": "MAU",
+      "overageCost": 0.0163,
+      "feePercent": 0.7,
+      "features": [
+        "Everything in Free",
+        "BYO SMS provider",
+        "API keys",
+        "Uncapped MAU",
+        "Uncapped organizations",
+        "Uncapped M2M tokens",
+        "Unlimited webhooks",
+        "Unlimited custom roles and permissions",
+        "Unlimited feature flags",
+        "Unlimited custom properties",
+        "Google Analytics integration",
+        "Remove Kinde branding"
+      ],
+      "limits": {
+        "MAU": "10,500 included free",
+        "Organizations": "50 included free",
+        "M2M tokens": "5,000 included free",
+        "API validations": "1,500,000 included free",
+        "Environments": "2"
+      }
+    },
+    {
+      "name": "Plus",
+      "baseCost": 75,
+      "triggerAt": 0,
+      "includedUnits": 10500,
+      "unitType": "MAU",
+      "overageCost": 0.0151,
+      "feePercent": 0.6,
+      "features": [
+        "All features in Pro",
+        "Free enterprise SSO",
+        "6% MAU discount (applied to overage MAU cost)",
+        "0.1% transaction fee discount",
+        "API permissions (scopes)",
+        "Organization owned M2M apps",
+        "6 environments",
+        "Domain restrictions",
+        "Workflow preview mode",
+        "User analysis with Hotjar",
+        "Early access to new features"
+      ],
+      "limits": {
+        "MAU": "10,500 included free",
+        "Organizations": "50 included free",
+        "M2M tokens": "5,000 included free",
+        "API validations": "1,500,000 included free",
+        "Environments": "6"
+      }
+    },
+    {
+      "name": "Scale",
+      "baseCost": 250,
+      "triggerAt": 0,
+      "includedUnits": 10500,
+      "unitType": "MAU",
+      "overageCost": 0.0151,
+      "feePercent": 0.5,
+      "features": [
+        "All features in Plus",
+        "13% MAU discount (applied to overage MAU cost)",
+        "0.2% transaction fee discount",
+        "11 environments",
+        "Custom domain per org",
+        "Custom email sender per org",
+        "Domain allowlist per org",
+        "Auto-join based on domain per org",
+        "Assign default roles per org",
+        "Multi-Factor Auth (MFA) per org",
+        "Exempt enterprise connections for MFA",
+        "Exempt roles for MFA",
+        "MFA workflow trigger",
+        "SCIM (Coming soon)",
+        "Full ISO 27001 and SOC 2 reports"
+      ],
+      "limits": {
+        "MAU": "10,500 included free",
+        "Organizations": "50 included free",
+        "M2M tokens": "5,000 included free",
+        "API validations": "1,500,000 included free",
+        "Environments": "11"
+      }
+    },
+    {
+      "name": "Enterprise",
+      "baseCost": null,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "All features in Scale",
+        "Advanced deployment options",
+        "Dedicated infrastructure option",
+        "Volume discounts on MAU, organizations, enterprise connections and M2M connections",
+        "Unlimited environments",
+        "Custom SLAs and enterprise support",
+        "Kinde engineers will work with you on your integration",
+        "Kinde Care for Enterprise included"
+      ],
+      "limits": {
+        "MAU": "Unlimited (with volume discounts)",
+        "Organizations": "Unlimited (with volume discounts)",
+        "M2M tokens": "Unlimited (with volume discounts)",
+        "Environments": "Unlimited"
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 17.5,
+    "medium": 17.5,
+    "high": 17.5
+  },
+  "gotchas": [
+    "The Free plan includes 10,500 MAU. Overage costs apply beyond this. For paid plans, 10,500 MAU are still included, but overages are priced at a per-MAU rate ($0.0175 in Pro, $0.0163 in Plus, $0.0151 in Scale).",
+    "When Kinde is used for billing, there's a platform fee per customer transaction (0.7% in Free/Pro, 0.6% in Plus, 0.5% in Scale). This fee is separate from the Kinde subscription cost.",
+    "Some advanced security features like Bot Protection and Advanced WAF are only available if your custom domain is proxied through Cloudflare.",
+    "SCIM is listed as 'Coming soon' for Scale and Plus plans, but is included in Scale.",
+    "HIPAA/BAA compliance is not explicitly included in the standard plans but has a 'Price varies' note, suggesting custom solutions or add-ons.",
+    "The 'MFA via SMS' feature in the Free plan includes 10 SMS, while Pro and Plus plans offer 'Uncapped' and 'Market rate or BYO provider'. Scale includes 'Uncapped' and 'Market rate'.",
+    "Environments are metered across plans, with additional costs for exceeding the included amount. The cost per extra environment decreases with higher tiers.",
+    "Kinde Care is a premium support add-on, not included in the base plan prices, with different tiers for general plans and Enterprise.",
+    "The 'MAU discount' mentioned for Plus and Scale plans refers to a discount on the MAU overage cost, not the base plan price.",
+    "While many features are 'unlimited', some may have underlying technical limits or be governed by fair use policies.",
+    "Basic Free plan has only 1 webhook. Unlimited webhooks are available from Pro."
+  ],
+  "alternatives": [
+    "Auth0",
+    "Okta",
+    "Clerk",
+    "Firebase Authentication"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:49:27.017176+00:00",
+  "sourceUrl": "https://kinde.com/pricing/",
+  "bundledCategories": [
+    "payments"
+  ]
+}

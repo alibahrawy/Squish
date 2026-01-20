@@ -1,0 +1,142 @@
+{
+  "id": "lemonsqueezy",
+  "name": "LemonSqueezy",
+  "category": "payments",
+  "description": "LemonSqueezy is a comprehensive platform for selling digital products, offering tools for e-commerce, email marketing, and payment processing.",
+  "pricingModel": "percentage",
+  "capabilities": [
+    "Instantly accept payments globally",
+    "Fully automated sales tax compliance",
+    "A.I. fraud protection with payment risk intelligence",
+    "Access to existing features + future releases each year",
+    "Recurring billing + subscriptions",
+    "License key management",
+    "Sell digital downloads securely",
+    "No-code checkout forms",
+    "Build e-commerce websites",
+    "Discounts + coupon codes",
+    "Create bundles + upsells",
+    "Sales tax + VAT collection",
+    "Support major payment methods (up to 21)",
+    "Lead magnets for subscriber growth",
+    "Recover lost payments (abandoned carts, failed payments)",
+    "Real-time revenue insights",
+    "Custom domain support",
+    "Email marketing",
+    "Avoid spam folders",
+    "Track email performance",
+    "Understand audience through data",
+    "Automatic segmentation",
+    "Real-time customer profiles",
+    "Merchant of record services"
+  ],
+  "tiers": [
+    {
+      "name": "Free (for up to 500 subscribers)",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": 500,
+      "unitType": "subscribers",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Email marketing for up to 500 subscribers",
+        "Access to some e-commerce features (implied by absence of monthly fee for e-commerce)"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": "500 subscribers for free email marketing"
+      }
+    },
+    {
+      "name": "E-commerce",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": 5,
+      "features": [
+        "No monthly charges for e-commerce features",
+        "Transaction fees: 5% + 50\u00a2 per transaction",
+        "Instantly accept payments globally",
+        "Fully automated sales tax compliance",
+        "A.I. fraud protection with payment risk intelligence",
+        "Access to existing features + future releases each year",
+        "Recurring billing + subscriptions",
+        "License key management",
+        "Sell digital downloads",
+        "No-code checkout forms",
+        "Launch e-commerce store",
+        "Discount + coupon codes",
+        "Bundles + upsells",
+        "Sales tax + VAT collection",
+        "Support major payment methods (up to 21)",
+        "Grow with lead magnets",
+        "Recover lost payments",
+        "Real-time revenue insights",
+        "A.I. fraud protection",
+        "Add custom domain"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": "Volume-based pricing available upon contact."
+      }
+    },
+    {
+      "name": "Email Marketing (Paid Tiers)",
+      "baseCost": null,
+      "triggerAt": 500,
+      "includedUnits": null,
+      "unitType": "subscribers",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Email marketing features",
+        "Monthly or annual charges based on total number of subscribers",
+        "Annual discount available"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": "Pricing scales with number of subscribers beyond 500."
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 50,
+    "high": 150
+  },
+  "gotchas": [
+    "The core e-commerce transaction fee is 5% + 50\u00a2. This is separate from any potential additional fees for specific payment methods or international transactions.",
+    "While email marketing is free for up to 500 subscribers, pricing scales beyond this threshold and is not explicitly detailed on the page.",
+    "Volume-based pricing for e-commerce is available but requires contacting sales.",
+    "Some payments may be subject to additional fees, which are not itemized.",
+    "The comparison to 'sticky tape solution' implies that these additional costs are what LemonSqueezy aims to consolidate and simplify.",
+    "International VAT + sales tax filing is a separate service and appears to have a significant cost ($200 - $5000/m), even though collection is included.",
+    "Customer billing support is presented as 'included' when acting as merchant of record, but the cost is approximated as ~$60k/y pp, which is very high and might be a comparison point rather than an actual cost for users."
+  ],
+  "alternatives": [
+    "Stripe",
+    "Paddle",
+    "Gumroad",
+    "Teachable"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:50:41.729678+00:00",
+  "sourceUrl": "https://www.lemonsqueezy.com/pricing"
+}

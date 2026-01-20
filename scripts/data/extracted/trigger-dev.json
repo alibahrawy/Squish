@@ -1,0 +1,62 @@
+{
+  "id": "trigger-dev",
+  "name": "Trigger.dev",
+  "category": "jobs",
+  "description": "Serverless workflow and job orchestration platform for building, debugging, and running background jobs.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "workflow orchestration",
+    "job execution",
+    "background task management",
+    "managed workers",
+    "developer environment",
+    "task scheduling",
+    "event-driven workflows",
+    "compute scaling"
+  ],
+  "tiers": [
+    {
+      "name": "Usage-Based",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Execute tasks on managed workers",
+        "Pay only when tasks are executing",
+        "DEV environment runs are free"
+      ],
+      "limits": {
+        "users": null,
+        "storage": null,
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": "Compute cost based on vCPU and RAM used per second"
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 0,
+    "high": 0
+  },
+  "gotchas": [
+    "Pricing is composed of two parts: Compute pricing (per second based on machine size) and Run pricing (per run invocation).",
+    "You are charged for both compute time and each run invocation once a task starts executing on managed workers.",
+    "Runs in the DEV environment are explicitly stated as not being charged for, which is a significant benefit for development."
+  ],
+  "alternatives": [
+    "Temporal",
+    "AWS Step Functions",
+    "Luigi",
+    "Prefect"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:52:21.099389+00:00",
+  "sourceUrl": "https://trigger.dev/pricing"
+}

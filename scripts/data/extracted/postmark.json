@@ -1,0 +1,155 @@
+{
+  "id": "postmark",
+  "name": "Postmark",
+  "category": "email",
+  "description": "Postmark is a fast and reliable email delivery service for transactional and marketing emails, designed for developers.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "transactional email",
+    "marketing email",
+    "inbound email",
+    "email deliverability",
+    "SMTP",
+    "REST API",
+    "email templates",
+    "message streams",
+    "IP management",
+    "suppression management",
+    "sandbox mode",
+    "documentation",
+    "event webhooks",
+    "data and analytics",
+    "activity retention",
+    "message retention",
+    "delivery rates",
+    "bounce rates",
+    "spam rates",
+    "open rates",
+    "custom tagging",
+    "stats API",
+    "user roles",
+    "email authentication",
+    "DMARC monitoring"
+  ],
+  "tiers": [
+    {
+      "name": "Developer",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": 100,
+      "unitType": "emails/month",
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "100 emails per month",
+        "No expiration"
+      ],
+      "limits": {
+        "users": "1 user",
+        "servers": "1 server",
+        "streams": "1 stream",
+        "signature domains": "1 domain"
+      }
+    },
+    {
+      "name": "Basic",
+      "baseCost": 15.0,
+      "triggerAt": 0,
+      "includedUnits": 10000,
+      "unitType": "emails/month",
+      "overageCost": 1.8,
+      "feePercent": null,
+      "features": [
+        "Up to 4 users",
+        "Up to 5 servers",
+        "Up to 15 streams",
+        "Up to 5 signature domains",
+        "Inbound email (implied as not explicitly excluded like in Developer)",
+        "Shared IPs",
+        "45 Days message retention"
+      ],
+      "limits": {
+        "users": "4 users",
+        "servers": "5 servers",
+        "streams": "15 streams",
+        "signature domains": "5 domains",
+        "message retention": "45 Days"
+      }
+    },
+    {
+      "name": "Pro",
+      "baseCost": 16.5,
+      "triggerAt": 0,
+      "includedUnits": 10000,
+      "unitType": "emails/month",
+      "overageCost": 1.3,
+      "feePercent": null,
+      "features": [
+        "Up to 6 users",
+        "Up to 10 servers",
+        "Up to 30 streams",
+        "Up to 10 signature domains",
+        "Inbound email",
+        "Shared IPs",
+        "45 Days message retention"
+      ],
+      "limits": {
+        "users": "6 users",
+        "servers": "10 servers",
+        "streams": "30 streams",
+        "signature domains": "10 domains",
+        "message retention": "45 Days"
+      }
+    },
+    {
+      "name": "Platform",
+      "baseCost": 18.0,
+      "triggerAt": 0,
+      "includedUnits": 10000,
+      "unitType": "emails/month",
+      "overageCost": 1.2,
+      "feePercent": null,
+      "features": [
+        "Unlimited users",
+        "Unlimited servers",
+        "Unlimited streams",
+        "Unlimited signature domains",
+        "Inbound email",
+        "Shared IPs",
+        "45 Days message retention"
+      ],
+      "limits": {
+        "users": "Unlimited",
+        "servers": "Unlimited",
+        "streams": "Unlimited",
+        "signature domains": "Unlimited",
+        "message retention": "45 Days"
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 20.0,
+    "medium": 70.0,
+    "high": 150.0
+  },
+  "gotchas": [
+    "The free Developer tier is limited to 100 emails/month and is intended for testing and development.",
+    "The base price for Basic, Pro, and Platform tiers includes 10,000 emails/month. All plans have overage costs for emails exceeding the base inclusion.",
+    "Dedicated IPs are an optional add-on and require a minimum sending volume of 300,000 emails per month. Dedicated IPs start at $50/month per IP.",
+    "Custom activity retention is an optional add-on, with statistics always kept indefinitely. Custom retention starts at $5/month.",
+    "DMARC monitoring is an optional add-on, priced at $14/month per domain.",
+    "The 'Pro' and 'Platform' plans only allow for custom activity retention and dedicated IP add-ons.",
+    "The pricing structure starts at 10,000 emails/month for paid tiers, meaning users sending less than this might be paying for unused capacity unless they are on the free tier."
+  ],
+  "alternatives": [
+    "SendGrid",
+    "Mailgun",
+    "Amazon SES",
+    "Sendinblue (Brevo)"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:50:00.838356+00:00",
+  "sourceUrl": "https://postmarkapp.com/pricing"
+}

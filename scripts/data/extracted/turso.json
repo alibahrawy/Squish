@@ -1,0 +1,172 @@
+{
+  "id": "turso",
+  "name": "Turso",
+  "category": "database",
+  "description": "Turso offers a distributed, forkable, and multi-region SQLite database designed for modern applications, providing the simplicity of SQLite with enhanced scalability and reliability.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "distributed SQLite database",
+    "forkable databases",
+    "multi-region replication",
+    "realtime data synchronization",
+    "audit logs",
+    "team collaboration",
+    "SSO integration",
+    "DPA compliance",
+    "HIPAA compliance",
+    "SOC2 compliance",
+    "point-in-time restore",
+    "database branches"
+  ],
+  "tiers": [
+    {
+      "name": "Free",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "1 day Point-In-Time Restore",
+        "3 Day Audit Log Retention",
+        "Community Support"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "5GB",
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": {
+          "Databases": 100,
+          "Monthly Active Databases": 100,
+          "Monthly Rows Read": "500 Million",
+          "Monthly Rows Written": "10 Million",
+          "Monthly Syncs": "3GB"
+        }
+      }
+    },
+    {
+      "name": "Developer",
+      "baseCost": 4.99,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "10 days Point-In-Time Restore",
+        "3 Day Audit Log Retention",
+        "Community Support",
+        "Teams",
+        "DPA",
+        "Scaler",
+        "Pro"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "9GB",
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": {
+          "Databases": "Unlimited",
+          "Monthly Active Databases": 500,
+          "Monthly Rows Read": "2.5 Billion",
+          "Monthly Rows Written": "25 Million",
+          "Monthly Syncs": "10GB"
+        }
+      }
+    },
+    {
+      "name": "Scaler",
+      "baseCost": 24.92,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "30 days Point-In-Time Restore",
+        "14 Day Audit Log Retention",
+        "Community Support",
+        "Teams",
+        "DPA",
+        "Scaler",
+        "Pro"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "24GB",
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": {
+          "Databases": "Unlimited",
+          "Monthly Active Databases": 2500,
+          "Monthly Rows Read": "100 Billion",
+          "Monthly Rows Written": "100 Million",
+          "Monthly Syncs": "24GB"
+        }
+      }
+    },
+    {
+      "name": "Pro",
+      "baseCost": 416.58,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "90 days Point-In-Time Restore",
+        "30 Day Audit Log Retention",
+        "Priority Email & Slack Support",
+        "Teams",
+        "DPA",
+        "Scaler",
+        "Pro",
+        "SSO",
+        "HIPAA",
+        "SOC2"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "50GB",
+        "bandwidth": null,
+        "apiCalls": null,
+        "projects": null,
+        "other": {
+          "Databases": "Unlimited",
+          "Monthly Active Databases": 10000,
+          "Monthly Rows Read": "250 Billion",
+          "Monthly Rows Written": "250 Million",
+          "Monthly Syncs": "100GB"
+        }
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 0,
+    "high": 0
+  },
+  "gotchas": [
+    "The pricing is primarily usage-based, with base costs for higher tiers. Exceeding included usage limits will incur additional charges.",
+    "Overage charges are applied if you exceed the limits defined within each tier. The page mentions enabling 'Overages' and the impact of disabling them.",
+    "Monthly Active Databases have specific thresholds per tier, with overages charged per active DB if the limit is exceeded.",
+    "Details on the cost of 'Database Branches' are not explicitly provided in the main pricing table.",
+    "The yearly payment option is not detailed but mentioned as an alternative payment frequency."
+  ],
+  "alternatives": [
+    "Supabase",
+    "PlanetScale",
+    "Neon"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:47:33.687667+00:00",
+  "sourceUrl": "https://turso.tech/pricing"
+}

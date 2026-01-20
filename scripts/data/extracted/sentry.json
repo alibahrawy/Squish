@@ -1,0 +1,88 @@
+{
+  "id": "sentry",
+  "name": "Sentry",
+  "category": "analytics",
+  "description": "Application monitoring and error tracking platform that helps developers identify and fix issues in real-time.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "error-tracking",
+    "performance-monitoring",
+    "session-replay",
+    "profiling",
+    "cron-monitoring",
+    "alerts",
+    "integrations",
+    "release-tracking"
+  ],
+  "tiers": [
+    {
+      "name": "Developer",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "features": [
+        "5K errors/month",
+        "10K performance units",
+        "500 session replays",
+        "1 user",
+        "Community support"
+      ],
+      "limits": {
+        "users": "1",
+        "apiCalls": "5K errors/month",
+        "other": "Limited data retention"
+      }
+    },
+    {
+      "name": "Team",
+      "baseCost": 26,
+      "triggerAt": 1000,
+      "features": [
+        "50K errors/month",
+        "100K performance units",
+        "5K session replays",
+        "Unlimited users",
+        "Email support",
+        "14-day data retention"
+      ],
+      "limits": {
+        "users": "unlimited",
+        "apiCalls": "50K errors/month"
+      }
+    },
+    {
+      "name": "Business",
+      "baseCost": 80,
+      "triggerAt": 5000,
+      "features": [
+        "100K errors/month",
+        "500K performance units",
+        "15K session replays",
+        "SSO/SAML",
+        "Priority support",
+        "90-day data retention"
+      ],
+      "limits": {
+        "users": "unlimited",
+        "apiCalls": "100K errors/month"
+      }
+    }
+  ],
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 26,
+    "high": 80
+  },
+  "gotchas": [
+    "Free tier limited to 5K errors/month",
+    "Overage pricing applies beyond included quotas",
+    "Session replay and profiling have separate quotas"
+  ],
+  "alternatives": [
+    "LogRocket",
+    "Bugsnag",
+    "Rollbar",
+    "Datadog"
+  ],
+  "scrapedAt": "2026-01-20T00:00:00Z",
+  "sourceUrl": "https://sentry.io/pricing"
+}

@@ -1,0 +1,167 @@
+{
+  "id": "upstash-redis",
+  "name": "Upstash Redis",
+  "category": "database",
+  "description": "A serverless Redis and vector database with a pay-per-request pricing model.",
+  "pricingModel": "usage",
+  "capabilities": [
+    "Redis",
+    "Vector Database",
+    "QStash",
+    "Workflow",
+    "Search",
+    "REST API",
+    "Global Replication",
+    "Strong Consistency",
+    "High Availability",
+    "Primary Replicas",
+    "Primary and Read Replicas",
+    "TLS Encryption",
+    "IP Allowlist",
+    "Role Based Access",
+    "Encryption at Rest",
+    "SOC-2 Compliance",
+    "Private Link",
+    "SAML Single Sign-On (SSO)",
+    "HIPAA Compliance",
+    "Grafana Integration",
+    "Datadog Integration",
+    "New Relic Integration",
+    "Access Logging",
+    "Community Support",
+    "Email Support",
+    "Dedicated Support and Slack Channel"
+  ],
+  "tiers": [
+    {
+      "name": "Free",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": {
+        "dataSize": "256 MB",
+        "monthlyCommands": "500 K"
+      },
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Perfect for prototypes and hobby projects",
+        "Community Support"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "256 MB",
+        "bandwidth": null,
+        "apiCalls": "500 K commands/month",
+        "projects": null,
+        "other": "1 Free DB"
+      }
+    },
+    {
+      "name": "Pay as you go",
+      "baseCost": 0,
+      "triggerAt": 0,
+      "includedUnits": null,
+      "unitType": "commands",
+      "overageCost": {
+        "commands": 0.2
+      },
+      "feePercent": null,
+      "features": [
+        "Flexible pricing for variable traffic",
+        "Unlimited Bandwidth",
+        "Community Support",
+        "Email Support"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "100 GB",
+        "bandwidth": "Unlimited",
+        "apiCalls": null,
+        "projects": null,
+        "other": null
+      }
+    },
+    {
+      "name": "Prod Pack",
+      "baseCost": 10,
+      "triggerAt": 0,
+      "includedUnits": {
+        "dataSize": "250 MB",
+        "monthlyBandwidth": "50GB"
+      },
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "No per-command pricing",
+        "Consistent loads with predictable costs",
+        "Uptime SLA",
+        "RBAC",
+        "Encryption at Rest",
+        "SOC-2",
+        "Prometheus",
+        "Datadog",
+        "Email Support"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "250 MB",
+        "bandwidth": "50 GB",
+        "apiCalls": null,
+        "projects": null,
+        "other": "+$200/month per database (for read regions)"
+      }
+    },
+    {
+      "name": "Enterprise",
+      "baseCost": null,
+      "triggerAt": null,
+      "includedUnits": null,
+      "unitType": null,
+      "overageCost": null,
+      "feePercent": null,
+      "features": [
+        "Everything in Prod Pack",
+        "100K+ commands per second",
+        "Unlimited bandwidth and database count",
+        "Professional support with SLA",
+        "Dedicated resources for isolation",
+        "HIPAA Compliance",
+        "Dedicated support and Slack channel"
+      ],
+      "limits": {
+        "users": null,
+        "storage": "Unlimited",
+        "bandwidth": "Unlimited",
+        "apiCalls": "100K+ commands per second",
+        "projects": null,
+        "other": "Custom"
+      }
+    }
+  ],
+  "feePercent": null,
+  "perTransaction": null,
+  "costPer1kUsers": {
+    "low": 0,
+    "medium": 0,
+    "high": 0
+  },
+  "gotchas": [
+    "The 'Free' tier has very limited data size (256 MB) and monthly commands (500K).",
+    "The 'Pay as you go' pricing model has a base usage cost of $0.2 per 100K commands, which can add up quickly with high traffic.",
+    "The 'Fixed 250MB' tier (Prod Pack) has a base cost of $10/month but additional read regions cost $200/month per database, which can significantly increase the total cost.",
+    "Enterprise tier pricing requires a custom quote and is not transparent on the pricing page.",
+    "Different services (Redis, Vector, QStash, etc.) might have slightly different pricing structures or included features, though the page primarily focuses on Redis.",
+    "Max data size in the 'Free' tier is 256MB, but the 'Fixed 250MB' tier is listed as 250MB."
+  ],
+  "alternatives": [
+    "Redis Enterprise Cloud",
+    "AWS ElastiCache for Redis",
+    "Azure Cache for Redis",
+    "Google Cloud Memorystore for Redis"
+  ],
+  "recommended": false,
+  "scrapedAt": "2026-01-20T00:47:24.828042+00:00",
+  "sourceUrl": "https://upstash.com/pricing"
+}
