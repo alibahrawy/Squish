@@ -173,10 +173,37 @@ export function BusinessCalculator() {
 
   const isProfitable = results.profit >= 0;
 
+  // Get unique service upgrade trigger points for chart markers
+  // Moved before profitChartData so we can include these points in the chart data
+  const upgradeMarkers = useMemo(() => {
+    const markers: { users: number; services: string[] }[] = [];
+    const upgradesByUsers: Record<number, string[]> = {};
+
+    for (const upgrade of results.serviceUpgrades) {
+      if (upgrade.triggerUsers > 0 && upgrade.triggerUsers <= 25000) {
+        if (!upgradesByUsers[upgrade.triggerUsers]) {
+          upgradesByUsers[upgrade.triggerUsers] = [];
+        }
+        upgradesByUsers[upgrade.triggerUsers].push(upgrade.service);
+      }
+    }
+
+    for (const [users, services] of Object.entries(upgradesByUsers)) {
+      markers.push({ users: parseInt(users), services });
+    }
+
+    return markers.sort((a, b) => a.users - b.users);
+  }, [results.serviceUpgrades]);
+
   // Generate chart data for profit across user scales
+  // Include upgrade trigger points so ReferenceLine renders correctly
   const profitChartData = useMemo(() => {
-    const userCounts = [0, 100, 250, 500, 750, 1000, 1500, 2000, 3000, 5000, 7500, 10000, 15000, 20000, 25000];
-    return userCounts.map((u) => {
+    const baseUserCounts = [0, 100, 250, 500, 750, 1000, 1500, 2000, 3000, 5000, 7500, 10000, 15000, 20000, 25000];
+    // Add upgrade trigger points to ensure ReferenceLine renders at those x-values
+    const upgradeTriggerPoints = upgradeMarkers.map(m => m.users);
+    const allUserCounts = [...new Set([...baseUserCounts, ...upgradeTriggerPoints])].sort((a, b) => a - b);
+
+    return allUserCounts.map((u) => {
       const realistic = calculateBusiness({ ...inputs, users: u });
       const optimistic = calculateBusiness({ ...optimisticInputs, users: u });
       const pessimistic = calculateBusiness({ ...pessimisticInputs, users: u });
@@ -187,7 +214,7 @@ export function BusinessCalculator() {
         pessimistic: pessimistic.profit,
       };
     });
-  }, [inputs, optimisticInputs, pessimisticInputs]);
+  }, [inputs, optimisticInputs, pessimisticInputs, upgradeMarkers]);
 
   // Cost breakdown for pie chart
   const costBreakdownData = useMemo(() => {
@@ -242,27 +269,6 @@ export function BusinessCalculator() {
       },
     ];
   }, [inputs, optimisticInputs, pessimisticInputs, results, optimisticResults, pessimisticResults]);
-
-  // Get unique service upgrade trigger points for chart markers
-  const upgradeMarkers = useMemo(() => {
-    const markers: { users: number; services: string[] }[] = [];
-    const upgradesByUsers: Record<number, string[]> = {};
-
-    for (const upgrade of results.serviceUpgrades) {
-      if (upgrade.triggerUsers > 0 && upgrade.triggerUsers <= 25000) {
-        if (!upgradesByUsers[upgrade.triggerUsers]) {
-          upgradesByUsers[upgrade.triggerUsers] = [];
-        }
-        upgradesByUsers[upgrade.triggerUsers].push(upgrade.service);
-      }
-    }
-
-    for (const [users, services] of Object.entries(upgradesByUsers)) {
-      markers.push({ users: parseInt(users), services });
-    }
-
-    return markers.sort((a, b) => a.users - b.users);
-  }, [results.serviceUpgrades]);
 
   // Get selected services that aren't payment processors (for infrastructure display)
   const infraServices = selectedServices.filter((s) => {
